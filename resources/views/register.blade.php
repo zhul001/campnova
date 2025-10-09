@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Daftar - Campnova</title>
+    <link rel="icon" href="{{ asset('logo_campnova_blue_f.png') }}" type="image/png">
     @vite('resources/css/app.css')
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -53,7 +54,6 @@
             margin-top: 0.25rem;
         }
         
-        /* Animation positioning */
         .animation-container {
             position: fixed;
             z-index: -1;
@@ -74,7 +74,6 @@
             height: 300px;
         }
         
-        /* Responsive adjustments */
         @media (max-width: 768px) {
             .animation-left, .animation-right {
                 width: 180px;
@@ -266,7 +265,6 @@
             const eyeSlashIcon = document.getElementById('eyeSlashIcon');
             const toggleButton = document.getElementById('togglePassword');
 
-            // Toggle password visibility
             if (passwordInput.type === 'password') {
                 passwordInput.type = 'text';
                 eyeIcon.classList.add('hidden');

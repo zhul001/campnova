@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const subtesId = document.body.getAttribute("data-subtes-id");
     const STORAGE_KEY = `jawaban_${tryoutId}_${subtesId}`;
 
-    // 1. FUNGSI SIDEBAR
     const toggleBtns = document.querySelectorAll("#toggleSidebarBtn");
     const closeBtn = document.getElementById("closeSidebarBtn");
     const sidebar = document.getElementById("sidebar");
@@ -22,7 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(() => sidebar.classList.add("hidden"), 300);
     });
 
-    // 2. NAVIGASI SOAL (DIMODIFIKASI)
     const currentQuestionNumber = document.getElementById(
         "current-question-number"
     );
@@ -47,13 +45,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const answeredQuestions = new Set();
 
-    // Fungsi untuk menyimpan jawaban ke localStorage
     function saveAnswersToStorage() {
         const jawaban = collectAllAnswers();
         localStorage.setItem(STORAGE_KEY, JSON.stringify(jawaban));
     }
 
-    // Fungsi untuk memuat jawaban dari localStorage
     function loadAnswersFromStorage() {
         const saved = localStorage.getItem(STORAGE_KEY);
         if (saved) {
@@ -67,14 +63,12 @@ document.addEventListener("DOMContentLoaded", function () {
         return null;
     }
 
-    // Fungsi untuk mengumpulkan semua jawaban
     function collectAllAnswers() {
         const jawaban = {
             pilgan: {},
             esai: {}
         };
 
-        // Kumpulkan jawaban pilihan ganda
         document.querySelectorAll('input[type="radio"]:checked').forEach((input) => {
             const soalPilganId = input.getAttribute('data-soal-pilgan-id');
             if (soalPilganId) {
@@ -82,7 +76,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        // Kumpulkan jawaban esai
         document.querySelectorAll('input[type="text"][data-soal-esai-id]').forEach((input) => {
             const soalEsaiId = input.getAttribute('data-soal-esai-id');
             const jawabanText = input.value.trim();
@@ -95,17 +88,14 @@ document.addEventListener("DOMContentLoaded", function () {
         return jawaban;
     }
 
-    // Fungsi untuk menerapkan jawaban yang disimpan
     function applySavedAnswers(savedAnswers) {
         if (!savedAnswers) return;
 
-        // Terapkan jawaban pilihan ganda
         Object.entries(savedAnswers.pilgan || {}).forEach(([soalId, jawaban]) => {
             const radioInput = document.querySelector(`input[data-soal-pilgan-id="${soalId}"][value="${jawaban}"]`);
             if (radioInput) {
                 radioInput.checked = true;
                 
-                // Update styling
                 const parent = radioInput.closest(".answer-option");
                 if (parent) {
                     parent.classList.add("bg-blue-50", "border-blue-300");
@@ -116,19 +106,16 @@ document.addEventListener("DOMContentLoaded", function () {
                     );
                 }
 
-                // Tambah ke answered questions
                 const questionNum = parseInt(radioInput.name.replace("answer", ""));
                 answeredQuestions.add(questionNum);
             }
         });
 
-        // Terapkan jawaban esai
         Object.entries(savedAnswers.esai || {}).forEach(([soalId, jawaban]) => {
             const textInput = document.querySelector(`input[data-soal-esai-id="${soalId}"]`);
             if (textInput) {
                 textInput.value = jawaban;
                 
-                // Tambah ke answered questions
                 const questionNum = parseInt(textInput.dataset.nomorSoal);
                 answeredQuestions.add(questionNum);
             }
@@ -206,7 +193,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // 3. ZOOM CONTENT
     const zoomInBtn = document.getElementById("zoomInBtn");
     const zoomOutBtn = document.getElementById("zoomOutBtn");
     let currentFontSize = 16;
@@ -233,9 +219,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // 4. FITUR BARU: BATAL JAWABAN + TRACKING ESAI + STYLING BUTTON + AUTO SAVE
     function setupAnswerOptions() {
-        // Event listener untuk pilihan ganda
         document.querySelectorAll(".answer-option").forEach((option) => {
             option.addEventListener("click", function () {
                 const radio = this.querySelector('input[type="radio"]');
@@ -251,7 +235,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     );
                     answeredQuestions.delete(questionNum);
                 } else {
-                    // Reset pilihan lain di soal ini
                     document
                         .querySelectorAll(`input[name="${radio.name}"]`)
                         .forEach((r) => {
@@ -281,11 +264,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
                 
                 updateAnsweredCount();
-                saveAnswersToStorage(); // Auto-save
+                saveAnswersToStorage();
             });
         });
 
-        // Event listener untuk esai
         document.querySelectorAll(".essay-input").forEach((input) => {
             const questionNum = parseInt(input.dataset.nomorSoal);
 
@@ -300,28 +282,23 @@ document.addEventListener("DOMContentLoaded", function () {
                     answeredQuestions.delete(questionNum);
                 }
                 updateAnsweredCount();
-                saveAnswersToStorage(); // Auto-save
+                saveAnswersToStorage();
             });
         });
 
         updateAnsweredCount();
     }
 
-    // 5. FUNGSI CLEANUP - Hapus data localStorage saat ujian selesai
     function cleanupStorage() {
         localStorage.removeItem(STORAGE_KEY);
     }
 
-    // Event listener untuk sebelum unload (optional)
     window.addEventListener('beforeunload', function() {
-        // Simpan jawaban terakhir sebelum unload
         saveAnswersToStorage();
     });
 
-    // INISIALISASI
     showQuestion(1);
     
-    // Muat jawaban yang disimpan sebelum setup event listeners
     const savedAnswers = loadAnswersFromStorage();
     if (savedAnswers) {
         applySavedAnswers(savedAnswers);
@@ -330,6 +307,5 @@ document.addEventListener("DOMContentLoaded", function () {
     setupAnswerOptions();
     updateAnsweredCount();
 
-    // Ekspos cleanup function untuk digunakan oleh submit.js
     window.cleanupExamStorage = cleanupStorage;
 });

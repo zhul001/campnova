@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Pembahasan Tryout - {{ $tryout->judul_paket ?? 'Tryout Tidak Ditemukan' }}</title>
+    <link rel="icon" href="{{ asset('logo_campnova_blue_f.png') }}" type="image/png">
     @vite('resources/css/app.css')
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -20,7 +21,6 @@
 <body class="text-gray-700">
     <x-navbar></x-navbar>
     <main class="flex h-screen relative mt-14">
-        <!-- Cek jika data tryout dan subtes tersedia -->
         @if (!$tryout || !$subtes)
             <section class="flex-1 p-6 overflow-y-auto mb-6 bg-gray-50 flex items-center justify-center">
                 <div class="text-center">
@@ -33,7 +33,6 @@
                 </div>
             </section>
         @else
-            <!-- Sidebar -->
             <aside aria-label="Sidebar"
                 class="hidden lg:flex fixed inset-x-0 bottom-0 z-40 max-h-[90vh] border-t border-gray-200 px-4 py-6 flex-col space-y-6 overflow-y-auto bg-white lg:relative lg:inset-auto lg:max-h-full lg:max-w-72 lg:border-t-0 lg:border-r"
                 id="sidebar" style="transform: translateY(100%); opacity: 0">
@@ -63,7 +62,6 @@
                 </div>
                 <div class="grid grid-cols-5 gap-2" id="question-buttons">
                     @php
-                        // Gabungkan semua soal dan urutkan berdasarkan nomor_soal
                         $allQuestions = collect();
 
                         if (isset($soalPilgans) && $soalPilgans->count() > 0) {
@@ -88,7 +86,6 @@
                             }
                         }
 
-                        // Urutkan berdasarkan nomor_soal
                         $allQuestions = $allQuestions->sortBy('nomor_soal');
                     @endphp
 
@@ -132,16 +129,13 @@
                 </button>
             </aside>
 
-            <!-- Konten Utama -->
             <section class="flex-1 p-6 overflow-y-auto mb-6 bg-gray-50">
                 <div class="w-full lg:max-w-6xl lg:mx-auto mb-4 flex items-center">
                     <h2 class="text-base font-semibold text-gray-700">NO.</h2>
                     <span class="text-base font-semibold text-gray-700 ml-2" id="display-question-number">1</span>
                 </div>
 
-                <!-- Container untuk semua pertanyaan -->
                 <div id="questions-container">
-                    <!-- Soal Pilihan Ganda -->
                     @if (isset($soalPilgans) && $soalPilgans->count() > 0)
                         @foreach ($soalPilgans->sortBy('nomor_soal') as $soal)
                             <div id="question{{ $soal->nomor_soal }}"
@@ -249,7 +243,6 @@
                                             </div>
                                         </div>
                                     @else
-                                        <!-- Tampilkan status "Tidak di isi" jika jawaban peserta null -->
                                         <div class="mt-6 rounded-lg bg-white p-4 shadow-sm sm:p-6">
                                             <div class="flex flex-col gap-4">
                                                 <div class="flex items-center justify-between">
@@ -300,7 +293,6 @@
                         @endforeach
                     @endif
 
-                    <!-- Soal Esai -->
                     @if (isset($soalEsais) && $soalEsais->count() > 0)
                         @foreach ($soalEsais->sortBy('nomor_soal') as $soal)
                             @php
@@ -384,7 +376,6 @@
                                             </div>
                                         </div>
                                     @else
-                                        <!-- Tampilkan status "Tidak di isi" jika jawaban peserta null -->
                                         <div class="mt-6 rounded-lg bg-white p-4 shadow-sm sm:p-6">
                                             <div class="flex flex-col gap-4">
                                                 <div class="flex items-center justify-between">
@@ -436,9 +427,7 @@
                     @endif
                 </div>
 
-                <!-- Navigasi -->
                 <div class="max-w-4xl mx-auto mt-6 sticky bottom-0 z-10 w-full bg-white mb-2">
-                    <!-- Mobile Navigation -->
                     <div class="flex lg:hidden mobile-bottom-nav justify-between px-4">
                         <button
                             class="transition-colors bg-blue-500 text-white shadow-sm hover:bg-blue-600 rounded-md w-20 md:w-32 h-10 flex items-center justify-center"
@@ -457,7 +446,6 @@
                         </button>
                     </div>
 
-                    <!-- Desktop Navigation -->
                     <div class="hidden lg:flex justify-between items-center desktop-nav-fixed">
                         <div class="flex items-center space-x-4">
                             <button

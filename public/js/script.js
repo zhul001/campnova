@@ -1,4 +1,3 @@
-// js untuk dashboard
 function toggleAccordion(id) {
     const section = document.getElementById(id);
     const icon = document.getElementById("icon-" + id);
@@ -11,7 +10,6 @@ function toggleAccordion(id) {
     }
 }
 
-// js untuk jadwal
 function formatCountdown(ms) {
     const totalSeconds = Math.floor(ms / 1000);
     const days = Math.floor(totalSeconds / (3600 * 24));

@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Toggle sidebar untuk mobile
     const toggleBtns = document.querySelectorAll("#toggleSidebarBtn");
     const closeBtn = document.getElementById("closeSidebarBtn");
     const sidebar = document.getElementById("sidebar");
@@ -19,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 300);
     });
 
-    // Navigasi soal
     const displayQuestionNumber = document.getElementById(
         "display-question-number"
     );
@@ -36,21 +34,17 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("prevBtnDesktop"),
     ];
 
-    // Hitung jumlah soal dari DOM
     const questionContents = document.querySelectorAll(".question-content");
     const maxQuestion = questionContents.length;
     const minQuestion = 1;
     let currentQuestion = 1;
 
     function showQuestion(num) {
-        // Validasi nomor soal
         if (num < minQuestion) num = minQuestion;
         if (num > maxQuestion) num = maxQuestion;
 
-        // Sembunyikan semua pertanyaan
         questionContents.forEach((q) => q.classList.add("hidden"));
 
-        // Tampilkan pertanyaan saat ini
         const currentQ = document.getElementById("question" + num);
         if (currentQ) {
             currentQ.classList.remove("hidden");
@@ -61,7 +55,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         displayQuestionNumber.textContent = num;
 
-        // Update status aktif tombol sidebar
         questionButtons.forEach((btn) => {
             if (parseInt(btn.dataset.question) === num) {
                 btn.classList.add("bg-[#b9e4f4]", "hover:bg-[#a0d3e9]");
@@ -89,11 +82,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Event listeners untuk navigasi
     nextBtns.forEach((btn) => btn.addEventListener("click", nextQuestion));
     prevBtns.forEach((btn) => btn.addEventListener("click", prevQuestion));
 
-    // Event listeners untuk tombol sidebar
     questionButtons.forEach((btn) => {
         btn.addEventListener("click", () => {
             const qNum = parseInt(btn.dataset.question);
@@ -110,10 +101,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Inisialisasi
     showQuestion(currentQuestion);
 
-    // Handle keyboard navigation
     document.addEventListener("keydown", (e) => {
         if (e.key === "ArrowRight") {
             nextQuestion();

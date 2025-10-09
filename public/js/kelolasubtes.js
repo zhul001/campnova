@@ -17,7 +17,6 @@ btnEsai.addEventListener("click", () => {
     btnPilgan.classList.remove("bg-green-700");
 });
 
-// Initialize with Pilgan visible and others hidden
 tablePilgan.classList.remove("hidden");
 tableEsai.classList.add("hidden");
 btnPilgan.classList.add("bg-green-700");

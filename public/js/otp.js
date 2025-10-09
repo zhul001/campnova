@@ -5,14 +5,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const timerDisplay = document.querySelector(".font-mono");
     const form = document.querySelector("form");
 
-    // Fokus otomatis ke input berikutnya
     inputs.forEach((input, index) => {
         input.addEventListener("input", function () {
             if (this.value.length === 1 && index < inputs.length - 1) {
                 inputs[index + 1].focus();
             }
 
-            // Jika semua terisi, submit otomatis
             const filled = Array.from(inputs).every(
                 (i) => i.value.length === 1
             );
@@ -21,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        // Navigasi pakai panah dan backspace
         input.addEventListener("keydown", function (e) {
             if (e.key === "Backspace" && this.value === "" && index > 0) {
                 inputs[index - 1].focus();
@@ -33,7 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Kirim ulang OTP pakai AJAX
     if (resendBtn) {
         resendBtn.addEventListener("click", function () {
             resendBtn.disabled = true;
@@ -65,11 +61,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
         });
 
-        // Mulai timer awal (180 detik)
         startTimer(180);
     }
 
-    // Fungsi countdown timer
     function startTimer(durationInSeconds) {
         let time = durationInSeconds;
         resendBtn.disabled = true;

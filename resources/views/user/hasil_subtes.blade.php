@@ -4,8 +4,9 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <title>Quiz App</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Campnova | Belajar & Tryout</title>
+    <link rel="icon" href="{{ asset('logo_campnova_blue_f.png') }}" type="image/png">
+    @vite('resources/css/app.css')
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
@@ -16,7 +17,6 @@
     <x-navbar></x-navbar>
 
     <main class="flex h-screen relative">
-        <!-- Sidebar -->
         <aside aria-label="Sidebar"
             class="hidden lg:flex fixed mt-12 inset-x-0 bottom-0 z-40 max-h-[90vh] border-t border-gray-200 px-4 py-6 flex-col space-y-6 overflow-y-auto bg-white lg:relative lg:inset-auto lg:max-h-full lg:max-w-72 lg:border-t-0 lg:border-r"
             id="sidebar" style="transform: translateY(100%); opacity: 0">
@@ -74,14 +74,12 @@
             </button>
         </aside>
 
-        <!-- Konten Utama -->
         <section class="flex-1 p-6 overflow-y-auto mb-6 bg-gray-50 mt-12">
             <div class="w-full lg:max-w-6xl lg:mx-auto mb-4 flex items-center">
                 <h2 class="text-base font-semibold text-gray-700">NO.</h2>
                 <span class="text-base font-semibold text-gray-700 ml-2" id="display-question-number">1</span>
             </div>
 
-            <!-- Pertanyaan 1 -->
             <div id="question1">
                 <article class="w-full lg:max-w-6xl lg:mx-auto space-y-4 text-sm leading-relaxed text-justify">
                     <p>
@@ -175,7 +173,6 @@
                 </div>
             </div>
 
-            <!-- Pertanyaan 2 (tersembunyi) -->
             <div id="question2" class="hidden">
                 <article class="w-full lg:max-w-6xl lg:mx-auto space-y-4 text-sm leading-relaxed text-justify">
                     <p>
@@ -187,9 +184,7 @@
                 </div>
             </div>
 
-            <!-- Navigasi -->
             <div class="max-w-4xl mx-auto mt-6 sticky bottom-0 z-10 w-full bg-white mb-2">
-                <!-- Mobile Navigation -->
                 <div class="flex lg:hidden mobile-bottom-nav justify-between px-4">
                     <button
                         class="transition-colors bg-blue-500 text-white shadow-sm hover:bg-blue-600 rounded-md w-20 md:w-32 h-10 flex items-center justify-center"
@@ -208,7 +203,6 @@
                     </button>
                 </div>
 
-                <!-- Desktop Navigation -->
                 <div class="hidden lg:flex justify-between items-center desktop-nav-fixed">
                     <div class="flex items-center space-x-4">
                         <button
@@ -239,7 +233,6 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Toggle sidebar untuk mobile
             const toggleBtns = document.querySelectorAll("#toggleSidebarBtn");
             const closeBtn = document.getElementById("closeSidebarBtn");
             const sidebar = document.getElementById("sidebar");
@@ -259,7 +252,6 @@
                 }, 300);
             });
 
-            // Navigasi soal
             const displayQuestionNumber = document.getElementById(
                 "display-question-number"
             );
@@ -282,13 +274,11 @@
             const minQuestion = 1;
 
             function showQuestion(num) {
-                // Sembunyikan semua pertanyaan
                 for (let i = 1; i <= maxQuestion; i++) {
                     const q = document.getElementById("question" + i);
                     if (q) q.classList.add("hidden");
                 }
 
-                // Tampilkan pertanyaan saat ini
                 const currentQ = document.getElementById("question" + num);
                 if (currentQ) {
                     currentQ.classList.remove("hidden");
@@ -299,7 +289,6 @@
 
                 displayQuestionNumber.textContent = num;
 
-                // Update status aktif tombol sidebar
                 questionButtons.forEach((btn) => {
                     if (parseInt(btn.dataset.question) === num) {
                         btn.classList.add("bg-[#b9e4f4]", "hover:bg-[#a0d3e9]");
@@ -327,11 +316,9 @@
                 }
             }
 
-            // Event listeners untuk navigasi
             nextBtns.forEach((btn) => btn.addEventListener("click", nextQuestion));
             prevBtns.forEach((btn) => btn.addEventListener("click", prevQuestion));
 
-            // Event listeners untuk tombol sidebar
             questionButtons.forEach((btn) => {
                 btn.addEventListener("click", () => {
                     const qNum = parseInt(btn.dataset.question);
@@ -348,7 +335,6 @@
                 });
             });
 
-            // Inisialisasi
             showQuestion(currentQuestion);
         });
     </script>

@@ -1,5 +1,4 @@
 <x-profilelayout>
-    <!-- Notifikasi Area -->
     <div id="notification" class="fixed top-4 right-4 z-50 hidden">
         <div class="bg-white border border-gray-200 px-6 py-4 rounded-lg relative shadow-lg max-w-sm" role="alert">
             <div class="flex items-start">
@@ -17,7 +16,6 @@
         </div>
     </div>
 
-    <!-- Loading Overlay -->
     <div id="loadingOverlay" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50 hidden">
         <div class="relative top-20 mx-auto p-5 w-96">
             <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center justify-center">

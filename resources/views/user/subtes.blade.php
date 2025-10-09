@@ -101,7 +101,6 @@
                                                     }
                                                 }
                                             }">
-                                                <!-- Tombol untuk membuka modal -->
                                                 <button @click="showModal = true"
                                                     class="justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate-950 disabled:pointer-events-none disabled:opacity-50 dark:focus-visible:ring-slate-300 shadow-sm dark:text-slate-50 h-9 px-4 py-2 flex items-center gap-1.5 border-none bg-white/20 text-white hover:bg-white/30 dark:bg-white/10 dark:hover:bg-white/20">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
@@ -122,7 +121,6 @@
                                                     x-transition:leave-start="opacity-100"
                                                     x-transition:leave-end="opacity-0"
                                                     class="fixed inset-0 z-50 flex items-center justify-center p-4">
-                                                    <!-- Background dengan blur -->
                                                     <div class="fixed inset-0 bg-black/20 backdrop-blur-sm transition-opacity"
                                                         @click="showModal = false"
                                                         x-transition:enter="ease-out duration-300"
@@ -133,7 +131,6 @@
                                                         x-transition:leave-end="opacity-0">
                                                     </div>
 
-                                                    <!-- Modal content dengan animasi -->
                                                     <div class="relative z-10 w-full max-w-md rounded-lg bg-white shadow-lg"
                                                         x-transition:enter="ease-out duration-300"
                                                         x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"

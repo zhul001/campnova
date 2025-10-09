@@ -30,7 +30,6 @@
                         <div class="h-full">
                             <div class="relative h-full overflow-hidden rounded-lg border border-gray-300 bg-white">
                                 @if (!$tryout->is_active)
-                                    <!-- Icon gembok di pojok kanan atas -->
                                     <div class="absolute top-2 right-2 z-10">
                                         <div class="rounded-full p-2">
                                             <i class="fas fa-lock text-gray-500 text-sm"></i>
@@ -88,7 +87,6 @@
         </ul>
     </div>
 
-    <!-- Modal Alert untuk Pilih Perguruan Tinggi -->
     <div id="alertModal" class="fixed inset-0 z-50 overflow-y-auto" style="display: none;">
         <div class="fixed inset-0 bg-white/30 backdrop-blur-sm transition-opacity duration-300" id="modalOverlay"></div>
         <div class="flex items-center justify-center min-h-screen">
@@ -121,7 +119,6 @@
         <script src="{{ asset('js/usertryout.js') }}"></script>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
-                // Function untuk refresh data tryout
                 function refreshTryoutData() {
                     fetch(window.location.href, {
                             headers: {
@@ -137,13 +134,11 @@
                         .catch(error => console.error('Error:', error));
                 }
 
-                // Check jika kembali dari halaman major (deteksi navigation)
                 if (sessionStorage.getItem('comingFromMajor')) {
                     sessionStorage.removeItem('comingFromMajor');
                     refreshTryoutData();
                 }
 
-                // Saat klik tombol ke halaman major, set flag
                 const majorLinks = document.querySelectorAll('a[href*="major"]');
                 majorLinks.forEach(link => {
                     link.addEventListener('click', function() {
@@ -151,10 +146,8 @@
                     });
                 });
 
-                // Handle browser back button
                 window.addEventListener('pageshow', function(event) {
                     if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
-                        // Page di-load dari cache (back/forward navigation)
                         refreshTryoutData();
                     }
                 });
@@ -178,7 +171,6 @@
                 }, 300);
             }
 
-            // Fungsi-fungsi yang sudah ada
             function showAlert() {
                 document.getElementById('alertModal').style.display = 'block';
                 setTimeout(() => {

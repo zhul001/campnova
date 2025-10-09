@@ -4,12 +4,12 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <title>SainsIn Quiz</title>
+    <title>Exam - Campnova</title>
+    <link rel="icon" href="{{ asset('logo_campnova_blue_f.png') }}" type="image/png">
     @vite('resources/css/app.css')
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
-    <!-- Tambahkan Lottie Player -->
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@1.3.1/dist/trix.css">
     <script type="text/javascript" src="https://unpkg.com/trix@1.3.1/dist/trix.js"></script>
@@ -23,7 +23,6 @@
             display: none !important;
         }
 
-        /* Transisi untuk modal */
         .modal-enter-active,
         .modal-leave-active {
             transition: opacity 0.3s;
@@ -34,19 +33,16 @@
             opacity: 0;
         }
 
-        /* Style untuk tombol soal yang telah dijawab */
         .answered {
             background-color: #b9e4f4 !important;
             border-color: #a0d3e9 !important;
         }
 
-        /* Style untuk tombol soal aktif */
         .active-question {
             background-color: #dbeafe !important;
             border-color: #3b82f6 !important;
         }
 
-        /* Loading overlay styles */
         .loading-overlay {
             position: fixed;
             top: 0;
@@ -158,7 +154,6 @@
                                 class="max-w-full">
                         @endif
                     </article>
-                    <!-- Perbaiki form pilihan ganda -->
                     <form class="w-full lg:max-w-6xl lg:mx-auto mt-6 space-y-3 text-gray-700 text-sm" id="quiz-form">
                         @foreach (['a', 'b', 'c', 'd', 'e'] as $option)
                             @if ($soal->{'jawaban_' . $option})
@@ -205,17 +200,13 @@
                 </div>
             @endforeach
 
-            <!-- Wrapper tombol navigasi -->
             <div class="max-w-4xl mx-auto mt-6 sticky bottom-0 z-10 w-full bg-white mb-2">
-                <!-- Mobile layout: tombol < ☰ > > terpisah -->
                 <div class="flex lg:hidden mobile-bottom-nav justify-between px-4">
-                    <!-- Tombol Sebelumnya (kiri) -->
                     <button
                         class="transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate-950 disabled:pointer-events-none disabled:opacity-50 bg-blue-500 text-white shadow-sm hover:bg-blue-600 rounded-md w-20 md:w-32 h-10 flex items-center justify-center"
                         id="prevBtn" type="button">
                         <i class="fas fa-chevron-left"> </i>
                     </button>
-                    <!-- Tombol Toggle Sidebar (tengah) -->
                     <button aria-label="Toggle sidebar"
                         class="transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate-950 disabled:pointer-events-none disabled:opacity-50 bg-blue-500 text-white shadow-sm hover:bg-blue-600 rounded-md w-20 md:w-32 h-10 flex items-center justify-center"
                         id="toggleSidebarBtn" type="button">
@@ -227,18 +218,14 @@
                             </path>
                         </svg>
                     </button>
-                    <!-- Tombol Selanjutnya (kanan) -->
                     <button
                         class="transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate-950 disabled:pointer-events-none disabled:opacity-50 bg-blue-500 text-white shadow-sm hover:bg-blue-600 rounded-md w-20 md:w-32 h-10 flex items-center justify-center"
                         id="nextBtn" type="button">
                         <i class="fas fa-chevron-right"> </i>
                     </button>
                 </div>
-                <!-- Desktop layout: tombol sejajar kiri dan zoom kanan -->
                 <div class="hidden lg:flex justify-between items-center desktop-nav-fixed">
-                    <!-- Grup tombol navigasi -->
                     <div class="flex items-center space-x-4">
-                        <!-- Tombol Sebelumnya -->
                         <button
                             class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate-950 disabled:pointer-events-none disabled:opacity-50 bg-blue-500 text-white shadow-sm hover:bg-blue-600 h-9 px-4 py-2"
                             id="prevBtnDesktop"
@@ -251,7 +238,6 @@
                             </svg>
                             Sebelumnya
                         </button>
-                        <!-- Tombol Selanjutnya -->
                         <button
                             class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate-950 disabled:pointer-events-none disabled:opacity-50 bg-blue-500 text-white shadow-sm hover:bg-blue-600 h-9 px-4 py-2"
                             id="nextBtnDesktop" type="button">
@@ -263,7 +249,6 @@
                             </svg>
                         </button>
                     </div>
-                    <!-- Grup tombol Zoom -->
                     <div class="flex space-x-2">
                         <button aria-label="Zoom out"
                             class="shadow-xs ml-3 inline-flex items-center gap-x-1.5 rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white hover:bg-blue-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 disabled:opacity-75"
@@ -295,7 +280,6 @@
         </section>
     </main>
 
-    <!-- Loading Overlay -->
     <div id="loadingOverlay" class="loading-overlay" style="display: none;">
         <lottie-player src="{{ asset('animations/sandy-loading.json') }}" background="transparent" speed="1"
             style="width: 200px; height: 200px;" loop autoplay>
@@ -304,10 +288,8 @@
     </div>
 
     <div x-data="examModal" x-cloak>
-        <!-- Modal Backdrop -->
         <div x-show="isOpen" class="fixed inset-0 bg-black/20 backdrop-blur z-50 transition-opacity"></div>
 
-        <!-- Modal Dialog -->
         <div x-show="isOpen" @click.away="closeModal" x-transition
             class="fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border border-slate-200 bg-white p-6 shadow-lg sm:rounded-lg">
             <div class="flex flex-col space-y-1.5 text-center sm:text-left">

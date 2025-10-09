@@ -10,7 +10,6 @@ const methodField = document.getElementById("_method");
 const submitBtn = document.getElementById("submitBtn");
 const tryoutForm = document.getElementById("tryoutForm");
 
-// MODE TAMBAH
 openModalBtn.addEventListener("click", () => {
     modalOverlay.classList.remove("hidden");
     modalOverlay.classList.add("flex");
@@ -18,11 +17,10 @@ openModalBtn.addEventListener("click", () => {
     tryoutForm.reset();
     tryoutId.value = "";
     methodField.value = "POST";
-    tryoutForm.action = "/tryout"; // route store
+    tryoutForm.action = "/tryout";
     submitBtn.textContent = "Tambah";
 });
 
-// MODE EDIT
 function openEditModal(data) {
     modalOverlay.classList.remove("hidden");
     modalOverlay.classList.add("flex");
@@ -37,7 +35,6 @@ function openEditModal(data) {
     submitBtn.textContent = "Update";
 }
 
-// CLOSE MODAL
 closeModalBtn.addEventListener("click", () => {
     modalOverlay.classList.add("hidden");
     modalOverlay.classList.remove("flex");

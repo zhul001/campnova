@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Data Program Studi
     const prodiData = {
         polije: [
             "D3 - Teknik Komputer",
@@ -22,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "D4 - Teknologi Rekayasa Mekatronika",
             "D4 - Teknik Energi Terbarukan",
             "D4 - Teknologi Industri Pangan",
-        ].sort(), // URUTKAN PROGRAM STUDI
+        ].sort(),
         polinema: [
             "D4 Teknik Informatika",
             "D3 Teknik Elektro",
@@ -150,7 +149,6 @@ document.addEventListener("DOMContentLoaded", function () {
         dropdownListProdi.innerHTML = "";
         if (!ptId || !prodiData[ptId]) return;
 
-        // Buat salinan array dan urutkan (sebagai backup jika belum di-sort di atas)
         const sortedProdi = [...prodiData[ptId]].sort((a, b) =>
             a.localeCompare(b, "id", { sensitivity: "base" })
         );
@@ -167,10 +165,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Lottie animation instance
     let lottieAnimation = null;
 
-    // Initialize Lottie animation
     function initLottieAnimation() {
         if (lottieContainer && lottie) {
             lottieAnimation = lottie.loadAnimation({
@@ -178,14 +174,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 renderer: "svg",
                 loop: true,
                 autoplay: false,
-                path: "/animations/sandy-loading.json", // Pastikan path ini benar
+                path: "/animations/sandy-loading.json",
             });
         }
     }
 
-    // Notification functions
     function showNotification(type, message, title = "Sukses!") {
-        // Reset notification classes
         notification.className = "fixed top-4 right-4 z-50";
         notification.innerHTML = "";
 
@@ -238,18 +232,15 @@ document.addEventListener("DOMContentLoaded", function () {
                     </div>
                 `;
 
-        // Show notification with animation
         setTimeout(() => {
             const content = document.getElementById("notificationContent");
             content.classList.remove("translate-x-full");
         }, 100);
 
-        // Auto hide after 5 seconds
         const autoHide = setTimeout(() => {
             hideNotification();
         }, 5000);
 
-        // Close button event
         document
             .getElementById("closeNotificationBtn")
             .addEventListener("click", () => {
@@ -268,14 +259,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Loading functions
     function showLoading() {
         loadingOverlay.classList.remove("hidden");
         submitText.classList.add("hidden");
         submitLoading.classList.remove("hidden");
         submitButton.disabled = true;
 
-        // Play Lottie animation
         if (lottieAnimation) {
             lottieAnimation.play();
         }
@@ -287,13 +276,11 @@ document.addEventListener("DOMContentLoaded", function () {
         submitLoading.classList.add("hidden");
         submitButton.disabled = false;
 
-        // Stop Lottie animation
         if (lottieAnimation) {
             lottieAnimation.stop();
         }
     }
 
-    // Function to initialize dropdown behavior for a choice item
     function initChoiceItem(choiceItem) {
         const labelBox = choiceItem.querySelector(".labelBox");
         const searchInput = choiceItem.querySelector(".searchInput");
@@ -316,7 +303,6 @@ document.addEventListener("DOMContentLoaded", function () {
         let dropdownVisibleProdi = false;
         let selectedValueProdi = "";
 
-        // Initialize with existing data
         const choiceNumber = choiceItem.dataset.choice;
         const ptInput = choiceItem.querySelector(
             `input[name="perguruan_tinggi${choiceNumber}"]`
@@ -330,7 +316,6 @@ document.addEventListener("DOMContentLoaded", function () {
             selectedText.textContent = selectedValue;
             selectedText.classList.remove("hidden");
 
-            // Find the selected option to get the data-id
             const selectedOption = Array.from(allOptions).find(
                 (opt) => opt.textContent === selectedValue
             );
@@ -346,12 +331,10 @@ document.addEventListener("DOMContentLoaded", function () {
             selectedProdi.classList.remove("hidden");
         }
 
-        // Show all PT options
         function showAllOptions() {
             allOptions.forEach((opt) => (opt.style.display = "block"));
         }
 
-        // Filter PT options
         function filterOptions() {
             const filter = searchInput.value.toLowerCase();
             allOptions.forEach((item) => {
@@ -360,14 +343,12 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
 
-        // Resize PT input
         function resizeInput() {
             inputMirror.textContent = searchInput.value || "";
             const mirrorWidth = inputMirror.offsetWidth;
             searchInput.style.width = `${mirrorWidth + 10}px`;
         }
 
-        // Handle PT input
         function handleInput() {
             const value = searchInput.value.trim();
             resizeInput();
@@ -381,7 +362,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
 
-        // Select PT option
         function selectOption(el) {
             selectedValue = el.textContent;
             selectedId = el.getAttribute("data-id");
@@ -392,13 +372,11 @@ document.addEventListener("DOMContentLoaded", function () {
             dropdownList.classList.add("hidden");
             dropdownVisible = false;
 
-            // Update hidden input
             const choiceNumber = choiceItem.dataset.choice;
             choiceItem.querySelector(
                 `input[name="perguruan_tinggi${choiceNumber}"]`
             ).value = selectedValue;
 
-            // RESET PROGRAM STUDI
             selectedValueProdi = "";
             selectedProdi.textContent = "";
             selectedProdi.classList.add("hidden");
@@ -407,16 +385,13 @@ document.addEventListener("DOMContentLoaded", function () {
             dropdownListProdi.classList.add("hidden");
             dropdownVisibleProdi = false;
 
-            // Update hidden input for prodi
             choiceItem.querySelector(
                 `input[name="program_studi${choiceNumber}"]`
             ).value = "";
 
-            // Populate Prodi dropdown based on selected PT
             populateProdiDropdown(selectedId);
         }
 
-        // Populate Prodi dropdown list items dynamically
         function populateProdiDropdown(ptId) {
             dropdownListProdi.innerHTML = "";
             if (!ptId || !prodiData[ptId]) return;
@@ -433,13 +408,11 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
 
-        // Show all Prodi options
         function showAllOptionsProdi() {
             const prodiItems = dropdownListProdi.querySelectorAll("li");
             prodiItems.forEach((opt) => (opt.style.display = "block"));
         }
 
-        // Filter Prodi options
         function filterOptionsProdi() {
             const filter = searchInputProdi.value.toLowerCase();
             const prodiItems = dropdownListProdi.querySelectorAll("li");
@@ -449,14 +422,12 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
 
-        // Resize Prodi input
         function resizeInputProdi() {
             inputMirrorProdi.textContent = searchInputProdi.value || "";
             const mirrorWidth = inputMirrorProdi.offsetWidth;
             searchInputProdi.style.width = `${mirrorWidth + 10}px`;
         }
 
-        // Handle Prodi input
         function handleInputProdi() {
             const value = searchInputProdi.value.trim();
             resizeInputProdi();
@@ -470,7 +441,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
 
-        // Select Prodi option
         function selectOptionProdi(el) {
             selectedValueProdi = el.textContent;
             selectedProdi.textContent = selectedValueProdi;
@@ -480,14 +450,12 @@ document.addEventListener("DOMContentLoaded", function () {
             dropdownListProdi.classList.add("hidden");
             dropdownVisibleProdi = false;
 
-            // Update hidden input
             const choiceNumber = choiceItem.dataset.choice;
             choiceItem.querySelector(
                 `input[name="program_studi${choiceNumber}"]`
             ).value = selectedValueProdi;
         }
 
-        // Toggle PT dropdown
         function toggleDropdown() {
             dropdownVisible = !dropdownVisible;
             dropdownList.classList.toggle("hidden", !dropdownVisible);
@@ -498,7 +466,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
 
-        // Toggle Prodi dropdown
         function toggleDropdownProdi() {
             if (!selectedId) {
                 showNotification(
@@ -516,7 +483,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
 
-        // Event listeners
         labelBox.addEventListener("click", toggleDropdown);
         searchInput.addEventListener("input", handleInput);
         allOptions.forEach((li) => {
@@ -526,7 +492,6 @@ document.addEventListener("DOMContentLoaded", function () {
         labelBoxProdi.addEventListener("click", toggleDropdownProdi);
         searchInputProdi.addEventListener("input", handleInputProdi);
 
-        // Close dropdowns on outside click
         document.addEventListener("click", (e) => {
             if (
                 !labelBox.contains(e.target) &&
@@ -544,7 +509,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        // Delete button
         const deleteBtn = choiceItem.querySelector(".delete-choice");
         if (deleteBtn) {
             deleteBtn.addEventListener("click", () => {
@@ -552,7 +516,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     ".choice-item:not(.hidden)"
                 );
                 if (visibleChoices.length > 1) {
-                    // Reset values
                     selectedText.textContent = "";
                     selectedText.classList.add("hidden");
                     selectedProdi.textContent = "";
@@ -561,13 +524,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     selectedValue = "";
                     selectedValueProdi = "";
 
-                    // Clear inputs
                     searchInput.value = "";
                     searchInput.style.width = "1ch";
                     searchInputProdi.value = "";
                     searchInputProdi.style.width = "1ch";
 
-                    // Clear hidden inputs
                     const choiceNumber = choiceItem.dataset.choice;
                     choiceItem.querySelector(
                         `input[name="perguruan_tinggi${choiceNumber}"]`
@@ -576,10 +537,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         `input[name="program_studi${choiceNumber}"]`
                     ).value = "";
 
-                    // Clear prodi dropdown
                     dropdownListProdi.innerHTML = "";
 
-                    // Hide this choice
                     choiceItem.classList.add("hidden");
 
                     updateChoiceHeadings();
@@ -589,7 +548,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Update choice headings
     function updateChoiceHeadings() {
         document
             .querySelectorAll(".choice-item:not(.hidden)")
@@ -600,14 +558,12 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     }
 
-    // Update add button visibility
     function updateAddButtonVisibility() {
         const hiddenChoices = document.querySelectorAll(".choice-item.hidden");
         addChoiceBtn.style.display =
             hiddenChoices.length > 0 ? "inline-flex" : "none";
     }
 
-    // Add choice button
     addChoiceBtn.addEventListener("click", () => {
         const hiddenChoices = document.querySelectorAll(".choice-item.hidden");
         if (hiddenChoices.length > 0) {
@@ -618,7 +574,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Initialize all choice items
     function initializeChoices() {
         const choiceItems = document.querySelectorAll(".choice-item");
 
@@ -630,11 +585,9 @@ document.addEventListener("DOMContentLoaded", function () {
         updateAddButtonVisibility();
     }
 
-    // OPTIMIZED AJAX Form submission
     majorForm.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        // Basic validation
         const visibleChoices = document.querySelectorAll(
             ".choice-item:not(.hidden)"
         );
@@ -667,7 +620,6 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        // Prepare form data - OPTIMIZED: hanya kirim data yang diperlukan
         const formData = new FormData();
         const csrfToken = document
             .querySelector('meta[name="csrf-token"]')
@@ -676,7 +628,6 @@ document.addEventListener("DOMContentLoaded", function () {
         formData.append("_token", csrfToken);
         formData.append("_method", "PUT");
 
-        // Hanya tambahkan data yang ada nilainya
         visibleChoices.forEach((choice) => {
             const choiceNumber = choice.dataset.choice;
             const ptInput = choice.querySelector(
@@ -700,10 +651,8 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        // Show loading
         showLoading();
 
-        // Send OPTIMIZED AJAX request
         fetch(majorForm.action, {
             method: "POST",
             headers: {
@@ -726,7 +675,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         data.message || "Pilihan jurusan berhasil disimpan!"
                     );
 
-                    // HANYA SET FLAG - TIDAK REDIRECT
                     sessionStorage.setItem("comingFromMajor", "true");
                 } else {
                     showNotification(
@@ -745,13 +693,10 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     });
 
-    // Handle navigation state
     if (window.performance && window.performance.navigation.type === 2) {
-        // Jika page di-load dari cache (back button), refresh state
         sessionStorage.removeItem("comingFromMajor");
     }
 
-    // Initialize everything
     initLottieAnimation();
     initializeChoices();
 });

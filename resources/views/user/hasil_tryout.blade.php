@@ -112,7 +112,6 @@
                                         <h3
                                             class="text-base font-semibold text-gray-800 dark:text-neutral-100 sm:text-lg">
                                             {{ $hasil->subtes->judul_subtes }}
-                                            <!-- Ganti nama_subtes dengan judul_subtes -->
                                         </h3>
                                         <div
                                             class="mt-1 flex items-center text-xs text-gray-600 dark:text-neutral-400 sm:text-sm">
