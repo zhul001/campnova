@@ -1,0 +1,116 @@
+/* exam css */
+/* Sidebar slide up animation */
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes slideDown {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+/* Apply animation when sidebar is active */
+#sidebar.mobile-active {
+    animation: slideUp 0.3s forwards;
+}
+#sidebar.mobile-hide {
+    animation: slideDown 0.3s forwards;
+    pointer-events: none;
+}
+
+/* On desktop, sidebar always visible and static */
+@media (min-width: 1024px) {
+    #sidebar {
+        position: relative !important;
+        transform: none !important;
+        opacity: 1 !important;
+        max-height: none !important;
+        border-top: 0 !important;
+        border-right: 1px solid #e5e7eb !important; /* border-gray-200 */
+        animation: none !important;
+    }
+    #sidebar.mobile-active,
+    #sidebar.mobile-hide {
+        animation: none !important;
+    }
+    #closeSidebarBtn {
+        display: none !important;
+    }
+    /* Hide the specific "Selesai" button on desktop */
+    .btn-selesai-desktop-hide {
+        display: none !important;
+    }
+}
+/* Fix desktop navigation buttons to bottom */
+@media (min-width: 1024px) {
+    .desktop-nav-fixed {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: white;
+        border-top: 1px solid #d1d5db; /* border-gray-300 */
+        z-index: 9999;
+        padding: 0.75rem 2rem; /* py-3 px-8 */
+    }
+    /* To prevent content behind fixed nav */
+    main > section {
+        padding-bottom: 4.5rem; /* enough space for fixed nav */
+    }
+    /* Adjust previous button left offset to avoid sidebar */
+    .desktop-nav-fixed .prev-btn-adjusted {
+        position: relative;
+        margin-left: 18rem; /* equal to sidebar width (sm:max-w-72 = 18rem) */
+        min-width: 120px;
+        max-width: 160px;
+        z-index: 10;
+    }
+}
+/* Mobile bottom nav with top border and spacing */
+.mobile-bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background-color: white;
+    border-top: 1px solid #d1d5db; /* border-gray-300 */
+    padding-top: 0.75rem; /* 1 */
+    padding-bottom: 0.5rem; /* 2 */
+}
+.mobile-bottom-nav > .inner {
+    height: 2.5rem; /* h-10 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+/* Fix button positions inside mobile bottom nav */
+.mobile-bottom-nav .inner button {
+    position: static;
+    margin: 0 0.5rem;
+}
+.mobile-bottom-nav .inner #prevBtn {
+    margin-left: 0;
+}
+.mobile-bottom-nav .inner #nextBtn {
+    margin-right: 0;
+}
+
+/* Untuk animasi perubahan angka */
+#soal-terjawab {
+    transition: all 0.3s ease;
+    display: inline-block;
+    min-width: 20px;
+}

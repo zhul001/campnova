@@ -1,0 +1,134 @@
+/* css untuk sign in dan sign up    Remove blue outline and border on focus for inputs */
+#shortname:focus,
+#fullname:focus,
+#email:focus,
+#password:focus,
+#birthdate:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: #d1d5db !important; /* Tailwind gray-300 */
+}
+
+/* css untuk major*/
+#inputMirror {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    visibility: hidden;
+    white-space: pre;
+}
+#inputMirrorProdi {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    visibility: hidden;
+    white-space: pre;
+}
+/* Fix dropdown clipping issue */
+#dropdownListProdi {
+    max-height: 240px; /* increased height */
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding-top: 0.25rem; /* py-1 */
+    padding-bottom: 0.25rem;
+}
+
+/* css tambah soal */
+.grid-dropdown {
+    display: grid;
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+    gap: 0.25rem;
+}
+
+/* css untuk subtes */
+/* Tambahkan di CSS Anda jika belum ada */
+.badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+}
+.badge-gray {
+    @apply bg-gray-100 text-gray-600;
+}
+.badge-green {
+    @apply bg-green-100 text-green-600;
+}
+
+/* Animasi sidebar untuk mobile */
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+#sidebar.mobile-active {
+    animation: slideUp 0.3s forwards;
+}
+
+#sidebar.mobile-hide {
+    animation: slideDown 0.3s forwards;
+    pointer-events: none;
+}
+
+/* Tampilan desktop */
+@media (min-width: 1024px) {
+    #sidebar {
+        position: relative !important;
+        transform: none !important;
+        opacity: 1 !important;
+        max-height: none !important;
+        border-top: 0 !important;
+        border-right: 1px solid #e5e7eb !important;
+        animation: none !important;
+    }
+
+    #sidebar.mobile-active,
+    #sidebar.mobile-hide {
+        animation: none !important;
+    }
+
+    #closeSidebarBtn {
+        display: none !important;
+    }
+
+    .desktop-nav-fixed {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: white;
+        border-top: 1px solid #d1d5db;
+        z-index: 9999;
+        padding: 0.75rem 2rem;
+    }
+
+    main > section {
+        padding-bottom: 4.5rem;
+    }
+}
+
+/* Navigasi mobile */
+.mobile-bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background-color: white;
+    border-top: 1px solid #d1d5db;
+    padding: 0.75rem 0 0.5rem;
+}
