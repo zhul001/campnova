@@ -56,7 +56,6 @@
                             </form>
                         </td>
                         <td class="whitespace-nowrap px-4 py-3 text-sm text-gray-900 space-x-2">
-                            {{-- Tombol Edit --}}
                             <button type="button" onclick="openEditModal({!! htmlspecialchars(
                                 json_encode([
                                     'id' => $tryout->id,
@@ -71,13 +70,11 @@
                                 <i class="fas fa-edit mr-1"></i> Edit
                             </button>
 
-                            {{-- Tombol Detail --}}
                             <a href="/tryout/{{ $tryout->id }}"
                                 class="inline-flex items-center rounded bg-blue-600 px-3 py-1 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1">
                                 <i class="fas fa-info-circle mr-1"></i> kelola
                             </a>
 
-                            {{-- Tombol Hapus --}}
                             <form action="{{ route('tryout.destroy', $tryout->id) }}" method="POST"
                                 class="inline-block" onsubmit="return confirm('Yakin ingin menghapus tryout ini?')">
                                 @csrf
@@ -94,7 +91,6 @@
         </table>
     </div>
 
-    <!-- Modal Overlay -->
     <div id="modalOverlay" class="fixed inset-0 z-50 hidden items-center justify-center backdrop-blur-sm bg-black/20">
         <div class="relative w-11/12 max-w-md rounded-lg bg-white p-6 shadow-lg" role="dialog" aria-modal="true"
             aria-labelledby="modalTitle">

@@ -1,5 +1,4 @@
 <x-layout>
-    {{-- info --}}
     <div class="mb-6 mt-10">
         <h2 class="text-2xl font-bold text-gray-800">
             Kelola Soal untuk Tryout: <span class="text-blue-600">{{ $tryout->judul_paket }}</span>
@@ -15,7 +14,6 @@
     <div class="max-w-full mx-auto">
         <div class="flex flex-col gap-6 mb-6">
             <div class="flex flex-col sm:flex-row gap-6">
-                <!-- Kolom Kiri (Tambah Soal) -->
                 <div class="flex flex-col sm:flex-row gap-3 flex-1">
                     <a href="{{ url('/tryout/' . request()->route('tryout_id') . '/' . request()->route('subtes_id') . '/tambahpilgan') }}"
                         class="w-48 px-4 py-3 bg-blue-600 text-white rounded-md text-center font-semibold shadow hover:bg-blue-700 transition">
@@ -27,7 +25,6 @@
                     </a>
                 </div>
 
-                <!-- Kolom Kanan (Soal) -->
                 <div class="flex flex-col sm:flex-row gap-3 justify-end">
                     <button id="btnPilgan" type="button"
                         class="w-48 px-4 py-2 bg-green-600 text-white rounded-md font-semibold shadow hover:bg-green-700 transition">
@@ -41,7 +38,6 @@
             </div>
         </div>
 
-        {{-- soal pilgan --}}
         <div id="tablePilgan" class="overflow-x-auto rounded-lg border border-gray-300 bg-white shadow">
             <table class="min-w-full divide-y divide-gray-200 text-sm">
                 <thead class="bg-gray-100">
@@ -90,7 +86,6 @@
             </table>
         </div>
 
-        {{-- soal esai --}}
         <div id="tableEsai" class="hidden overflow-x-auto rounded-lg border border-gray-300 bg-white shadow">
             <table class="min-w-full divide-y divide-gray-200 text-sm">
                 <thead class="bg-gray-100">

@@ -4,13 +4,11 @@
             action="{{ $mode === 'edit' ? route('esai.update', ['tryout_id' => $tryout_id, 'subtes_id' => $subtes_id, 'soal_id' => $soal->id]) : route('esai.store', ['tryout_id' => $tryout_id, 'subtes_id' => $subtes_id]) }}"
             enctype="multipart/form-data">
             @csrf
-            <!-- Shared fields: Nomer Soal, Soal, Pilih Gambar -->
             <div class="relative" id="nomer-soal-wrapper">
                 <label for="nomer-soal" class="block text-gray-700 font-medium mb-1">Nomer Soal</label>
                 <input type="text" id="nomer-soal" name="nomer-soal" readonly
                     class="w-full border border-gray-300 rounded-md px-3 py-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500"
                     autocomplete="off" required value="{{ old('nomer-soal', $soal ? $soal->nomor_soal : '') }}" />
-                <!-- Dropdown options -->
                 <div id="nomer-soal-options"
                     class="absolute z-20 top-full left-0 right-0 mt-1 bg-white border border-gray-300 rounded-md shadow-lg max-w-full max-h-40 overflow-y-auto hidden"
                     style="user-select:none;">
@@ -49,7 +47,6 @@
                 @endif
             </div>
 
-            <!-- Esai form -->
             <div id="form-esai" class="mt-4">
                 <label for="kunci-esai" class="block text-gray-700 font-medium mb-1">Kunci Jawaban</label>
                 <input type="text" id="kunci-esai" name="kunci-esai" min="0"

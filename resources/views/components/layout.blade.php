@@ -9,17 +9,21 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
+
     <title>Campnova | Belajar & Tryout</title>
-    <link rel="stylesheet" href="{{ asset('build/assets/app.css') }}">
-    <img src="{{ asset('img/logo_campnova_blue.svg') }}" alt="logo">
-    <lottie-player src="{{ asset('animations/cat-playing.json') }}"></lottie-player>
-    @vite('resources/css/app.css')
+
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@1.3.1/dist/trix.css">
     <script type="text/javascript" src="https://unpkg.com/trix@1.3.1/dist/trix.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+    {{-- Gambar & animasi pakai Vite::asset --}}
+    <img src="{{ Vite::asset('resources/img/logo_campnova_blue.svg') }}" alt="logo">
+    <lottie-player src="{{ Vite::asset('resources/animations/cat-playing.json') }}"></lottie-player>
 </head>
 
 <body class="bg-white font-[Inter,sans-serif] min-h-screen flex flex-col">

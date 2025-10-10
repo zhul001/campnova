@@ -7,14 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Campnova | Belajar & Tryout</title>
-    <link rel="stylesheet" href="{{ asset('build/assets/app.css') }}">
-    <img src="{{ asset('img/logo_campnova_blue.svg') }}" alt="logo">
-    <lottie-player src="{{ asset('animations/cat-playing.json') }}"></lottie-player>
-    @vite('resources/css/app.css')
+
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
 
+    {{-- Gambar & animasi pakai Vite::asset --}}
+    <img src="{{ Vite::asset('resources/img/logo_campnova_blue.svg') }}" alt="logo">
+    <lottie-player src="{{ Vite::asset('resources/animations/cat-playing.json') }}"></lottie-player>
 </head>
 
 <body class="overflow-hidden bg-white">

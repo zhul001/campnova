@@ -47,7 +47,6 @@
                 @endif
             </div>
 
-            <!-- Pilgan form -->
             <div id="form-pilgan" class="space-y-4 mt-4">
                 <div>
                     <label for="jawaban-a" class="block text-gray-700 font-medium mb-1">Jawaban A</label>

@@ -1,13 +1,14 @@
-<html class="scroll-smooth" lang="id">
+<!DOCTYPE html>
+<html class="scroll-smooth h-full bg-white" lang="id">
 
 <head>
     <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Campnova - Raih Kampus Idamanmu</title>
-    <link rel="stylesheet" href="{{ asset('build/assets/app.css') }}">
-    <img src="{{ asset('img/logo_campnova_blue.svg') }}" alt="logo">
-    <lottie-player src="{{ asset('animations/cat-playing.json') }}"></lottie-player>
-    @vite('resources/css/app.css')
+    <link rel="icon" href="{{ Vite::asset('resources/img/logo_campnova_blue_f.png') }}" type="image/png">
+
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <style>

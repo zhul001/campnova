@@ -1,6 +1,5 @@
 <x-layout>
     <div class="max-w-4xl mx-auto mt-10">
-        <!-- Info Tryout -->
         <div class="mb-6">
             <h2 class="text-2xl font-bold text-gray-800">
                 Subtes untuk Tryout: <span class="text-blue-600">{{ $tryout->judul_paket }}</span>
@@ -11,7 +10,6 @@
             </p>
         </div>
 
-        <!-- Tabel Subtes -->
         <div class="bg-white shadow-md rounded-lg overflow-x-auto">
             <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-100">
