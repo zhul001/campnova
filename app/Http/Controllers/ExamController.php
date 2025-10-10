@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Tryout;
 use App\Models\Subtes;
-use App\Models\SoalPilgan;
-use App\Models\SoalEsai;
+use App\Models\Soalpilgan;
+use App\Models\Soalesai;
 use App\Models\HasilSubtes;
 use App\Models\JawabanPeserta;
 use App\Models\HasilTryout;
@@ -20,7 +20,6 @@ class ExamController extends Controller
     {
         $user = Auth::user();
         
-        // Validasi urutan pengerjaan subtes
         $allSubtes = Subtes::orderBy('id')->get();
         $currentAllowedSubtes = null;
         
@@ -36,26 +35,24 @@ class ExamController extends Controller
             }
         }
         
-        // Jika mencoba akses subtes yang belum waktunya
         if ($subtes_id != $currentAllowedSubtes) {
             return redirect()->route('tryout.show', $tryout_id)
                    ->with('error', 'Anda harus menyelesaikan subtes sebelumnya terlebih dahulu');
         }
         
-        // Lanjutkan ke exam jika valid
-        $soalPilgan = SoalPilgan::where('tryout_id', $tryout_id)
+        $soalPilgan = Soalpilgan::where('tryout_id', $tryout_id)
                       ->where('subtes_id', $subtes_id)
                       ->orderBy('nomor_soal')
                       ->get();
                       
-        $soalEsai = SoalEsai::where('tryout_id', $tryout_id)
+        $soalEsai = Soalesai::where('tryout_id', $tryout_id)
                     ->where('subtes_id', $subtes_id)
                     ->orderBy('nomor_soal')
                     ->get();
         
         $subtes = Subtes::findOrFail($subtes_id);
         
-        $totalSoal = $soalPilgan->count() + $soalEsai->count(); // Add this line
+        $totalSoal = $soalPilgan->count() + $soalEsai->count();
 
     return view('user.exam', [
         'tryout_id' => $tryout_id,
@@ -63,7 +60,7 @@ class ExamController extends Controller
         'soalPilgan' => $soalPilgan,
         'soalEsai' => $soalEsai,
         'subtes' => Subtes::findOrFail($subtes_id),
-        'totalSoal' => $totalSoal, // Pass to view
+        'totalSoal' => $totalSoal,
         'user' => $user
     ]);
     }
@@ -76,7 +73,6 @@ class ExamController extends Controller
     DB::beginTransaction();
     
     try {
-        // Cek apakah subtes sudah pernah disubmit
         $existingSubmission = HasilSubtes::where('user_id', $user_id)
             ->where('tryout_id', $tryout_id)
             ->where('subtes_id', $subtes_id)
@@ -92,7 +88,6 @@ class ExamController extends Controller
             ], 409);
         }
 
-        // Validasi urutan pengerjaan
         $allSubtes = Subtes::orderBy('id')->get();
         $currentAllowedSubtes = null;
         
@@ -118,13 +113,12 @@ class ExamController extends Controller
             ], 403);
         }
 
-        // Ambil semua soal untuk validasi
-        $soalPilgan = SoalPilgan::where('tryout_id', $tryout_id)
+        $soalPilgan = Soalpilgan::where('tryout_id', $tryout_id)
             ->where('subtes_id', $subtes_id)
             ->get()
             ->keyBy('id');
 
-        $soalEsai = SoalEsai::where('tryout_id', $tryout_id)
+        $soalEsai = Soalesai::where('tryout_id', $tryout_id)
             ->where('subtes_id', $subtes_id)
             ->get()
             ->keyBy('id');
@@ -135,11 +129,9 @@ class ExamController extends Controller
         $jumlahBenar = 0;
         $jumlahSoal = $soalPilgan->count() + $soalEsai->count();
 
-        // Batch processing untuk jawaban
         $jawabanPeserta = [];
         $now = now();
 
-        // Proses jawaban pilihan ganda
         foreach ($jawabanPilgan as $soalPilganId => $jawaban) {
             if ($soal = $soalPilgan->get($soalPilganId)) {
                 $isBenar = strtoupper($jawaban) === strtoupper($soal->kunci_jawaban);
@@ -159,7 +151,6 @@ class ExamController extends Controller
             }
         }
 
-        // Proses jawaban esai
         foreach ($jawabanEsai as $soalEsaiId => $jawaban) {
             if ($soal = $soalEsai->get($soalEsaiId)) {
                 $isBenar = false;
@@ -182,23 +173,19 @@ class ExamController extends Controller
             }
         }
 
-        // Insert batch jawaban peserta
         if (!empty($jawabanPeserta)) {
             JawabanPeserta::insert($jawabanPeserta);
         }
 
-        // Hitung statistik
         $jumlahSalah = count($jawabanPilgan) + count($jawabanEsai) - $jumlahBenar;
         $tidakDiisiPilgan = $soalPilgan->count() - count($jawabanPilgan);
         $tidakDiisiEsai = $soalEsai->count() - count($jawabanEsai);
         $totalTidakDiisi = $tidakDiisiPilgan + $tidakDiisiEsai;
 
-        // Hitung skor
         $subtes = Subtes::findOrFail($subtes_id);
         $skorMaksimum = $subtes->skor_maksimum_subtes ?? 100;
         $score = $jumlahSoal > 0 ? ($jumlahBenar / $jumlahSoal) * $skorMaksimum : 0;
 
-        // Simpan hasil subtes
         HasilSubtes::create([
             'user_id' => $user_id,
             'tryout_id' => $tryout_id,
@@ -210,7 +197,6 @@ class ExamController extends Controller
             'jumlah_soal' => $jumlahSoal,
         ]);
 
-        // Update hasil tryout
         HasilTryout::updateOrCreate(
             ['user_id' => $user_id, 'tryout_id' => $tryout_id],
             [
