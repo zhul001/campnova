@@ -7,7 +7,7 @@
       </div>
 
       <ul class="mt-8 flex justify-start gap-6 sm:mt-0 sm:justify-end">
-        <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+        <a href="https://wa.me/message/PHPRQOCZTB44G1 " target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
           <lord-icon
             src="https://cdn.lordicon.com/dnphlhar.json"
             trigger="morph"
@@ -18,7 +18,7 @@
           </lord-icon>
         </a>
 
-        <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <a href="https://www.instagram.com/nain.nz?igsh=aGwwbG53MTl3Zms2" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
           <lord-icon
             src="https://cdn.lordicon.com/tgyvxauj.json"
             trigger="hover"
@@ -29,21 +29,11 @@
           </lord-icon>
         </a>
 
-        <a href="https://tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+        <a href="https://www.tiktok.com/@nain.nz?_t=ZS-90QIEmtoBZE&_r=1" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
           <lord-icon
             src="https://cdn.lordicon.com/zmvgugmh.json"
             trigger="hover"
             state="hover-draw"
-            colors="primary:#ffffff,secondary:#ffffff"
-            style="width: 25px; height: 25px"
-          >
-          </lord-icon>
-        </a>
-
-        <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer" aria-label="Maps">
-          <lord-icon
-            src="https://cdn.lordicon.com/onmwuuox.json"
-            trigger="hover"
             colors="primary:#ffffff,secondary:#ffffff"
             style="width: 25px; height: 25px"
           >

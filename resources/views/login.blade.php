@@ -244,12 +244,12 @@
         <div class="contact-section">
             <p class="contact-title">Kontak Kami</p>
             <div class="social-icons">
-                <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                <a href="https://wa.me/message/PHPRQOCZTB44G1 " target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
                     <lord-icon src="https://cdn.lordicon.com/dnphlhar.json" trigger="morph" state="morph-circle"
                         colors="primary:#121331,secondary:#000000" style="width: 25px; height: 25px">
                     </lord-icon>
                 </a>
-                <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <a href="https://www.instagram.com/nain.nz?igsh=aGwwbG53MTl3Zms2" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                     <lord-icon src="https://cdn.lordicon.com/tgyvxauj.json" trigger="hover" state="hover-rotate"
                         colors="primary:#121331,secondary:#000000" style="width: 25px; height: 25px">
                     </lord-icon>
