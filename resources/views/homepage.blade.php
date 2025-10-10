@@ -22,20 +22,17 @@
     <nav class="sticky top-0 z-[100] w-full border-b border-gray-100 bg-white/95 backdrop-blur-sm">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="relative flex h-16 items-center justify-between">
-                <!-- Bagian kiri: Logo dan Nama Website -->
-                <div class="flex shrink-0 items-center space-x-2 sm:space-x-3"> <!-- Reduced space -->
+                <div class="flex shrink-0 items-center space-x-2 sm:space-x-3">
                     <div class="flex items-center" href="/">
                         <img class="block h-8 w-auto cursor-pointer" decoding="async" height="35" loading="lazy"
                             src="{{ asset('img/logo_campnova_blue.svg') }}" width="35" />
                     </div>
                     <span class="text-xl sm:text-2xl font-bold text-black select-none sm:font-semibold">
-                        <!-- Reduced text size for mobile -->
-                        Campnova
+                        Nain
                     </span>
                 </div>
 
-                <!-- Bagian kanan: Tombol-tombol -->
-                <div class="flex items-center space-x-1 sm:space-x-2"> <!-- Reduced space between buttons -->
+                <div class="flex items-center space-x-1 sm:space-x-2">
                     <a class="rounded-md border border-gray-300 px-2.5 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-100 min-w-[60px] sm:min-w-[70px] text-center"
                         href="/login">
                         Masuk

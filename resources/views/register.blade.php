@@ -9,6 +9,9 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@1.3.1/dist/trix.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -82,11 +85,13 @@
         }
 
         .date-input-container input[type="date"] {
-            color: #6b7280; /* Placeholder color */
+            color: #6b7280;
+            /* Placeholder color */
         }
 
         .date-input-container input[type="date"]:valid {
-            color: #111827; /* Text color when date is selected */
+            color: #111827;
+            /* Text color when date is selected */
         }
 
         .date-input-container::after {
@@ -100,8 +105,8 @@
             font-size: 0.875rem;
         }
 
-        .date-input-container input[type="date"]:focus + .date-placeholder,
-        .date-input-container input[type="date"]:valid + .date-placeholder {
+        .date-input-container input[type="date"]:focus+.date-placeholder,
+        .date-input-container input[type="date"]:valid+.date-placeholder {
             display: none;
         }
 
@@ -266,68 +271,48 @@
                 @enderror
             </div>
 
-            <div class="date-input-container relative rounded-lg shadow-sm">
-    <label class="sr-only" for="birthdate">Tanggal Lahir</label>
-    <div class="relative">
-        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none">
-                <path d="M19 4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6C21 4.89543 20.1046 4 19 4Z"
-                      stroke="currentColor" stroke-width="2"/>
-                <path d="M16 2V6" stroke="currentColor" stroke-width="2"/>
-                <path d="M8 2V6" stroke="currentColor" stroke-width="2"/>
-                <path d="M3 10H21" stroke="currentColor" stroke-width="2"/>
-                <path d="M8 14H16" stroke="currentColor" stroke-width="2"/>
-            </svg>
-        </div>
+            <div>
+                <label class="sr-only" for="birthdate">Tanggal Lahir</label>
+                <div class="relative max-w-sm">
+                    <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none text-gray-400">
+                        <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                        </svg>
+                    </div>
 
-        <input id="birthdate" name="birthdate" type="date" required autocomplete="bday"
-               value="{{ old('birthdate') }}"
-               class="input-focus block w-full pl-9 pr-3 py-2.5 rounded-lg text-sm text-gray-900"
-               onfocus="this.showPicker()" />
+                    <input datepicker id="birthdate" name="birthdate" type="text" value="{{ old('birthdate') }}"
+                        placeholder="Pilih tanggal"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5"
+                        autocomplete="bday" required />
+                </div>
+
+                @error('birthdate')
+                    <p class="error-message">{{ $message }}</p>
+                @enderror
+            </div>
+
+
+            @error('birthdate')
+                <p class="error-message">{{ $message }}</p>
+            @enderror
     </div>
 
-    @error('birthdate')
-        <p class="error-message">{{ $message }}</p>
-    @enderror
-</div>
 
-
-            <button type="submit"
-                class="w-full bg-[#b9e4f4] hover:bg-[#a0d3e9] text-gray-900 font-medium py-2.5 rounded-lg 
+    <button type="submit"
+        class="w-full bg-[#b9e4f4] hover:bg-[#a0d3e9] text-gray-900 font-medium py-2.5 rounded-lg 
                focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1 text-sm transition-colors">
-                Register
-            </button>
-        </form>
+        Register
+    </button>
+    </form>
 
-        <div class="flex justify-center mt-3 text-xs">
-            <a href="/login" class="text-blue-600 hover:underline text-center">
-                Masuk
-            </a>
-        </div>
+    <div class="flex justify-center mt-3 text-xs">
+        <a href="/login" class="text-blue-600 hover:underline text-center">
+            Masuk
+        </a>
     </div>
-
-    <script>
-    const birthdateInput = document.getElementById('birthdate');
-
-    // Pastikan picker muncul saat fokus
-    birthdateInput.addEventListener('focus', function() {
-        this.showPicker();
-    });
-
-    // Ganti warna teks saat user memilih tanggal
-    birthdateInput.addEventListener('change', function() {
-        if (this.value) {
-            this.style.color = '#111827'; // teks tanggal muncul
-        } else {
-            this.style.color = ''; // fallback default
-        }
-    });
-
-    // Jika halaman reload dan value sudah ada (dari old()), tampilkan teks
-    if (birthdateInput.value) {
-        birthdateInput.style.color = '#111827';
-    }
-</script>
+    </div>
 
 </body>
 
