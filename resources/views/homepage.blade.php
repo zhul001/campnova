@@ -37,12 +37,10 @@
                 <!-- Bagian kanan: Tombol-tombol -->
                 <div class="flex items-center space-x-1 sm:space-x-2"> <!-- Reduced space between buttons -->
                     <a class="rounded-md border border-gray-300 px-2.5 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-100 min-w-[60px] sm:min-w-[70px] text-center"
-                        <!-- Reduced padding and added min-width -->
                         href="/login">
                         Masuk
                     </a>
                     <a class="rounded-md bg-[#5daac7] hover:bg-[#4b8fae] text-white px-2.5 py-1.5 text-xs font-medium focus:outline-none min-w-[60px] sm:min-w-[70px] text-center"
-                        <!-- Reduced padding and added min-width -->
                         href="/register">
                         Daftar
                     </a>

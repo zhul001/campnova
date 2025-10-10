@@ -266,36 +266,31 @@
                 @enderror
             </div>
 
-            <div class="date-input-container">
-                <label class="sr-only" for="birthdate">Date of Birth</label>
-                <div class="relative rounded-lg shadow-sm">
-                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                            fill="none">
-                            <path
-                                d="M19 4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6C21 4.89543 20.1046 4 19 4Z"
-                                stroke="currentColor" stroke-width="2" />
-                            <path d="M16 2V6" stroke="currentColor" stroke-width="2" />
-                            <path d="M8 2V6" stroke="currentColor" stroke-width="2" />
-                            <path d="M3 10H21" stroke="currentColor" stroke-width="2" />
-                            <path d="M8 14H16" stroke="currentColor" stroke-width="2" />
-                        </svg>
-                    </div>
-                    <input id="birthdate" name="birthdate" type="date" required autocomplete="bday"
-                        placeholder="Tanggal Lahir" 
-                        value="{{ old('birthdate') }}"
-                        class="input-focus block w-full pl-9 pr-3 py-2.5 rounded-lg placeholder-gray-400 text-sm" 
-                        onfocus="this.showPicker()"
-                        style="color: transparent;"
-                        onchange="this.style.color = '#111827';" />
-                    <span class="date-placeholder absolute left-9 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm pointer-events-none">
-                        Tanggal Lahir
-                    </span>
-                </div>
-                @error('birthdate')
-                    <p class="error-message">{{ $message }}</p>
-                @enderror
-            </div>
+            <div class="date-input-container relative rounded-lg shadow-sm">
+    <label class="sr-only" for="birthdate">Tanggal Lahir</label>
+    <div class="relative">
+        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M19 4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6C21 4.89543 20.1046 4 19 4Z"
+                      stroke="currentColor" stroke-width="2"/>
+                <path d="M16 2V6" stroke="currentColor" stroke-width="2"/>
+                <path d="M8 2V6" stroke="currentColor" stroke-width="2"/>
+                <path d="M3 10H21" stroke="currentColor" stroke-width="2"/>
+                <path d="M8 14H16" stroke="currentColor" stroke-width="2"/>
+            </svg>
+        </div>
+
+        <input id="birthdate" name="birthdate" type="date" required autocomplete="bday"
+               value="{{ old('birthdate') }}"
+               class="input-focus block w-full pl-9 pr-3 py-2.5 rounded-lg text-sm text-gray-900"
+               onfocus="this.showPicker()" />
+    </div>
+
+    @error('birthdate')
+        <p class="error-message">{{ $message }}</p>
+    @enderror
+</div>
+
 
             <button type="submit"
                 class="w-full bg-[#b9e4f4] hover:bg-[#a0d3e9] text-gray-900 font-medium py-2.5 rounded-lg 
@@ -312,43 +307,28 @@
     </div>
 
     <script>
-        document.getElementById('togglePassword').addEventListener('click', function() {
-            const passwordInput = document.getElementById('password');
-            const eyeIcon = document.getElementById('eyeIcon');
-            const eyeSlashIcon = document.getElementById('eyeSlashIcon');
-            const toggleButton = document.getElementById('togglePassword');
+    const birthdateInput = document.getElementById('birthdate');
 
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                eyeIcon.classList.add('hidden');
-                eyeSlashIcon.classList.remove('hidden');
-                toggleButton.setAttribute('aria-label', 'Hide password');
-            } else {
-                passwordInput.type = 'password';
-                eyeIcon.classList.remove('hidden');
-                eyeSlashIcon.classList.add('hidden');
-                toggleButton.setAttribute('aria-label', 'Show password');
-            }
-        });
+    // Pastikan picker muncul saat fokus
+    birthdateInput.addEventListener('focus', function() {
+        this.showPicker();
+    });
 
-        const birthdateInput = document.getElementById('birthdate');
-        const datePlaceholder = document.querySelector('.date-placeholder');
-        
-        birthdateInput.addEventListener('focus', function() {
-            datePlaceholder.style.display = 'none';
-        });
-        
-        birthdateInput.addEventListener('blur', function() {
-            if (!this.value) {
-                datePlaceholder.style.display = 'block';
-            }
-        });
-        
-        if (birthdateInput.value) {
-            datePlaceholder.style.display = 'none';
-            birthdateInput.style.color = '#111827';
+    // Ganti warna teks saat user memilih tanggal
+    birthdateInput.addEventListener('change', function() {
+        if (this.value) {
+            this.style.color = '#111827'; // teks tanggal muncul
+        } else {
+            this.style.color = ''; // fallback default
         }
-    </script>
+    });
+
+    // Jika halaman reload dan value sudah ada (dari old()), tampilkan teks
+    if (birthdateInput.value) {
+        birthdateInput.style.color = '#111827';
+    }
+</script>
+
 </body>
 
 </html>
