@@ -5,10 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Campnova | Belajar & Tryout</title>
-    <link rel="icon" href="{{ Vite::asset('resources/img/logo_campnova_blue_f.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset('img/logo_campnova_blue_f.png') }}" type="image/png">
 
-    @vite(['resources/css/app.css', 'resources/css/style.css'])
+    @vite(['resources/css/app.css'])
 
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
 </head>

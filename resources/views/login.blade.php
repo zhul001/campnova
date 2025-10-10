@@ -3,20 +3,21 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Login - Campnova</title>
-    <link rel="stylesheet" href="{{ asset('build/assets/app.css') }}">
-    <img src="{{ asset('img/logo_campnova_blue.svg') }}" alt="logo">
-    <lottie-player src="{{ asset('animations/cat-playing.json') }}"></lottie-player>
-    @vite('resources/css/app.css')
+    <link rel="icon" href="{{ asset('img/logo_campnova_blue_f.png') }}" type="image/png">
+
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@1.3.1/dist/trix.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@1.3.1/dist/trix.css">
-    <script type="text/javascript" src="https://unpkg.com/trix@1.3.1/dist/trix.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/trix@1.3.1/dist/trix.js"></script>
+    
     <style>
         body {
             font-family: 'Inter', sans-serif;

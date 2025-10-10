@@ -5,18 +5,19 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Exam - Campnova</title>
-    <link rel="icon" href="{{ Vite::asset('resources/img/logo_campnova_blue_f.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset('img/logo_campnova_blue_f.png') }}" type="image/png">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="{{ Vite::asset('resources/css/exam.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/exam.css') }}">
 
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script type="text/javascript" src="https://unpkg.com/trix@1.3.1/dist/trix.js"></script>
+</head>
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <style>

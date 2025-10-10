@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Campnova - Raih Kampus Idamanmu</title>
-    <link rel="icon" href="{{ Vite::asset('resources/img/logo_campnova_blue_f.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset('img/logo_campnova_blue_f.png') }}" type="image/png">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
