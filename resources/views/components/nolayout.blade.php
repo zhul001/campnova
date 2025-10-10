@@ -14,9 +14,8 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
 
-    {{-- Gambar & animasi pakai Vite::asset --}}
-    <img src="{{ Vite::asset('resources/img/logo_campnova_blue.svg') }}" alt="logo">
-    <lottie-player src="{{ Vite::asset('resources/animations/cat-playing.json') }}"></lottie-player>
+    <img src="{{ asset('img/logo_campnova_blue_f.png') }}" alt="logo">
+    <lottie-player src="{{asset('animations/cat-playing.json') }}"></lottie-player>
 </head>
 
 <body class="overflow-hidden bg-white">
