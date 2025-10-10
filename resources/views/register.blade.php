@@ -108,7 +108,7 @@
     </div>
 
     <div class="flex items-center mt-6 mb-4 sm:mt-10">
-        <img src="{{ asset('img/logo_campnova_blue_f.png') }}" alt="campnova logo" class="w-12 h-12 mr-2">
+        <img src="{{ asset('img/logo_campnova_blue.png') }}" alt="campnova logo" class="w-12 h-12 mr-2">
         <span class="text-xl font-semibold text-gray-800">Campnova</span>
     </div>
 
