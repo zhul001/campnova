@@ -10,7 +10,9 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title>Campnova | Belajar & Tryout</title>
-    <link rel="icon" href="{{ asset('logo_campnova_blue_f.png') }}" type="image/png">
+    <link rel="stylesheet" href="{{ asset('build/assets/app.css') }}">
+    <img src="{{ asset('img/logo_campnova_blue.svg') }}" alt="logo">
+    <lottie-player src="{{ asset('animations/cat-playing.json') }}"></lottie-player>
     @vite('resources/css/app.css')
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>

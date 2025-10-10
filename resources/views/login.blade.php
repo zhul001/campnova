@@ -5,7 +5,9 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Login - Campnova</title>
-    <link rel="icon" href="{{ asset('logo_campnova_blue_f.png') }}" type="image/png">
+    <link rel="stylesheet" href="{{ asset('build/assets/app.css') }}">
+    <img src="{{ asset('img/logo_campnova_blue.svg') }}" alt="logo">
+    <lottie-player src="{{ asset('animations/cat-playing.json') }}"></lottie-player>
     @vite('resources/css/app.css')
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -114,14 +116,18 @@
         }
 
         @media (max-width: 768px) {
-            .animation-left, .animation-right {
+
+            .animation-left,
+            .animation-right {
                 width: 180px;
                 height: 180px;
             }
         }
 
         @media (max-width: 480px) {
-            .animation-left, .animation-right {
+
+            .animation-left,
+            .animation-right {
                 width: 180px;
                 height: 180px;
             }
@@ -131,22 +137,12 @@
 
 <body class="min-h-screen flex flex-col items-center p-4">
     <div class="animation-container animation-left">
-        <lottie-player 
-            src="/animations/cute-bird.json" 
-            background="transparent" 
-            speed="1" 
-            loop 
-            autoplay>
+        <lottie-player src="/animations/cute-bird.json" background="transparent" speed="1" loop autoplay>
         </lottie-player>
     </div>
-    
+
     <div class="animation-container animation-right">
-        <lottie-player 
-            src="/animations/among-as.json" 
-            background="transparent" 
-            speed="1" 
-            loop 
-            autoplay>
+        <lottie-player src="/animations/among-as.json" background="transparent" speed="1" loop autoplay>
         </lottie-player>
     </div>
 
@@ -155,7 +151,8 @@
         <span class="text-xl font-semibold text-gray-800">Campnova</span>
     </div>
 
-    <div class="w-full max-w-sm bg-white rounded-xl p-6 
+    <div
+        class="w-full max-w-sm bg-white rounded-xl p-6 
            sm:border sm:border-gray-200 sm:shadow-lg relative z-10">
         <p class="text-center text-gray-600 mb-4 text-xs sm:text-sm">
             Lanjutkan dengan Login
@@ -232,8 +229,7 @@
             <a href="{{ route('password.request') }}" class="text-blue-600 hover:underline ">
                 Lupa password?
             </a>
-            <a href="/register"
-                class="text-blue-600 hover:underline rounded">
+            <a href="/register" class="text-blue-600 hover:underline rounded">
                 Daftar
             </a>
         </div>
