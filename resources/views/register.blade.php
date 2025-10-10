@@ -268,109 +268,46 @@
                 @enderror
             </div>
 
-            <div class="relative rounded-lg shadow-sm">
-                <label class="sr-only" for="birthdate">Tanggal Lahir</label>
-                <div class="flex gap-2">
-                    <select id="day" class="input-focus block w-1/3 py-2.5 rounded-lg text-sm text-gray-900"
-                        required>
-                        <option value="">Hari</option>
-                    </select>
-
-                    <select id="month" class="input-focus block w-1/3 py-2.5 rounded-lg text-sm text-gray-900"
-                        required>
-                        <option value="">Bulan</option>
-                        <option value="01">Januari</option>
-                        <option value="02">Februari</option>
-                        <option value="03">Maret</option>
-                        <option value="04">April</option>
-                        <option value="05">Mei</option>
-                        <option value="06">Juni</option>
-                        <option value="07">Juli</option>
-                        <option value="08">Agustus</option>
-                        <option value="09">September</option>
-                        <option value="10">Oktober</option>
-                        <option value="11">November</option>
-                        <option value="12">Desember</option>
-                    </select>
-
-                    <select id="year" class="input-focus block w-1/3 py-2.5 rounded-lg text-sm text-gray-900"
-                        required>
-                        <option value="">Tahun</option>
-                    </select>
+            <div>
+                <label for="birthdate" class="block text-sm font-medium text-gray-900">Tanggal lahir</label>
+                <div class="mt-2">
+                    <input type="date" name="birthdate" id="birthdate" autocomplete="bday" required
+                        value="{{ old('birthdate') }}"
+                        class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 focus:outline-none sm:text-sm border border-gray-300" />
+                    @error('birthdate')
+                        <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                    @enderror
                 </div>
-
-                <!-- Hidden input agar backend tetap menerima 'birthdate' -->
-                <input type="hidden" id="birthdate" name="birthdate" value="{{ old('birthdate') }}">
-
-                @error('birthdate')
-                    <p class="error-message">{{ $message }}</p>
-                @enderror
             </div>
 
-            @error('birthdate')
-                <p class="error-message">{{ $message }}</p>
-            @enderror
-    </div>
 
-
-    <button type="submit"
-        class="w-full bg-[#b9e4f4] hover:bg-[#a0d3e9] text-gray-900 font-medium py-2.5 rounded-lg 
+            <button type="submit"
+                class="w-full bg-[#b9e4f4] hover:bg-[#a0d3e9] text-gray-900 font-medium py-2.5 rounded-lg 
                focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1 text-sm transition-colors">
-        Register
-    </button>
-    </form>
+                Register
+            </button>
+        </form>
 
-    <div class="flex justify-center mt-3 text-xs">
-        <a href="/login" class="text-blue-600 hover:underline text-center">
-            Masuk
-        </a>
-    </div>
+        <div class="flex justify-center mt-3 text-xs">
+            <a href="/login" class="text-blue-600 hover:underline text-center">
+                Masuk
+            </a>
+        </div>
     </div>
 
     <script>
-        const daySelect = document.getElementById('day');
-        const monthSelect = document.getElementById('month');
-        const yearSelect = document.getElementById('year');
-        const birthdateInput = document.getElementById('birthdate');
+        const togglePassword = document.getElementById("togglePassword");
+        const passwordInput = document.getElementById("password");
 
-        // Buat daftar hari (1–31)
-        for (let i = 1; i <= 31; i++) {
-            const option = document.createElement('option');
-            option.value = i.toString().padStart(2, '0');
-            option.textContent = i;
-            daySelect.appendChild(option);
-        }
-
-        // Buat daftar tahun (2005 - 1960)
-        const currentYear = new Date().getFullYear();
-        for (let y = currentYear - 10; y >= 1960; y--) {
-            const option = document.createElement('option');
-            option.value = y;
-            option.textContent = y;
-            yearSelect.appendChild(option);
-        }
-
-        // Gabungkan nilai jadi YYYY-MM-DD
-        function updateBirthdate() {
-            const day = daySelect.value;
-            const month = monthSelect.value;
-            const year = yearSelect.value;
-            if (day && month && year) {
-                birthdateInput.value = `${year}-${month}-${day}`;
+        togglePassword.addEventListener("click", () => {
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                togglePassword.textContent = "Hide";
+            } else {
+                passwordInput.type = "password";
+                togglePassword.textContent = "Show";
             }
-        }
-
-        daySelect.addEventListener('change', updateBirthdate);
-        monthSelect.addEventListener('change', updateBirthdate);
-        yearSelect.addEventListener('change', updateBirthdate);
-
-        // Isi ulang dropdown jika ada old() value dari Laravel
-        if (birthdateInput.value) {
-            const [year, month, day] = birthdateInput.value.split('-');
-            yearSelect.value = year;
-            monthSelect.value = month;
-            daySelect.value = day;
-        }
+        });
     </script>
 
 </body>
