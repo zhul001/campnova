@@ -9,9 +9,6 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
-
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@1.3.1/dist/trix.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -271,28 +268,44 @@
                 @enderror
             </div>
 
-            <div>
+            <div class="relative rounded-lg shadow-sm">
                 <label class="sr-only" for="birthdate">Tanggal Lahir</label>
-                <div class="relative max-w-sm">
-                    <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none text-gray-400">
-                        <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-                        </svg>
-                    </div>
+                <div class="flex gap-2">
+                    <select id="day" class="input-focus block w-1/3 py-2.5 rounded-lg text-sm text-gray-900"
+                        required>
+                        <option value="">Hari</option>
+                    </select>
 
-                    <input datepicker id="birthdate" name="birthdate" type="text" value="{{ old('birthdate') }}"
-                        placeholder="Pilih tanggal"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5"
-                        autocomplete="bday" required />
+                    <select id="month" class="input-focus block w-1/3 py-2.5 rounded-lg text-sm text-gray-900"
+                        required>
+                        <option value="">Bulan</option>
+                        <option value="01">Januari</option>
+                        <option value="02">Februari</option>
+                        <option value="03">Maret</option>
+                        <option value="04">April</option>
+                        <option value="05">Mei</option>
+                        <option value="06">Juni</option>
+                        <option value="07">Juli</option>
+                        <option value="08">Agustus</option>
+                        <option value="09">September</option>
+                        <option value="10">Oktober</option>
+                        <option value="11">November</option>
+                        <option value="12">Desember</option>
+                    </select>
+
+                    <select id="year" class="input-focus block w-1/3 py-2.5 rounded-lg text-sm text-gray-900"
+                        required>
+                        <option value="">Tahun</option>
+                    </select>
                 </div>
+
+                <!-- Hidden input agar backend tetap menerima 'birthdate' -->
+                <input type="hidden" id="birthdate" name="birthdate" value="{{ old('birthdate') }}">
 
                 @error('birthdate')
                     <p class="error-message">{{ $message }}</p>
                 @enderror
             </div>
-
 
             @error('birthdate')
                 <p class="error-message">{{ $message }}</p>
@@ -313,6 +326,52 @@
         </a>
     </div>
     </div>
+
+    <script>
+        const daySelect = document.getElementById('day');
+        const monthSelect = document.getElementById('month');
+        const yearSelect = document.getElementById('year');
+        const birthdateInput = document.getElementById('birthdate');
+
+        // Buat daftar hari (1–31)
+        for (let i = 1; i <= 31; i++) {
+            const option = document.createElement('option');
+            option.value = i.toString().padStart(2, '0');
+            option.textContent = i;
+            daySelect.appendChild(option);
+        }
+
+        // Buat daftar tahun (2005 - 1960)
+        const currentYear = new Date().getFullYear();
+        for (let y = currentYear - 10; y >= 1960; y--) {
+            const option = document.createElement('option');
+            option.value = y;
+            option.textContent = y;
+            yearSelect.appendChild(option);
+        }
+
+        // Gabungkan nilai jadi YYYY-MM-DD
+        function updateBirthdate() {
+            const day = daySelect.value;
+            const month = monthSelect.value;
+            const year = yearSelect.value;
+            if (day && month && year) {
+                birthdateInput.value = `${year}-${month}-${day}`;
+            }
+        }
+
+        daySelect.addEventListener('change', updateBirthdate);
+        monthSelect.addEventListener('change', updateBirthdate);
+        yearSelect.addEventListener('change', updateBirthdate);
+
+        // Isi ulang dropdown jika ada old() value dari Laravel
+        if (birthdateInput.value) {
+            const [year, month, day] = birthdateInput.value.split('-');
+            yearSelect.value = year;
+            monthSelect.value = month;
+            daySelect.value = day;
+        }
+    </script>
 
 </body>
 
