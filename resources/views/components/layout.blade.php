@@ -9,6 +9,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
+    <link rel="icon" href="{{ asset('img/logo_campnova_blue_f.png') }}" type="image/png">
 
     <title>Campnova | Belajar & Tryout</title>
 
@@ -20,9 +21,6 @@
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@1.3.1/dist/trix.css">
     <script type="text/javascript" src="https://unpkg.com/trix@1.3.1/dist/trix.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-
-    <img src="{{ asset('img/logo_campnova_blue_f.png') }}" alt="logo">
-    <lottie-player src="{{asset('animations/cat-playing.json') }}"></lottie-player>
 </head>
 
 <body class="bg-white font-[Inter,sans-serif] min-h-screen flex flex-col">
