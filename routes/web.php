@@ -57,6 +57,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/tryout/{id}/toggle-status', [TryoutController::class, 'toggleStatus'])->name('tryout.toggle-status');
     Route::post('/tryout/{id}/reset', [TryoutController::class, 'reset'])->name('tryout.reset');
     Route::get('/tryout/{tryout}/result', [HasilTryoutController::class, 'show'])->name('tryout.result');
+    Route::get('/tryout/{tryoutId}/hasil', [HasilTryoutController::class, 'adminHasilTryout'])->name('admin.hasil_tryout');
     Route::get('/tryout/{tryoutId}/peringkat', [HasilTryoutController::class, 'leaderboard'])->name('tryout.leaderboard');
     Route::get('/tryout/{tryout_id}/{subtes_id}/pembahasan', [PembahasanController::class, 'show'])->name('pembahasan.show');
 });

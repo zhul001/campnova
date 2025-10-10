@@ -70,4 +70,21 @@ class HasilTryoutController extends Controller
         'totalParticipants' => $totalParticipants
     ]);
 }
+
+public function adminHasilTryout($tryoutId)
+    {
+        // Get tryout data
+        $tryout = Tryout::findOrFail($tryoutId);
+        
+        // Get all participants' results for this tryout
+        $hasilTryouts = HasilTryout::where('tryout_id', $tryoutId)
+            ->with(['user', 'hasilSubtes.subtes'])
+            ->orderBy('total_score', 'DESC')
+            ->get();
+            
+        return view('admin.hasil_tryout', [
+            'tryout' => $tryout,
+            'hasilTryouts' => $hasilTryouts
+        ]);
+    }
 }

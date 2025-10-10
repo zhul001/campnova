@@ -1,13 +1,19 @@
 <x-layout>
     <div class="max-w-4xl mx-auto mt-10">
-        <div class="mb-6">
-            <h2 class="text-2xl font-bold text-gray-800">
-                Subtes untuk Tryout: <span class="text-blue-600">{{ $tryout->judul_paket }}</span>
-            </h2>
-            <p class="text-sm text-gray-600">
-                Tanggal: {{ \Carbon\Carbon::parse($tryout->tanggal_mulai)->translatedFormat('d F Y') }} -
-                {{ \Carbon\Carbon::parse($tryout->tanggal_selesai)->translatedFormat('d F Y') }}
-            </p>
+        <div class="mb-6 flex justify-between items-center">
+            <div>
+                <h2 class="text-2xl font-bold text-gray-800">
+                    Subtes untuk Tryout: <span class="text-blue-600">{{ $tryout->judul_paket }}</span>
+                </h2>
+                <p class="text-sm text-gray-600">
+                    Tanggal: {{ \Carbon\Carbon::parse($tryout->tanggal_mulai)->translatedFormat('d F Y') }} -
+                    {{ \Carbon\Carbon::parse($tryout->tanggal_selesai)->translatedFormat('d F Y') }}
+                </p>
+            </div>
+            <a href="{{ route('admin.hasil_tryout', ['tryoutId' => $tryout->id]) }}"
+                class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 font-medium">
+                Lihat Nilai
+            </a>
         </div>
 
         <div class="bg-white shadow-md rounded-lg overflow-x-auto">
@@ -26,8 +32,7 @@
                     @foreach ($subtes as $index => $item)
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $index + 1 }}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $item->tipe_subtes_id }}
-                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $item->tipe_subtes_id }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $item->judul_subtes }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                 {{ \Carbon\CarbonInterval::seconds($item->timer)->cascade()->format('%I:%S') }}</td>
