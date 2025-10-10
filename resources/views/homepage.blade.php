@@ -22,21 +22,27 @@
     <nav class="sticky top-0 z-[100] w-full border-b border-gray-100 bg-white/95 backdrop-blur-sm">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="relative flex h-16 items-center justify-between">
-                <div class="flex shrink-0 items-center space-x-4">
+                <!-- Bagian kiri: Logo dan Nama Website -->
+                <div class="flex shrink-0 items-center space-x-2 sm:space-x-3"> <!-- Reduced space -->
                     <div class="flex items-center" href="/">
                         <img class="block h-8 w-auto cursor-pointer" decoding="async" height="35" loading="lazy"
                             src="{{ asset('img/logo_campnova_blue.svg') }}" width="35" />
                     </div>
-                    <span class="text-3xl font-bold text-black select-none sm:font-semibold">
+                    <span class="text-xl sm:text-2xl font-bold text-black select-none sm:font-semibold">
+                        <!-- Reduced text size for mobile -->
                         Campnova
                     </span>
                 </div>
-                <div class="flex items-center ml-auto mr-4 space-x-2 sm:space-x-1">
-                    <a class="rounded-md border border-gray-300 px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-100"
+
+                <!-- Bagian kanan: Tombol-tombol -->
+                <div class="flex items-center space-x-1 sm:space-x-2"> <!-- Reduced space between buttons -->
+                    <a class="rounded-md border border-gray-300 px-2.5 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-100 min-w-[60px] sm:min-w-[70px] text-center"
+                        <!-- Reduced padding and added min-width -->
                         href="/login">
                         Masuk
                     </a>
-                    <a class="rounded-md bg-[#5daac7] hover:bg-[#4b8fae] text-white px-3 py-1.5 text-xs font-medium focus:outline-none"
+                    <a class="rounded-md bg-[#5daac7] hover:bg-[#4b8fae] text-white px-2.5 py-1.5 text-xs font-medium focus:outline-none min-w-[60px] sm:min-w-[70px] text-center"
+                        <!-- Reduced padding and added min-width -->
                         href="/register">
                         Daftar
                     </a>
