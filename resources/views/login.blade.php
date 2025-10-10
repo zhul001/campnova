@@ -173,7 +173,7 @@
                         </svg>
                     </div>
                     <input id="email" name="email" type="email" required autocomplete="email"
-                        placeholder="alamat email" value="{{ old('email') }}"
+                        placeholder="Alamat Email" value="{{ old('email') }}"
                         class="input-focus block w-full pl-10 pr-3 py-3 rounded-lg placeholder-gray-400 text-sm" />
                 </div>
                 @error('email')
@@ -237,7 +237,7 @@
 
         <div class="ds-divider">
             <div class="ds-divider__left"></div>
-            <div class="ds-divider__content">OR</div>
+            <div class="ds-divider__content">Butuh bantuan?</div>
             <div class="ds-divider__right"></div>
         </div>
 

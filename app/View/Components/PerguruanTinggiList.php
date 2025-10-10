@@ -22,6 +22,7 @@ class PerguruanTinggiList extends Component
             ['id' => 'itb', 'label' => 'Institut Teknologi Bandung'],
             ['id' => 'ugm', 'label' => 'Universitas Gadjah Mada'],
             ['id' => 'unej', 'label' => 'Universitas Jember'],
+            ['id' => 'uny', 'label' => 'Universitas Negeri Yogyakarta'],
         ];
 
         // Urutkan berdasarkan label (nama PTN) secara ascending

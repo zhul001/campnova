@@ -41,12 +41,6 @@
                         Daftar
                     </a>
                 </div>
-                <div class="flex items-center sm:hidden">
-                    <button aria-expanded="false" aria-label="Open main menu"
-                        class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 focus:outline-none"
-                        id="mobile-menu-button" type="button">
-                    </button>
-                </div>
             </div>
         </div>
     </nav>

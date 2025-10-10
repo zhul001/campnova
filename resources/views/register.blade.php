@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Login - Campnova</title>
+    <title>Register - Campnova</title>
     <link rel="icon" href="{{ asset('img/logo_campnova_blue_f.png') }}" type="image/png">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -12,11 +12,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@1.3.1/dist/trix.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script type="text/javascript" src="https://unpkg.com/trix@1.3.1/dist/trix.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -77,7 +80,6 @@
         }
 
         @media (max-width: 768px) {
-
             .animation-left,
             .animation-right {
                 width: 180px;
@@ -86,12 +88,17 @@
         }
 
         @media (max-width: 480px) {
-
             .animation-left,
             .animation-right {
                 width: 180px;
                 height: 180px;
             }
+        }
+
+        .center-link {
+            display: flex;
+            justify-content: center;
+            margin-top: 0.75rem;
         }
     </style>
 </head>
@@ -112,9 +119,7 @@
         <span class="text-xl font-semibold text-gray-800">Campnova</span>
     </div>
 
-    <div
-        class="w-full max-w-sm bg-white rounded-xl p-6 
-           sm:border sm:border-gray-200 sm:shadow-lg relative z-10">
+    <div class="w-full max-w-sm bg-white rounded-xl p-6 sm:border sm:border-gray-200 sm:shadow-lg relative z-10">
         <p class="text-center text-gray-600 mb-4 text-xs sm:text-sm">
             Daftar dan Mulai Jelajahi
         </p>
@@ -168,7 +173,7 @@
             </div>
 
             <div>
-                <label class="sr-only" for="email">Alamat email</label>
+                <label class="sr-only" for="email">Alamat Email</label>
                 <div class="relative rounded-lg shadow-sm">
                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
@@ -179,7 +184,7 @@
                         </svg>
                     </div>
                     <input id="email" name="email" type="email" required autocomplete="email"
-                        placeholder="Email address" value="{{ old('email') }}"
+                        placeholder="Alamat Email" value="{{ old('email') }}"
                         class="input-focus block w-full pl-9 pr-3 py-2.5 rounded-lg placeholder-gray-400 text-sm" />
                 </div>
                 @error('email')
@@ -212,10 +217,10 @@
                                 d="M0.853566 11.0498C3.9301 6.63986 7.93993 4.2998 11.9841 4.2998C16.7263 4.2998 20.7897 7.38605 23.178 11.0747L23.1793 11.0767C23.3565 11.3522 23.4509 11.673 23.4509 12.0005C23.4509 12.3273 23.3571 12.6472 23.1806 12.9222C20.7935 16.6596 16.7554 19.6998 11.9841 19.6998C7.16233 19.6998 3.20136 16.6654 0.820516 12.9394C0.639165 12.6577 0.545108 12.3286 0.550199 11.9935C0.555305 11.6575 0.660199 11.3301 0.851082 11.0534L0.853566 11.0498ZM2.49107 12.0246C4.64797 15.3395 8.05011 17.8002 11.9841 17.8002C15.8763 17.8002 19.3535 15.3248 21.5137 12.0017C19.3439 8.71129 15.8389 6.2002 11.9841 6.2002C8.75169 6.2002 5.30085 8.05427 2.49107 12.0246ZM7.8 11.9998C7.8 9.68021 9.68041 7.7998 12 7.7998C14.3196 7.7998 16.2 9.68021 16.2 11.9998C16.2 14.3194 14.3196 16.1998 12 16.1998C9.68041 16.1998 7.8 14.3194 7.8 11.9998ZM12 9.5332C10.6377 9.5332 9.53334 10.6376 9.53334 11.9999C9.53334 13.3622 10.6377 14.4665 12 14.4665C13.3623 14.4665 14.4667 13.3622 14.4667 11.9999C14.4667 10.6376 13.3623 9.5332 12 9.5332Z"
                                 fill="currentColor"></path>
                         </svg>
-                        <svg id="eyeSlashIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                            viewBox="0 0 24 24" fill="none" class="hidden">
+                        <svg id="eyeSlashIcon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="16"
+                            height="16" viewBox="0 0 24 24" fill="none">
                             <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M2.80769 2.80754C2.41717 3.19807 2.41717 3.83123 2.80769 4.22176L19.7783 21.1923C20.1688 21.5828 20.8019 21.5828 21.1925 21.1923C21.583 20.8018 21.583 20.1686 21.1925 19.7781L4.22191 2.80754C3.83138 2.41702 3.19822 2.41702 2.80769 2.80754ZM0.853566 11.0499C1.81667 9.66931 2.87124 8.49162 3.9897 7.52506L5.33664 8.87201C4.34176 9.71473 3.38404 10.7628 2.49107 12.0246C4.64797 15.3395 8.05011 17.8002 11.9841 17.8002C12.6828 17.8002 13.3682 17.7204 14.0349 17.5703L15.5771 19.1125C14.4412 19.4899 13.238 19.6998 11.9841 19.6998C7.16233 19.6998 3.20136 16.6654 0.820516 12.9394C0.639165 12.6577 0.545108 12.3286 0.550199 11.9935C0.555305 11.6575 0.660199 11.3301 0.851082 11.0534L0.853566 11.0499ZM7.8 11.9998C7.8 11.7895 7.81547 11.5827 7.84532 11.3807L12.6191 16.1545C12.4171 16.1843 12.2103 16.1998 12 16.1998C9.68041 16.1998 7.8 14.3194 7.8 11.9998ZM11.3808 7.84513L16.1547 12.619C16.1845 12.4169 16.2 12.2102 16.2 11.9998C16.2 9.68021 14.3196 7.7998 12 7.7998C11.7896 7.7998 11.5829 7.81527 11.3808 7.84513ZM21.5137 12.0017C20.7374 13.196 19.7909 14.2808 18.7162 15.1805L20.0631 16.5274C21.2822 15.4826 22.335 14.2461 23.1806 12.9222C23.3571 12.6472 23.4509 12.3273 23.4509 12.0005C23.4509 11.673 23.3565 11.3522 23.1793 11.0767L23.178 11.0747C20.7897 7.38605 16.7263 4.2998 11.9841 4.2998C10.7917 4.2998 9.60227 4.50324 8.43887 4.90318L9.97269 6.43699C10.6474 6.27837 11.3204 6.2002 11.9841 6.2002C15.8389 6.2002 19.3439 8.71129 21.5137 12.0017Z"
+                                d="M2.14645 2.14645C2.34171 1.95118 2.65829 1.95118 2.85355 2.14645L21.8536 21.1464C22.0488 21.3417 22.0488 21.6583 21.8536 21.8536C21.6583 22.0488 21.3417 22.0488 21.1464 21.8536L2.14645 2.85355C1.95118 2.65829 1.95118 2.34171 2.14645 2.14645ZM12 4.2998C7.26387 4.2998 3.20052 7.38605 0.812177 11.0747C0.634962 11.3502 0.540894 11.671 0.540894 11.9985C0.540894 12.3253 0.634688 12.6452 0.81197 12.9202C3.19994 16.6596 7.23804 19.6998 12.0093 19.6998C13.8152 19.6998 15.5486 19.2405 17.0752 18.4216L14.7497 16.0961C13.7667 16.5732 12.9056 16.7998 12.0093 16.7998C8.07527 16.7998 4.67312 14.3395 2.51623 11.0246C4.68604 7.71129 8.19109 5.2002 12.0459 5.2002C12.8082 5.2002 13.5564 5.29913 14.2746 5.4811L12 7.7557V4.2998ZM7.8 11.9998C7.8 9.68021 9.68041 7.7998 12 7.7998C12.8401 7.7998 13.6328 8.06129 14.3076 8.51964L12.6092 10.218C12.4033 10.0242 12.2111 9.97427 12 9.97427C10.6377 9.97427 9.53334 11.0786 9.53334 12.441C9.53334 12.6487 9.58338 12.8406 9.77763 13.0466L7.8 11.9998Z"
                                 fill="currentColor"></path>
                         </svg>
                     </button>
@@ -226,22 +231,20 @@
             </div>
 
             <div>
-                <label class="sr-only" for="birthdate">Date of Birth</label>
+                <label for="birthdate" class="sr-only">Tanggal Lahir</label>
                 <div class="relative rounded-lg shadow-sm">
                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                             fill="none">
-                            <path
-                                d="M19 4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6C21 4.89543 20.1046 4 19 4Z"
-                                stroke="currentColor" stroke-width="2" />
-                            <path d="M16 2V6" stroke="currentColor" stroke-width="2" />
-                            <path d="M8 2V6" stroke="currentColor" stroke-width="2" />
-                            <path d="M3 10H21" stroke="currentColor" stroke-width="2" />
-                            <path d="M8 14H16" stroke="currentColor" stroke-width="2" />
+                            <path d="M19 4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6C21 4.89543 20.1046 4 19 4Z" stroke="currentColor" stroke-width="2"/>
+                            <path d="M16 2V6" stroke="currentColor" stroke-width="2"/>
+                            <path d="M8 2V6" stroke="currentColor" stroke-width="2"/>
+                            <path d="M3 10H21" stroke="currentColor" stroke-width="2"/>
+                            <path d="M8 14H16" stroke="currentColor" stroke-width="2"/>
                         </svg>
                     </div>
-                    <input id="birthdate" name="birthdate" type="date" required autocomplete="bday"
-                        placeholder="Tanggal Lahir" value="{{ old('birthdate') }}"
+                    <input id="birthdate" name="birthdate" type="text" placeholder="Tanggal Lahir"
+                        value="{{ old('birthdate') }}"
                         class="input-focus block w-full pl-9 pr-3 py-2.5 rounded-lg placeholder-gray-400 text-sm" />
                 </div>
                 @error('birthdate')
@@ -249,41 +252,32 @@
                 @enderror
             </div>
 
-            <button type="submit"
-                class="w-full bg-[#b9e4f4] hover:bg-[#a0d3e9] text-gray-900 font-medium py-2.5 rounded-lg 
-               focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1 text-sm transition-colors">
-                Register
-            </button>
+            <div class="center-link">
+                <button type="submit"
+                    class="w-full sm:w-auto px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+                    Masuk
+                </button>
+            </div>
         </form>
-
-        <div class="flex justify-between mt-3 text-xs">
-            <a href="{{ route('password.request') }}" class="text-blue-600 hover:underline">
-                Lupa password?
-            </a>
-            <a href="/login" class="text-blue-600 hover:underline">
-                Masuk
-            </a>
-        </div>
     </div>
 
     <script>
-        document.getElementById('togglePassword').addEventListener('click', function() {
-            const passwordInput = document.getElementById('password');
-            const eyeIcon = document.getElementById('eyeIcon');
-            const eyeSlashIcon = document.getElementById('eyeSlashIcon');
-            const toggleButton = document.getElementById('togglePassword');
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+        const eyeIcon = document.getElementById('eyeIcon');
+        const eyeSlashIcon = document.getElementById('eyeSlashIcon');
 
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                eyeIcon.classList.add('hidden');
-                eyeSlashIcon.classList.remove('hidden');
-                toggleButton.setAttribute('aria-label', 'Hide password');
-            } else {
-                passwordInput.type = 'password';
-                eyeIcon.classList.remove('hidden');
-                eyeSlashIcon.classList.add('hidden');
-                toggleButton.setAttribute('aria-label', 'Show password');
-            }
+        togglePassword.addEventListener('click', function () {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            eyeIcon.classList.toggle('hidden');
+            eyeSlashIcon.classList.toggle('hidden');
+        });
+
+        flatpickr("#birthdate", {
+            dateFormat: "Y-m-d",
+            maxDate: "today",
+            defaultDate: "{{ old('birthdate') ?? '' }}",
         });
     </script>
 </body>
