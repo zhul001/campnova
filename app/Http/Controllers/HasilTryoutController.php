@@ -72,19 +72,27 @@ class HasilTryoutController extends Controller
 }
 
 public function adminHasilTryout($tryoutId)
-    {
-        // Get tryout data
-        $tryout = Tryout::findOrFail($tryoutId);
-        
-        // Get all participants' results for this tryout
-        $hasilTryouts = HasilTryout::where('tryout_id', $tryoutId)
-            ->with(['user', 'hasilSubtes.subtes'])
-            ->orderBy('total_score', 'DESC')
+{
+    // Get tryout data
+    $tryout = Tryout::findOrFail($tryoutId);
+    
+    // Get all participants' results for this tryout
+    $hasilTryouts = HasilTryout::where('tryout_id', $tryoutId)
+        ->with(['user']) // hanya load user dulu
+        ->orderBy('total_score', 'DESC')
+        ->get();
+    
+    // Load hasilSubtes untuk setiap user secara manual
+    foreach ($hasilTryouts as $hasilTryout) {
+        $hasilTryout->hasilSubtes = HasilSubtes::where('user_id', $hasilTryout->user_id)
+            ->where('tryout_id', $tryoutId)
+            ->with('subtes')
             ->get();
-            
-        return view('admin.hasil_tryout', [
-            'tryout' => $tryout,
-            'hasilTryouts' => $hasilTryouts
-        ]);
     }
+        
+    return view('admin.hasil_tryout', [
+        'tryout' => $tryout,
+        'hasilTryouts' => $hasilTryouts
+    ]);
+}
 }
