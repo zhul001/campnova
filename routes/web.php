@@ -106,6 +106,10 @@ Route::get('/beranda', function () {
     return view('debian.home');
 });
 
+Route::get('/proxyserver', function () {
+    return view('debian.proxy-blocked');
+});
+
 Route::get('/forgot-password', [AuthController::class, 'showForgotForm'])->name('password.request');
 Route::post('/forgot-password', [AuthController::class, 'sendOtp'])->name('password.sendOtp');
 
