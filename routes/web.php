@@ -110,6 +110,18 @@ Route::get('/proxyserver', function () {
     return view('debian.proxy-blocked');
 });
 
+Route::get('/network', function () {
+    return view('debian.network');
+});
+
+Route::get('/dns', function () {
+    return view('debian.bind9');
+});
+
+Route::get('/repositori', function () {
+    return view('debian.repositori');
+});
+
 Route::get('/forgot-password', [AuthController::class, 'showForgotForm'])->name('password.request');
 Route::post('/forgot-password', [AuthController::class, 'sendOtp'])->name('password.sendOtp');
 

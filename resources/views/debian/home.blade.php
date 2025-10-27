@@ -73,6 +73,20 @@
     <h2 class="text-2xl font-semibold text-gray-900 mb-6 text-center">Daftar Tutorial</h2>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <a href="{{ url('/network') }}" 
+       class="block bg-white hover:bg-[#F2FAFD] transition rounded-2xl p-6 shadow-sm border border-gray-200 hover:border-[#5daac7]">
+      <div class="text-3xl mb-3">🖧</div>
+      <h3 class="font-semibold text-lg text-gray-900 mb-1">Konfigurasi Network</h3>
+      <p class="text-sm text-gray-500">NAT, Bridge, dan Host-Only Adapter</p>
+    </a>
+
+    <a href="{{ url('/repository') }}" 
+   class="block bg-white hover:bg-[#F2FAFD] transition rounded-2xl p-6 shadow-sm border border-gray-200 hover:border-[#5daac7]">
+  <div class="text-3xl mb-3">📦</div>
+  <h3 class="font-semibold text-lg text-gray-900 mb-1">Konfigurasi Repositori</h3>
+  <p class="text-sm text-gray-500">Pengaturan sumber paket Debian</p>
+</a>
+    
       <a href="{{ url('/mailserver') }}" 
          class="block bg-white hover:bg-[#F2FAFD] transition rounded-2xl p-6 shadow-sm border border-gray-200 hover:border-[#5daac7]">
         <div class="text-3xl mb-3">📧</div>
@@ -87,7 +101,7 @@
       <p class="text-sm text-gray-500">Squid dan kontrol akses web</p>
       </a>
 
-      <a href="{{ url('/dnsserver') }}" 
+      <a href="{{ url('/dns') }}" 
          class="block bg-white hover:bg-[#F2FAFD] transition rounded-2xl p-6 shadow-sm border border-gray-200 hover:border-[#5daac7]">
         <div class="text-3xl mb-3">🌐</div>
         <h3 class="font-semibold text-lg text-gray-900 mb-1">Konfigurasi DNS Server</h3>

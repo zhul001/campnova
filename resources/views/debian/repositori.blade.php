@@ -48,14 +48,15 @@
             </div>
         </div>
     </nav>
+
     <div class="max-w-3xl mx-auto mt-12 px-4">
       <h1 class="text-3xl font-bold text-[#5daac7] mb-6 text-center">
-        Panduan Install & Konfigurasi proxy | blokir website client
+        Panduan konfigurasi repositori
       </h1>
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
-          1. instal squid
+          1. konfigurasi repositori
         </h2>
         <div
           class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900"
@@ -76,98 +77,18 @@
             </button>
           </div>
           <div class="px-4 py-3 font-mono text-sm">
-            <pre class="whitespace-pre-wrap leading-snug">apt install squid -y</pre
+            <pre class="whitespace-pre-wrap leading-snug">nano /etc/apt/sources.list</pre
             >
           </div>
         </div>
       </section>
 
-      <section class="mb-8">
-        <h2 class="text-xl font-semibold mb-2 text-black">
-          2. Backup file asli (opsional)
-        </h2>
-        <div
-          class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900"
-        >
-          <div
-            class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700"
-          >
-            <div class="flex space-x-2">
-              <span class="w-3 h-3 bg-red-500 rounded-full"></span>
-              <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
-              <span class="w-3 h-3 bg-green-500 rounded-full"></span>
-            </div>
-            <button
-              class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500"
-              data-target="0"
-            >
-              Copy
-            </button>
-          </div>
-          <div class="px-4 py-3 font-mono text-sm">
-            <pre class="whitespace-pre-wrap leading-snug">cp /etc/squid/squid.conf /etc/squid/squid.conf.backup</pre
-            >
-          </div>
-        </div>
-      </section>
+      <p class="text-black mb-4">kemudian ganti isi file sesuai versi debian</p>
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
-          3. Edit konfigurasi Squid
+          Debian 13 - Trixie
         </h2>
-        <div
-          class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900"
-        >
-          <div
-            class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700"
-          >
-            <div class="flex space-x-2">
-              <span class="w-3 h-3 bg-red-500 rounded-full"></span>
-              <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
-              <span class="w-3 h-3 bg-green-500 rounded-full"></span>
-            </div>
-            <button
-              class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500"
-              data-target="0"
-            >
-              Copy
-            </button>
-          </div>
-          <div class="px-4 py-3 font-mono text-sm">
-            <pre class="whitespace-pre-wrap leading-snug">nano /etc/squid/squid.conf</pre>
-          </div>
-        </div>
-      </section>
-
-      <section class="mb-8">
-        <h2 class="text-xl font-semibold mb-2 text-black">
-          4. Edit konfigurasi Squid
-        </h2>
-        <div
-          class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900"
-        >
-          <div
-            class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700"
-          >
-            <div class="flex space-x-2">
-              <span class="w-3 h-3 bg-red-500 rounded-full"></span>
-              <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
-              <span class="w-3 h-3 bg-green-500 rounded-full"></span>
-            </div>
-            <button
-              class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500"
-              data-target="0"
-            >
-              Copy
-            </button>
-          </div>
-          <div class="px-4 py-3 font-mono text-sm">
-            <pre class="whitespace-pre-wrap leading-snug">nano /etc/squid/squid.conf</pre>
-          </div>
-        </div>
-        <p class="mb-2 text-black">saat di mode edit tekan ctrl + w untuk mencari kata, ketik http_access allow localhost lalu tekan enter, lalu hapus pagar pada baris http_access allow localhost serta tambahkan teks dibawah ini <br>
-        untuk ip ubah menjadi ip debian dengan dibagian akhir diubah menjadi 0
-        </p>
         <div
           class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900"
         >
@@ -188,18 +109,18 @@
           </div>
           <div class="px-4 py-3 font-mono text-sm">
             <pre class="whitespace-pre-wrap leading-snug">
-acl localnet src 192.168.10.0/24
-acl blokir dstdomain .facebook.com .youtube.com .tiktok.com
-http_access deny blokir
-http_access allow localnet</pre>
+deb http://deb.debian.org/debian trixie main contrib non-free non-free-firmware
+deb http://security.debian.org/debian-security trixie-security main contrib non-free non-free-firmware
+deb http://deb.debian.org/debian trixie-updates main contrib non-free non-free-firmware
+                </pre
+            >
           </div>
         </div>
-        <img src="{{ asset('img/proxy/4. isi nano.png') }}" alt="">
       </section>
-    
-    <section class="mb-8">
+
+      <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
-          5. Restart konfigurasi Squid
+          Debian 12 - Bookworm
         </h2>
         <div
           class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900"
@@ -220,27 +141,19 @@ http_access allow localnet</pre>
             </button>
           </div>
           <div class="px-4 py-3 font-mono text-sm">
-            <pre class="whitespace-pre-wrap leading-snug">systemctl restart squid</pre>
+            <pre class="whitespace-pre-wrap leading-snug">
+deb http://deb.debian.org/debian bookworm main contrib non-free non-free-firmware
+deb http://security.debian.org/debian-security bookworm-security main contrib non-free non-free-firmware
+deb http://deb.debian.org/debian bookworm-updates main contrib non-free non-free-firmware
+                </pre
+            >
           </div>
         </div>
       </section>
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
-          6. tes hasil konfigurasi
-        </h2>
-        <p class="text-black mb-4">1). di windows client buka proxy <br>
-            2). dibagian use a proxy browser pilih set up yang ada di bagian kanan <br>
-            <img src="{{ asset('img/proxy/7. tampilan proxy.png') }}" class="w-100 h-80 object-contain mx-auto rounded-lg" alt="" />
-            3). aktifkan, lalu tulis ip (jika di squid.conf diakhir ip ditulis 0, kalau di set up ini ditulis seperti biasa) dan port tadi <br>
-            4). di browser di tab 1 search youtube maka akan seperti tidak ada internet, di tab 2 misal buka chatgpt.com akan lancar 
-          </p>
-        <img src="{{ asset('img/proxy/set up proxy.png') }}" class="w-100 h-80 object-contain mx-auto rounded-lg shadow-sm" alt="" />
-      </section>
-
-      <section class="mb-8">
-        <h2 class="text-xl font-semibold mb-2 text-black">
-          7. melihat histori browser client
+          Debian 11 - Bullseye
         </h2>
         <div
           class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900"
@@ -261,26 +174,48 @@ http_access allow localnet</pre>
             </button>
           </div>
           <div class="px-4 py-3 font-mono text-sm">
-            <pre class="whitespace-pre-wrap leading-snug">tail -f /var/log/squid/access.log</pre>
+            <pre class="whitespace-pre-wrap leading-snug">
+deb http://deb.debian.org/debian bullseye main contrib non-free
+deb http://security.debian.org/debian-security bullseye-security main contrib non-free
+deb http://deb.debian.org/debian bullseye-updates main contrib non-free
+                </pre
+            >
           </div>
         </div>
       </section>
 
-      </div>
-
-      <x-footer></x-footer>
-
-    <script>
-      const buttons = document.querySelectorAll(".copy-btn");
-      const codeBlocks = document.querySelectorAll("pre");
-      buttons.forEach((btn, i) => {
-        btn.addEventListener("click", () => {
-          const code = codeBlocks[i].innerText;
-          navigator.clipboard.writeText(code);
-          btn.innerText = "Copied!";
-          setTimeout(() => (btn.innerText = "Copy"), 1500);
-        });
-      });
-    </script>
+      <section class="mb-8">
+        <h2 class="text-xl font-semibold mb-2 text-black">
+          Debian 10 - Buster
+        </h2>
+        <div
+          class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900"
+        >
+          <div
+            class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700"
+          >
+            <div class="flex space-x-2">
+              <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+              <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
+              <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+            </div>
+            <button
+              class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500"
+              data-target="0"
+            >
+              Copy
+            </button>
+          </div>
+          <div class="px-4 py-3 font-mono text-sm">
+            <pre class="whitespace-pre-wrap leading-snug">
+deb http://deb.debian.org/debian buster main contrib non-free
+deb http://security.debian.org/debian-security buster/updates main contrib non-free
+deb http://deb.debian.org/debian buster-updates main contrib non-free    
+            </pre
+            >
+          </div>
+        </div>
+      </section>
+    </div>
   </body>
 </html>
