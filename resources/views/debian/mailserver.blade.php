@@ -206,7 +206,7 @@ nano /etc/postfix/main.cf</pre
       </section>
 
       <section class="mb-8">
-        <h2 class="text-black font-semibold mb-4">7. konfigurasi ulang postfix, nanti akan muncul pop up tekan
+        <h2 class="text-black font-semibold mb-4 text-xl">7. konfigurasi ulang postfix, nanti akan muncul pop up tekan
             ok, kemudian ada pop up di bawah ini pilih internet site.</h2>
         <div
           class="mb-4 rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900"
