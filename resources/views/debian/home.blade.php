@@ -28,7 +28,7 @@
         <div class="flex items-center space-x-2">
           <a href="/" class="flex items-center space-x-2">
             <img src="{{ asset('img/logo_campnova_blue.svg') }}" alt="Campnova" class="h-8 w-auto">
-            <span class="text-xl font-bold text-black">Campnova</span>
+            <span class="text-xl font-bold text-black">Nain</span>
           </a>
         </div>
         <div class="flex items-center space-x-2">
