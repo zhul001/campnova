@@ -124,7 +124,7 @@ apt install postfix dovecot-imapd dovecot-pop3d -y</pre
           3. nanti saat proses penginstalan akann ada pop up seperti ini, buat
           nama mail
         </h2>
-        <img src="../debian/mail server/2. name mail.png" alt="" />
+        <img src="{{ asset('img/mail server/2. name mail.png') }}" alt="" />
       </section>
 
       <section class="mb-8">
@@ -132,7 +132,7 @@ apt install postfix dovecot-imapd dovecot-pop3d -y</pre
           3. muncul ini, tekan tab jika penanda belum di bagian ok, jika sudah
           di bagian ok tekan enter saja
         </h2>
-        <img src="../debian/mail server/2. tab ok.png" alt="" />
+        <img src="{{ asset('mail server/2. tab ok.png') }}" alt="" />
       </section>
 
       <section class="mb-8">
@@ -238,67 +238,67 @@ dpkg –configure postfix</pre>
         <h2 class="text-xl font-semibold mb-2 text-black">
           7. masukka nama mail yang sudah Anda buat tadi
         </h2>
-        <img src="../debian/mail server/2. name mail.png" alt="" />
+        <img src="{{ asset('mail server/2. name mail.png') }}" alt="" />
       </section>
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
           8. bagian ini kosongkan saja
         </h2>
-        <img src="../debian/mail server/6. receipt.png" alt="" />
+        <img src="{{ asset('mail server/6. receipt.png') }}" alt="" />
       </section>
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
           9. ubah menjadi seperti ini tapi menggunakan nama mail yang sudah dibuat
         </h2>
-        <img src="../debian/mail server/7. blank or none.png" alt="" />
+        <img src="{{ asset('mail server/7. blank or none.png') }}" alt="" />
       </section>
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
           10. dibagian ini pilih no
         </h2>
-        <img src="../debian/mail server/8. no.png" alt="" />
+        <img src="{{ asset('mail server/8. no.png') }}" alt="" />
       </section>
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
           11. karna tadi sudah di setting, jadi biarkan saja ip nya
         </h2>
-        <img src="../debian/mail server/9. biarkan ip.png" alt="" />
+        <img src="{{ asset('mail server/9. biarkan ip.png')}" alt="" />
       </section>
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
-          11. di bagian ini biarkan 0
+          12. di bagian ini biarkan 0
         </h2>
         <p class="text-black mb-2">Nilai 0 berarti tanpa batas ukuran email.
 Kalau ingin membatasi, ubah nilainya menjadi ukuran maksimum yang diizinkan.
 Misalnya untuk membatasi 100 KB maka ganti 0 menjadi 102400</p>
-        <img src="../debian/mail server/9.1. mailbox size limit.png" alt="" />
+        <img src="{{ asset('mail server/9.1. mailbox size limit.png') }}" alt="" />
       </section>
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
-          11. di bagian ini biarkan +
+          13. di bagian ini biarkan +
         </h2>
         <p class="text-black mb-4">Tanda + pada Postfix berfungsi sebagai pemisah alias email<br>
 Misalnya alamat user+tes@example.com akan tetap dikirim ke user@example.com, tapi bagian +tes bisa digunakan untuk memfilter atau mengelompokkan email masuk</p>
-        <img src="../debian/mail server/9.2. carakter.png" alt="" />
+        <img src="{{ asset('debian/mail server/9.2. carakter.png') }}" alt="" />
       </section>
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
-          12. pilih ipv4
+          14. pilih ipv4
         </h2>
         <p class="text-black mb-4">karna tadi kita hanya menggunakan ipv4 jadi pilih ipv4 saja, tapi jika anda menggunakan ipv6 dan ipv4 maka pilih all</p>
-        <img src="../debian/mail server/9.2. carakter.png" alt="" />
+        <img src="{{ asset('mail server/9.2. carakter.png' }}" alt="" />
       </section>
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
-          13. edit file 10-auth.conf yang ada di direktori /etc/dovecot/conf.d/, edit file nya seperti dibawah ini (hapus tagar dan ubah dari yes ke no)
+          15. edit file 10-auth.conf yang ada di direktori /etc/dovecot/conf.d/, edit file nya seperti dibawah ini (hapus tagar dan ubah dari yes ke no)
         </h2>
         <div
           class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900 mb-4"
@@ -323,11 +323,11 @@ Misalnya alamat user+tes@example.com akan tetap dikirim ke user@example.com, tap
             >
           </div>
         </div>
-        <img src="../debian//mail server/12. isi nano 10-auth.conf.png" alt="">
+        <img src="{{ asset('mail server/12. isi nano 10-auth.conf.png') }}" alt="">
       </section>
 
       <section class="mb-8">
-        <h2 class="text-xl font-semibold mb-2 text-black">14. edit file 10-mail.conf yang ada di direktori /etc/dovecot/conf.d, edit file nya seperti dibawah ini (kasih pagar di baris mail_location = mbox, dan hapus pagar di baris mail_location = maildir)</h2>
+        <h2 class="text-xl font-semibold mb-2 text-black">16. edit file 10-mail.conf yang ada di direktori /etc/dovecot/conf.d, edit file nya seperti dibawah ini (kasih pagar di baris mail_location = mbox, dan hapus pagar di baris mail_location = maildir)</h2>
         <div
           class="mb-4 rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900"
         >
@@ -351,12 +351,12 @@ Misalnya alamat user+tes@example.com akan tetap dikirim ke user@example.com, tap
             >
           </div>
         </div>
-        <img src="../debian//mail server//13. isi nano 10-mail.png" alt="">
+        <img src="{{ asset('mail server//13. isi nano 10-mail.png') }}" alt="">
       </section>
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
-          15. install telnet untuk mengirim pesan
+          17. install telnet untuk mengirim pesan
         </h2>
         <div
           class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900"
@@ -385,7 +385,7 @@ Misalnya alamat user+tes@example.com akan tetap dikirim ke user@example.com, tap
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
-          15. kirim pesan mail menggunakan telnet
+          18. kirim pesan mail menggunakan telnet
         </h2>
         <p class="mb-4 text-black">untuk mengirim dan menerima pesan harus ada 2 user, jadi kalau belum punya buat menggunakan perintah adduser (nama user) , untuk mengirim gunakan perintah <br>
         telnet (domain atau ip) 25<br>mail from:(user pengirim) <br>rcpt to:(user penerima) <br>data <br>
@@ -439,7 +439,7 @@ quit
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
-          16. melihat pesan
+          19. melihat pesan
         </h2>
         <p class="mb-4 text-black">untuk melihat pesan yang diterima pakai perintah<br>
 telnet (domain atau ip) 110 ,<br>
@@ -500,7 +500,7 @@ Selamat Berjuang. Sukses
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
-          16. menghapus pesan mail
+          20. menghapus pesan mail
         </h2>
         <p class="mb-4 text-black">gunakan perintah dele (nomor pesan)
         </p>
@@ -535,11 +535,6 @@ list
           </div>
         </div>
       </section>
-
-      <p class="text-gray-400 text-sm text-center mt-10">
-        Ganti <span class="text-teal-400 font-medium">example.local</span> dan
-        IP sesuai jaringan Anda.
-      </p>
     </div>
 
     <script>
