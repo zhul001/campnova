@@ -50,7 +50,7 @@
     </nav>
 
     <div class="max-w-3xl mx-auto mt-12 px-4">
-      <h1 class="text-3xl font-bold text-teal-400 mb-6 text-center">
+      <h1 class="text-3xl font-bold text-[#5daac7] mb-6 text-center">
         Panduan Install & Konfigurasi Mail Server
       </h1>
 
@@ -231,42 +231,42 @@ nano /etc/postfix/main.cf</pre
 dpkg –configure postfix</pre>
           </div>
         </div>
-        <img src="../debian/mail server/6.0 internet site.png" alt="" />
+        <img src="{{ asset('img/mail server/6.0 internet site.png') }}" alt="" />
       </section>
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
-          7. masukka nama mail yang sudah Anda buat tadi
+          7. masukkan nama mail yang sudah Anda buat tadi
         </h2>
-        <img src="{{ asset('mail server/2. name mail.png') }}" alt="" />
+        <img src="{{ asset('img/mail server/2. name mail.png') }}" alt="" />
       </section>
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
           8. bagian ini kosongkan saja
         </h2>
-        <img src="{{ asset('mail server/6. receipt.png') }}" alt="" />
+        <img src="{{ asset('img/mail server/6. receipt.png') }}" alt="" />
       </section>
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
           9. ubah menjadi seperti ini tapi menggunakan nama mail yang sudah dibuat
         </h2>
-        <img src="{{ asset('mail server/7. blank or none.png') }}" alt="" />
+        <img src="{{ asset('img/mail server/7. blank or none.png') }}" alt="" />
       </section>
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
           10. dibagian ini pilih no
         </h2>
-        <img src="{{ asset('mail server/8. no.png') }}" alt="" />
+        <img src="{{ asset('img/mail server/8. no.png') }}" alt="" />
       </section>
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
           11. karna tadi sudah di setting, jadi biarkan saja ip nya
         </h2>
-        <img src="{{ asset('mail server/9. biarkan ip.png') }}" alt="" />
+        <img src="{{ asset('img/mail server/9. biarkan ip.png') }}" alt="" />
       </section>
 
       <section class="mb-8">
@@ -276,7 +276,7 @@ dpkg –configure postfix</pre>
         <p class="text-black mb-2">Nilai 0 berarti tanpa batas ukuran email.
 Kalau ingin membatasi, ubah nilainya menjadi ukuran maksimum yang diizinkan.
 Misalnya untuk membatasi 100 KB maka ganti 0 menjadi 102400</p>
-        <img src="{{ asset('mail server/9.1. mailbox size limit.png') }}" alt="" />
+        <img src="{{ asset('img/mail server/9.1. mailbox size limit.png') }}" alt="" />
       </section>
 
       <section class="mb-8">
@@ -285,7 +285,7 @@ Misalnya untuk membatasi 100 KB maka ganti 0 menjadi 102400</p>
         </h2>
         <p class="text-black mb-4">Tanda + pada Postfix berfungsi sebagai pemisah alias email<br>
 Misalnya alamat user+tes@example.com akan tetap dikirim ke user@example.com, tapi bagian +tes bisa digunakan untuk memfilter atau mengelompokkan email masuk</p>
-        <img src="{{ asset('debian/mail server/9.2. carakter.png') }}" alt="" />
+        <img src="{{ asset('img/mail server/9.2. carakter.png') }}" alt="" />
       </section>
 
       <section class="mb-8">
@@ -293,7 +293,7 @@ Misalnya alamat user+tes@example.com akan tetap dikirim ke user@example.com, tap
           14. pilih ipv4
         </h2>
         <p class="text-black mb-4">karna tadi kita hanya menggunakan ipv4 jadi pilih ipv4 saja, tapi jika anda menggunakan ipv6 dan ipv4 maka pilih all</p>
-        <img src="{{ asset('mail server/9.2. carakter.png') }}" alt="" />
+        <img src="{{ asset('img/mail server/9.2. carakter.png') }}" alt="" />
       </section>
 
       <section class="mb-8">
@@ -323,7 +323,7 @@ Misalnya alamat user+tes@example.com akan tetap dikirim ke user@example.com, tap
             >
           </div>
         </div>
-        <img src="{{ asset('mail server/12. isi nano 10-auth.conf.png') }}" alt="">
+        <img src="{{ asset('img/mail server/12. isi nano 10-auth.conf.png') }}" alt="">
       </section>
 
       <section class="mb-8">
@@ -351,7 +351,7 @@ Misalnya alamat user+tes@example.com akan tetap dikirim ke user@example.com, tap
             >
           </div>
         </div>
-        <img src="{{ asset('mail server//13. isi nano 10-mail.png') }}" alt="">
+        <img src="{{ asset('img/mail server//13. isi nano 10-mail.png') }}" alt="">
       </section>
 
       <section class="mb-8">
