@@ -86,7 +86,7 @@ sudo apt update && upgrade -y</pre
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
-          2. install mail serve
+          2. install mail server
         </h2>
         <p class="text-black mb-2">
           Postfix = kirim dan terima email antar server <br />
@@ -129,7 +129,7 @@ apt install postfix dovecot-imapd dovecot-pop3d -y</pre
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
-          3. muncul ini, tekan tab jika penanda belum di bagian ok, jika sudah
+          4. muncul ini, tekan tab jika penanda belum di bagian ok, jika sudah
           di bagian ok tekan enter saja
         </h2>
         <img src="{{ asset('img/mail server/2. tab ok.png') }}" alt="" />
@@ -137,7 +137,7 @@ apt install postfix dovecot-imapd dovecot-pop3d -y</pre
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
-          4. buat direktori maildir
+          5. buat direktori maildir
         </h2>
         <p class="text-black mb-2">
           Maildir adalah format penyimpanan email di sistem UNIX/Linux <br />
@@ -174,7 +174,7 @@ maildirmake.dovecot /etc/skel/Maildir</pre
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
-          5. edit file main.cf yang ada di direktori /etc/postfix, dan ganti
+          6. edit file main.cf yang ada di direktori /etc/postfix, dan ganti
           isinya menjadi seperti digambar bawah ini, untuk baris home_mailbox
           itu buat manual
         </h2>
@@ -206,7 +206,7 @@ nano /etc/postfix/main.cf</pre
       </section>
 
       <section class="mb-8">
-        <h2 class="text-black font-semibold mb-4">6. konfigurasi ulang postfix, nanti akan muncul pop up tekan
+        <h2 class="text-black font-semibold mb-4">7. konfigurasi ulang postfix, nanti akan muncul pop up tekan
             ok, kemudian ada pop up di bawah ini pilih internet site.</h2>
         <div
           class="mb-4 rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900"
@@ -236,42 +236,45 @@ dpkg –configure postfix</pre>
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
-          7. masukkan nama mail yang sudah Anda buat tadi
+          8. masukkan nama mail yang sudah Anda buat tadi
         </h2>
+        <p class="text-black mb-4">Bagian recipient for root dan postmaster mail dikosongkan karena: <br>
+Secara default, pesan sistem untuk user root dan postmaster akan dikirim ke alamat lokal di server. <br>
+Jika kamu belum punya akun email nyata untuk menerima pesan itu, biarkan kosong supaya postfix tidak mengirim ke alamat yang tidak ada.</p>
         <img src="{{ asset('img/mail server/2. name mail.png') }}" alt="" />
       </section>
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
-          8. bagian ini kosongkan saja
+          9. bagian ini kosongkan saja
         </h2>
         <img src="{{ asset('img/mail server/6. receipt.png') }}" alt="" />
       </section>
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
-          9. ubah menjadi seperti ini tapi menggunakan nama mail yang sudah dibuat
+          10. ubah menjadi seperti ini tapi menggunakan nama mail yang sudah dibuat
         </h2>
         <img src="{{ asset('img/mail server/7. blank or none.png') }}" alt="" />
       </section>
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
-          10. dibagian ini pilih no
+          11. dibagian ini pilih no
         </h2>
         <img src="{{ asset('img/mail server/8. no.png') }}" alt="" />
       </section>
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
-          11. karna tadi sudah di setting, jadi biarkan saja ip nya
+          12. karna tadi sudah di setting, jadi biarkan saja ip nya
         </h2>
         <img src="{{ asset('img/mail server/9. biarkan ip.png') }}" alt="" />
       </section>
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
-          12. di bagian ini biarkan 0
+          13. di bagian ini biarkan 0
         </h2>
         <p class="text-black mb-2">Nilai 0 berarti tanpa batas ukuran email.
 Kalau ingin membatasi, ubah nilainya menjadi ukuran maksimum yang diizinkan.
@@ -281,7 +284,7 @@ Misalnya untuk membatasi 100 KB maka ganti 0 menjadi 102400</p>
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
-          13. di bagian ini biarkan +
+          14. di bagian ini biarkan +
         </h2>
         <p class="text-black mb-4">Tanda + pada Postfix berfungsi sebagai pemisah alias email<br>
 Misalnya alamat user+tes@example.com akan tetap dikirim ke user@example.com, tapi bagian +tes bisa digunakan untuk memfilter atau mengelompokkan email masuk</p>
@@ -290,7 +293,7 @@ Misalnya alamat user+tes@example.com akan tetap dikirim ke user@example.com, tap
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
-          14. pilih ipv4
+          15. pilih ipv4
         </h2>
         <p class="text-black mb-4">karna tadi kita hanya menggunakan ipv4 jadi pilih ipv4 saja, tapi jika anda menggunakan ipv6 dan ipv4 maka pilih all</p>
         <img src="{{ asset('img/mail server/9.2. carakter.png') }}" alt="" />
@@ -298,7 +301,7 @@ Misalnya alamat user+tes@example.com akan tetap dikirim ke user@example.com, tap
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
-          15. edit file 10-auth.conf yang ada di direktori /etc/dovecot/conf.d/, edit file nya seperti dibawah ini (hapus tagar dan ubah dari yes ke no)
+          16. edit file 10-auth.conf yang ada di direktori /etc/dovecot/conf.d/, edit file nya seperti dibawah ini (hapus tagar dan ubah dari yes ke no)
         </h2>
         <div
           class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900 mb-4"
@@ -327,7 +330,7 @@ Misalnya alamat user+tes@example.com akan tetap dikirim ke user@example.com, tap
       </section>
 
       <section class="mb-8">
-        <h2 class="text-xl font-semibold mb-2 text-black">16. edit file 10-mail.conf yang ada di direktori /etc/dovecot/conf.d, edit file nya seperti dibawah ini (kasih pagar di baris mail_location = mbox, dan hapus pagar di baris mail_location = maildir)</h2>
+        <h2 class="text-xl font-semibold mb-2 text-black">17. edit file 10-mail.conf yang ada di direktori /etc/dovecot/conf.d, edit file nya seperti dibawah ini (kasih pagar di baris mail_location = mbox, dan hapus pagar di baris mail_location = maildir)</h2>
         <div
           class="mb-4 rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900"
         >
@@ -356,7 +359,7 @@ Misalnya alamat user+tes@example.com akan tetap dikirim ke user@example.com, tap
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
-          17. install telnet untuk mengirim pesan
+          18. install telnet untuk mengirim pesan
         </h2>
         <div
           class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900"
@@ -385,7 +388,7 @@ Misalnya alamat user+tes@example.com akan tetap dikirim ke user@example.com, tap
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
-          18. kirim pesan mail menggunakan telnet
+          19. kirim pesan mail menggunakan telnet
         </h2>
         <p class="mb-4 text-black">untuk mengirim dan menerima pesan harus ada 2 user, jadi kalau belum punya buat menggunakan perintah adduser (nama user) , untuk mengirim gunakan perintah <br>
         telnet (domain atau ip) 25<br>mail from:(user pengirim) <br>rcpt to:(user penerima) <br>data <br>
@@ -439,7 +442,7 @@ quit
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
-          19. melihat pesan
+          20. melihat pesan
         </h2>
         <p class="mb-4 text-black">untuk melihat pesan yang diterima pakai perintah<br>
 telnet (domain atau ip) 110 ,<br>
@@ -500,7 +503,7 @@ Selamat Berjuang. Sukses
 
       <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
-          20. menghapus pesan mail
+          21. menghapus pesan mail
         </h2>
         <p class="mb-4 text-black">gunakan perintah dele (nomor pesan)
         </p>
