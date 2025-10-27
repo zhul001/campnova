@@ -233,9 +233,9 @@ http_access allow localnet</pre>
             2). dibagian use a proxy browser pilih set up yang ada di bagian kanan <br>
             <img src="{{ asset('img/proxy/7. tampilan proxy.png') }}" class="w-100 h-80 object-contain mx-auto rounded-lg" alt="" />
             3). aktifkan, lalu tulis ip (jika di squid.conf diakhir ip ditulis 0, kalau di set up ini ditulis seperti biasa) dan port tadi <br>
+            <img src="{{ asset('img/proxy/set up proxy.png') }}" class="w-100 h-80 object-contain mx-auto rounded-lg shadow-sm" alt="" />
             4). di browser di tab 1 search youtube maka akan seperti tidak ada internet, di tab 2 misal buka chatgpt.com akan lancar 
           </p>
-        <img src="{{ asset('img/proxy/set up proxy.png') }}" class="w-100 h-80 object-contain mx-auto rounded-lg shadow-sm" alt="" />
       </section>
 
       <section class="mb-8">

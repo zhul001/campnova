@@ -118,7 +118,7 @@ Route::get('/dns', function () {
     return view('debian.bind9');
 });
 
-Route::get('/repositori', function () {
+Route::get('/repository', function () {
     return view('debian.repositori');
 });
 
