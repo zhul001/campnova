@@ -243,7 +243,7 @@ Address:    192.168.27
     </section>
 
     <section class="mb-8">
-      <h2 class="text-xl font-semibold mb-2 text-black">10. cek hasil konfigurasi menggunakan ip</h2>
+      <h2 class="text-xl font-semibold mb-2 text-black">11. cek hasil konfigurasi menggunakan ip</h2>
       <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
         <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
           <div class="flex space-x-2">
@@ -263,7 +263,7 @@ Address:    192.168.27
     </section>
 
     <section class="mb-8">
-      <h2 class="text-xl font-semibold mb-2 text-black">10. cek hasil konfigurasi di pc client (windows laptop)</h2>
+      <h2 class="text-xl font-semibold mb-2 text-black">12. cek hasil konfigurasi di pc client (windows laptop)</h2>
       <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
         <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
           <div class="flex space-x-2">
