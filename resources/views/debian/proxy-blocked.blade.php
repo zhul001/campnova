@@ -229,9 +229,9 @@ http_access deny blokir</pre>
         </h2>
         <p class="text-black mb-4">1.) di windows client buka proxy <br>
             2. dibagian use a proxy browser pilih set up yang ada di bagian kanan <br>
-            <img src="{{ asset('img/proxy/7. tampilan proxy.png') }}" alt="" />
+            <img src="{{ asset('img/proxy/7. tampilan proxy.png') }}" class="w-64 h-40 object-contain mx-auto rounded-lg" alt="" />
             3. aktifkan, lalu tulis ip (jika di squid.conf diakhir ip ditulis 0, kalau di set up ini ditulis seperti biasa) dan port tadi</p>
-        <img src="{{ asset('img/proxy/set up proxy.png') }}" alt="" />
+        <img src="{{ asset('img/proxy/set up proxy.png') }}" class="w-64 h-40 object-contain mx-auto rounded-lg" alt="" />
       </section>
 
       </div>
