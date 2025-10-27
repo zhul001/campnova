@@ -231,7 +231,7 @@ http_access deny blokir</pre>
             2). dibagian use a proxy browser pilih set up yang ada di bagian kanan <br>
             <img src="{{ asset('img/proxy/7. tampilan proxy.png') }}" class="w-100 h-80 object-contain mx-auto rounded-lg" alt="" />
             3). aktifkan, lalu tulis ip (jika di squid.conf diakhir ip ditulis 0, kalau di set up ini ditulis seperti biasa) dan port tadi</p>
-        <img src="{{ asset('img/proxy/set up proxy.png') }}" class="w-100 h-80 object-contain mx-auto rounded-lg" alt="" />
+        <img src="{{ asset('img/proxy/set up proxy.png') }}" class="w-100 h-80 object-contain mx-auto rounded-lg shadow-sm" alt="" />
       </section>
 
       <section class="mb-8">
@@ -263,6 +263,8 @@ http_access deny blokir</pre>
       </section>
 
       </div>
+
+      <x-footer></x-footer>
 
     <script>
       const buttons = document.querySelectorAll(".copy-btn");

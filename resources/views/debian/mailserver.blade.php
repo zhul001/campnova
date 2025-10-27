@@ -540,6 +540,8 @@ list
       </section>
     </div>
 
+    <x-footer></x-footer>
+
     <script>
       const buttons = document.querySelectorAll(".copy-btn");
       const codeBlocks = document.querySelectorAll("pre");
