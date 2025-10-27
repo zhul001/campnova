@@ -194,7 +194,6 @@ http_access deny blokir</pre>
           </div>
         </div>
       </section>
-    </div>
     
     <section class="mb-8">
         <h2 class="text-xl font-semibold mb-2 text-black">
@@ -234,6 +233,8 @@ http_access deny blokir</pre>
             3. aktifkan, lalu tulis ip (jika di squid.conf diakhir ip ditulis 0, kalau di set up ini ditulis seperti biasa) dan port tadi</p>
         <img src="{{ asset('img/proxy/set up proxy.png') }}" alt="" />
       </section>
+
+      </div>
 
     <script>
       const buttons = document.querySelectorAll(".copy-btn");
