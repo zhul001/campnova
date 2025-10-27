@@ -98,6 +98,14 @@ Route::get('/jadwal', function () {
     return view('user.jadwal');
 });
 
+Route::get('/mailserver', function () {
+    return view('debian.mailserver');
+});
+
+Route::get('/beranda', function () {
+    return view('debian.home');
+});
+
 Route::get('/forgot-password', [AuthController::class, 'showForgotForm'])->name('password.request');
 Route::post('/forgot-password', [AuthController::class, 'sendOtp'])->name('password.sendOtp');
 

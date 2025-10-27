@@ -76,19 +76,16 @@
             height: 300px;
         }
 
-        /* Custom date input styling */
         .date-input-container {
             position: relative;
         }
 
         .date-input-container input[type="date"] {
             color: #6b7280;
-            /* Placeholder color */
         }
 
         .date-input-container input[type="date"]:valid {
             color: #111827;
-            /* Text color when date is selected */
         }
 
         .date-input-container::after {
@@ -107,7 +104,6 @@
             display: none;
         }
 
-        /* Alternative approach - using data attribute */
         input[type="date"]:before {
             content: attr(placeholder);
             color: #9ca3af;
@@ -135,6 +131,37 @@
                 width: 180px;
                 height: 180px;
             }
+        }
+
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type=number] {
+            appearance: textfield;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .dropdown-item {
+            padding: 8px 10px;
+            margin: 3px 6px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f3f4f6;
         }
     </style>
 </head>
@@ -269,15 +296,65 @@
             </div>
 
             <div>
-                <label for="birthdate" class="block text-sm font-medium text-gray-900">Tanggal lahir</label>
-                <div class="mt-2">
-                    <input type="date" name="birthdate" id="birthdate" autocomplete="bday" required
-                        value="{{ old('birthdate') }}"
-                        class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 focus:outline-none sm:text-sm border border-gray-300" />
-                    @error('birthdate')
-                        <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-                    @enderror
+                <label class="block text-sm font-medium text-gray-900 mb-1">Tanggal lahir</label>
+                <p class="text-gray-500 text-xs mb-3">Tanggal lahir tidak akan ditampilkan publik.</p>
+
+                <div class="flex gap-3">
+                    <input type="number" name="birth_year" id="birth_year" placeholder="Year"
+                        class="w-1/3 p-3 bg-gray-100 rounded-lg text-center outline-none focus:ring-2 focus:ring-blue-500"
+                        value="{{ old('birth_year') }}" required />
+
+                    <div class="relative w-1/3">
+                        <button id="monthButton" type="button"
+                            class="w-full p-3 bg-gray-100 rounded-lg flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <span id="selectedMonth">{{ old('birth_month') ? old('birth_month') : 'Month' }}</span>
+                            <svg id="monthArrow" xmlns="http://www.w3.org/2000/svg"
+                                class="h-4 w-4 text-gray-500 transition-transform duration-200" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+
+                        <div id="monthDropdown"
+                            class="absolute hidden top-full mt-2 w-full bg-white border border-gray-200 rounded-xl shadow-lg max-h-56 overflow-y-auto no-scrollbar z-10">
+                            <div class="dropdown-item">January</div>
+                            <div class="dropdown-item">February</div>
+                            <div class="dropdown-item">March</div>
+                            <div class="dropdown-item">April</div>
+                            <div class="dropdown-item">May</div>
+                            <div class="dropdown-item">June</div>
+                            <div class="dropdown-item">July</div>
+                            <div class="dropdown-item">August</div>
+                            <div class="dropdown-item">September</div>
+                            <div class="dropdown-item">October</div>
+                            <div class="dropdown-item">November</div>
+                            <div class="dropdown-item">December</div>
+                        </div>
+                        <input type="hidden" name="birth_month" id="birth_month" value="{{ old('birth_month') }}">
+                    </div>
+
+                    <div class="relative w-1/3">
+                        <button id="dayButton" type="button"
+                            class="w-full p-3 bg-gray-100 rounded-lg flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <span id="selectedDay">{{ old('birth_day') ? old('birth_day') : 'Day' }}</span>
+                            <svg id="dayArrow" xmlns="http://www.w3.org/2000/svg"
+                                class="h-4 w-4 text-gray-500 transition-transform duration-200" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+
+                        <div id="dayDropdown"
+                            class="absolute hidden top-full mt-2 w-full bg-white border border-gray-200 rounded-xl shadow-lg max-h-56 overflow-y-auto no-scrollbar z-10 text-left">
+                        </div>
+                        <input type="hidden" name="birth_day" id="birth_day" value="{{ old('birth_day') }}">
+                    </div>
                 </div>
+                @error('birthdate')
+                    <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                @enderror
             </div>
 
 
@@ -308,8 +385,61 @@
                 togglePassword.textContent = "Show";
             }
         });
+
+        function showDropdown(dropdown, arrow) {
+            dropdown.classList.remove('hidden');
+            arrow.style.transform = 'rotate(180deg)';
+        }
+
+        function hideDropdown(dropdown, arrow) {
+            dropdown.classList.add('hidden');
+            arrow.style.transform = 'rotate(0deg)';
+        }
+
+        const monthButton = document.getElementById('monthButton');
+        const monthDropdown = document.getElementById('monthDropdown');
+        const monthArrow = document.getElementById('monthArrow');
+        const selectedMonth = document.getElementById('selectedMonth');
+        const monthInput = document.getElementById('birth_month');
+
+        monthButton.addEventListener('click', () => {
+            monthDropdown.classList.contains('hidden') ?
+                showDropdown(monthDropdown, monthArrow) :
+                hideDropdown(monthDropdown, monthArrow);
+        });
+
+        monthDropdown.querySelectorAll('.dropdown-item').forEach(item => {
+            item.addEventListener('click', () => {
+                selectedMonth.textContent = item.textContent;
+                monthInput.value = item.textContent;
+                hideDropdown(monthDropdown, monthArrow);
+            });
+        });
+
+        const dayButton = document.getElementById('dayButton');
+        const dayDropdown = document.getElementById('dayDropdown');
+        const dayArrow = document.getElementById('dayArrow');
+        const selectedDay = document.getElementById('selectedDay');
+        const dayInput = document.getElementById('birth_day');
+
+        for (let i = 1; i <= 31; i++) {
+            const div = document.createElement('div');
+            div.textContent = i;
+            div.className = 'dropdown-item text-left';
+            div.addEventListener('click', () => {
+                selectedDay.textContent = i;
+                dayInput.value = i;
+                hideDropdown(dayDropdown, dayArrow);
+            });
+            dayDropdown.appendChild(div);
+        }
+
+        dayButton.addEventListener('click', () => {
+            dayDropdown.classList.contains('hidden') ?
+                showDropdown(dayDropdown, dayArrow) :
+                hideDropdown(dayDropdown, dayArrow);
+        });
     </script>
 
 </body>
-
 </html>
