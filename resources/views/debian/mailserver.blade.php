@@ -132,7 +132,7 @@ apt install postfix dovecot-imapd dovecot-pop3d -y</pre
           3. muncul ini, tekan tab jika penanda belum di bagian ok, jika sudah
           di bagian ok tekan enter saja
         </h2>
-        <img src="{{ asset('mail server/2. tab ok.png') }}" alt="" />
+        <img src="{{ asset('img/mail server/2. tab ok.png') }}" alt="" />
       </section>
 
       <section class="mb-8">
