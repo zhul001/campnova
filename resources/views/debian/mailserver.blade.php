@@ -266,7 +266,7 @@ dpkg –configure postfix</pre>
         <h2 class="text-xl font-semibold mb-2 text-black">
           11. karna tadi sudah di setting, jadi biarkan saja ip nya
         </h2>
-        <img src="{{ asset('mail server/9. biarkan ip.png')}" alt="" />
+        <img src="{{ asset('mail server/9. biarkan ip.png') }}" alt="" />
       </section>
 
       <section class="mb-8">
@@ -293,7 +293,7 @@ Misalnya alamat user+tes@example.com akan tetap dikirim ke user@example.com, tap
           14. pilih ipv4
         </h2>
         <p class="text-black mb-4">karna tadi kita hanya menggunakan ipv4 jadi pilih ipv4 saja, tapi jika anda menggunakan ipv6 dan ipv4 maka pilih all</p>
-        <img src="{{ asset('mail server/9.2. carakter.png' }}" alt="" />
+        <img src="{{ asset('mail server/9.2. carakter.png') }}" alt="" />
       </section>
 
       <section class="mb-8">
