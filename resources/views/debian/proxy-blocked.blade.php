@@ -169,7 +169,7 @@
         untuk ip ubah menjadi ip debian dengan dibagian akhir diubah menjadi 0
         </p>
         <div
-          class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900"
+          class="mb-2 rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900"
         >
           <div
             class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700"

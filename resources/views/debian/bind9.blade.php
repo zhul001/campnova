@@ -178,7 +178,7 @@ listen-on-v6 { any; };
 
     <section class="mb-8">
       <h2 class="text-xl font-semibold mb-2 text-black">8. cek konfigurasi dan restart</h2>
-      <p>Gunakan perintah named-checkconf untuk memeriksa apakah ada kesalahan konfigurasi. Jika tidak ada error, jalankan perintah restart.</p>
+      <p class="text-black mb-2">Gunakan perintah named-checkconf untuk memeriksa apakah ada kesalahan konfigurasi. Jika tidak ada error, jalankan perintah restart.</p>
       <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
         <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
           <div class="flex space-x-2">
