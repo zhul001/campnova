@@ -227,11 +227,39 @@ http_access deny blokir</pre>
         <h2 class="text-xl font-semibold mb-2 text-black">
           6. tes hasil konfigurasi
         </h2>
-        <p class="text-black mb-4">1.) di windows client buka proxy <br>
-            2. dibagian use a proxy browser pilih set up yang ada di bagian kanan <br>
-            <img src="{{ asset('img/proxy/7. tampilan proxy.png') }}" class="w-64 h-40 object-contain mx-auto rounded-lg" alt="" />
-            3. aktifkan, lalu tulis ip (jika di squid.conf diakhir ip ditulis 0, kalau di set up ini ditulis seperti biasa) dan port tadi</p>
-        <img src="{{ asset('img/proxy/set up proxy.png') }}" class="w-64 h-40 object-contain mx-auto rounded-lg" alt="" />
+        <p class="text-black mb-4">1). di windows client buka proxy <br>
+            2). dibagian use a proxy browser pilih set up yang ada di bagian kanan <br>
+            <img src="{{ asset('img/proxy/7. tampilan proxy.png') }}" class="w-100 h-80 object-contain mx-auto rounded-lg" alt="" />
+            3). aktifkan, lalu tulis ip (jika di squid.conf diakhir ip ditulis 0, kalau di set up ini ditulis seperti biasa) dan port tadi</p>
+        <img src="{{ asset('img/proxy/set up proxy.png') }}" class="w-100 h-80 object-contain mx-auto rounded-lg" alt="" />
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-xl font-semibold mb-2 text-black">
+          7. melihat histori browser client
+        </h2>
+        <div
+          class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900"
+        >
+          <div
+            class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700"
+          >
+            <div class="flex space-x-2">
+              <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+              <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
+              <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+            </div>
+            <button
+              class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500"
+              data-target="0"
+            >
+              Copy
+            </button>
+          </div>
+          <div class="px-4 py-3 font-mono text-sm">
+            <pre class="whitespace-pre-wrap leading-snug">tail -f /var/log/squid/access.log</pre>
+          </div>
+        </div>
       </section>
 
       </div>
