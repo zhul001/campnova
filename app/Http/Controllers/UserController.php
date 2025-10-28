@@ -10,26 +10,34 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
     public function register(Request $request)
-    {
-        $validated = $request->validate([
-            'shortname' => 'required|string|max:255',
-            'fullname'  => 'required|string|max:255',
-            'email'     => 'required|email|unique:users,email',
-            'password'  => 'required|string|min:6',
-            'birthdate' => 'required|date',
-        ]);
-
-        $user = User::create([
-            'nama_pendek'    => $validated['shortname'],
-            'nama_panjang'   => $validated['fullname'],
-            'email'          => $validated['email'],
-            'password'       => Hash::make($validated['password']),
-            'tanggal_lahir'  => $validated['birthdate'],
-        ]);
-
-        Auth::login($user);
-        return redirect('/dashboard');
+{
+    if ($request->filled(['birth_year', 'birth_month', 'birth_day'])) {
+        $birthdate = date('Y-m-d', strtotime(
+            $request->birth_year . '-' . $request->birth_month . '-' . $request->birth_day
+        ));
+        $request->merge(['birthdate' => $birthdate]);
     }
+
+    $validated = $request->validate([
+        'shortname' => 'required|string|max:255',
+        'fullname'  => 'required|string|max:255',
+        'email'     => 'required|email|unique:users,email',
+        'password'  => 'required|string|min:6',
+        'birthdate' => 'required|date',
+    ]);
+
+    $user = User::create([
+        'nama_pendek'    => $validated['shortname'],
+        'nama_panjang'   => $validated['fullname'],
+        'email'          => $validated['email'],
+        'password'       => Hash::make($validated['password']),
+        'tanggal_lahir'  => $validated['birthdate'],
+    ]);
+
+    Auth::login($user);
+    return redirect('/dashboard');
+}
+
 
     public function login(Request $request)
     {
