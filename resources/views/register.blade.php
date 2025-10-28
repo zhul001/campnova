@@ -80,17 +80,31 @@
         @media (max-width: 768px) {
             .animation-left,
             .animation-right {
-                width: 180px;
-                height: 180px;
+                width: 150px;
+                height: 150px;
+                bottom: 10px;
             }
         }
 
         @media (max-width: 480px) {
             .animation-left,
             .animation-right {
-                width: 180px;
-                height: 180px;
+                width: 120px;
+                height: 120px;
+                bottom: 5px;
             }
+        }
+
+        /* Hide number input arrows */
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        
+        input[type="number"] {
+            -moz-appearance: textfield;
+            appearance: textfield;
         }
 
         .no-scrollbar::-webkit-scrollbar {
@@ -131,13 +145,15 @@
 <body class="min-h-screen flex flex-col items-center p-4">
     <!-- Animasi kiri -->
     <div class="animation-container animation-left">
-        <lottie-player src="/animations/cute-bird.json" background="transparent" speed="1" loop autoplay>
+        <lottie-player src="/animations/cute-bird.json" background="transparent" speed="1" 
+            style="width: 100%; height: 100%" loop autoplay>
         </lottie-player>
     </div>
 
     <!-- Animasi kanan -->
     <div class="animation-container animation-right">
-        <lottie-player src="/animations/among-as.json" background="transparent" speed="1" loop autoplay>
+        <lottie-player src="/animations/among-as.json" background="transparent" speed="1" 
+            style="width: 100%; height: 100%" loop autoplay>
         </lottie-player>
     </div>
 
@@ -255,7 +271,7 @@
                 <div class="flex gap-3">
                     <div class="w-1/3">
                         <input type="number" name="birth_year" id="birth_year" placeholder="Year"
-                            class="w-full p-3 bg-gray-100 rounded-lg text-center outline-none focus:ring-2 focus:ring-blue-500"
+                            class="w-full p-3 bg-gray-100 rounded-lg text-center outline-none focus:ring-2 focus:ring-blue-500 year-input"
                             value="{{ old('birth_year') }}" required min="1900" max="2024" />
                         <p id="yearError" class="year-error">Tahun tidak valid</p>
                     </div>
@@ -408,23 +424,15 @@
         const yearError = document.getElementById('yearError');
         const registerForm = document.getElementById('registerForm');
 
-        // Track if user has finished typing
-        let typingTimer;
-        const doneTypingInterval = 1000; // 1 second
+        // Store original value for comparison
+        let originalYearValue = birthYearInput.value;
 
-        birthYearInput.addEventListener('input', function() {
-            clearTimeout(typingTimer);
-            // Hide error while typing
-            yearError.style.display = 'none';
-            birthYearInput.classList.remove('input-error');
-            
-            // Set timer to validate after user stops typing
-            typingTimer = setTimeout(validateYear, doneTypingInterval);
+        birthYearInput.addEventListener('focus', function() {
+            // Store the current value when user focuses on the field
+            originalYearValue = this.value;
         });
 
         birthYearInput.addEventListener('blur', function() {
-            // Validate immediately when user leaves the field
-            clearTimeout(typingTimer);
             validateYear();
         });
 
@@ -461,6 +469,19 @@
             
             if (!dayButton.contains(e.target) && !dayDropdown.contains(e.target)) {
                 hideDropdown(dayDropdown, dayArrow);
+            }
+        });
+
+        // Clear year input when clicking on month or day buttons
+        monthButton.addEventListener('mousedown', function() {
+            if (birthYearInput.value && !validateYear()) {
+                birthYearInput.value = '';
+            }
+        });
+
+        dayButton.addEventListener('mousedown', function() {
+            if (birthYearInput.value && !validateYear()) {
+                birthYearInput.value = '';
             }
         });
     </script>
