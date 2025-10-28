@@ -202,7 +202,7 @@ nano /etc/postfix/main.cf</pre
             >
           </div>
         </div>
-        <img src="{{ asset('img/mail server/5. ip dan home.png') }} alt="" />
+        <img src="{{ asset('img/mail server/5. ip dan home.png') }}" alt="" />
       </section>
 
       <section class="mb-8">
