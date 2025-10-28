@@ -270,7 +270,7 @@
                 <label class="block text-sm font-medium text-gray-900 mb-1">Tanggal lahir</label>
                 <div class="flex gap-3">
                     <div class="w-1/3">
-                        <input type="number" name="birth_year" id="birth_year" placeholder="Year"
+                        <input type="number" name="birth_year" id="birth_year" placeholder="Tahun"
                             class="w-full p-3 bg-gray-100 rounded-lg text-center outline-none focus:ring-2 focus:ring-blue-500 year-input"
                             value="{{ old('birth_year') }}" required min="1900" max="2024" />
                         <p id="yearError" class="year-error">Tahun tidak valid</p>
@@ -278,7 +278,7 @@
                     <div class="relative w-1/3">
                         <button id="monthButton" type="button"
                             class="w-full p-3 bg-gray-100 rounded-lg flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <span id="selectedMonth">{{ old('birth_month') ? old('birth_month') : 'Month' }}</span>
+                            <span id="selectedMonth">{{ old('birth_month') ? old('birth_month') : 'Bulan' }}</span>
                             <svg id="monthArrow" xmlns="http://www.w3.org/2000/svg"
                                 class="h-4 w-4 text-gray-500 transition-transform duration-200" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
@@ -307,7 +307,7 @@
                     <div class="relative w-1/3">
                         <button id="dayButton" type="button"
                             class="w-full p-3 bg-gray-100 rounded-lg flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <span id="selectedDay">{{ old('birth_day') ? old('birth_day') : 'Day' }}</span>
+                            <span id="selectedDay">{{ old('birth_day') ? old('birth_day') : 'Hari' }}</span>
                             <svg id="dayArrow" xmlns="http://www.w3.org/2000/svg"
                                 class="h-4 w-4 text-gray-500 transition-transform duration-200" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
