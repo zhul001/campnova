@@ -43,44 +43,130 @@
     </nav>
 
     <div class="max-w-3xl mx-auto mt-12 px-4">
-      <h1 class="text-3xl font-bold text-[#5daac7] mb-6 text-center">
-        Instalasi FTP Server (vsftpd)
-      </h1>
+        <h1 class="text-3xl font-bold text-[#5daac7] mb-6 text-center">
+            Instalasi FTP Server (vsftpd)
+        </h1>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-semibold mb-2 text-black">1. Update dan Upgrade</h2>
+            <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
+                <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
+                    <div class="flex space-x-2">
+                        <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+                        <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
+                        <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                    </div>
+                    <button class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500"
+                        data-target="0">Copy</button>
+                </div>
+                <div class="px-4 py-3 font-mono text-sm">
+                    <pre class="whitespace-pre-wrap leading-snug">apt update && upgrade</pre>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <section class="mb-8">
-      <h2 class="text-xl font-semibold mb-2 text-black">1. Update dan Upgrade</h2>
-      <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
-        <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
-          <div class="flex space-x-2">
-            <span class="w-3 h-3 bg-red-500 rounded-full"></span>
-            <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
-            <span class="w-3 h-3 bg-green-500 rounded-full"></span>
-          </div>
-          <button class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500" data-target="0">Copy</button>
+        <h2 class="text-xl font-semibold mb-2 text-black">2. Instal vsftpd</h2>
+        <p class="text-gray-700 mb-3">Pasang paket FTP server menggunakan perintah berikut:</p>
+        <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
+            <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
+                <div class="flex space-x-2">
+                    <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+                    <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
+                    <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                </div>
+                <button class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500"
+                    data-target="1">Copy</button>
+            </div>
+            <div class="px-4 py-3 font-mono text-sm">
+                <pre class="whitespace-pre-wrap leading-snug">apt install vsftpd -y</pre>
+            </div>
         </div>
-        <div class="px-4 py-3 font-mono text-sm">
-          <pre class="whitespace-pre-wrap leading-snug">apt update && upgrade</pre>
-        </div>
-      </div>
     </section>
-    </div>
+
+    <section class="mb-8">
+        <h2 class="text-xl font-semibold mb-2 text-black">3. Backup dan Edit Konfigurasi</h2>
+        <p class="text-gray-700 mb-3">Buat salinan konfigurasi asli sebelum mengubahnya, lalu buka file konfigurasi
+            utama:</p>
+        <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900 mb-3">
+            <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
+                <div class="flex space-x-2">
+                    <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+                    <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
+                    <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                </div>
+                <button class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500"
+                    data-target="2">Copy</button>
+            </div>
+            <div class="px-4 py-3 font-mono text-sm">
+                <pre class="whitespace-pre-wrap leading-snug">cp /etc/vsftpd.conf /etc/vsftpd.conf.backup
+nano /etc/vsftpd.conf</pre>
+            </div>
+        </div>
+
+        <p class="text-gray-700 mb-3">Aktifkan atau ubah baris berikut di dalam file:</p>
+        <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
+            <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
+                <div class="flex space-x-2">
+                    <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+                    <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
+                    <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                </div>
+                <button class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500"
+                    data-target="3">Copy</button>
+            </div>
+            <div class="px-4 py-3 font-mono text-sm">
+                <pre class="whitespace-pre-wrap leading-snug">listen=YES
+listen_ipv6=NO
+anonymous_enable=NO
+local_enable=YES
+write_enable=YES
+local_umask=022
+chroot_local_user=YES
+allow_writeable_chroot=YES</pre>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-xl font-semibold mb-2 text-black">4. Restart Layanan FTP</h2>
+        <p class="text-gray-700 mb-3">Setelah selesai mengedit konfigurasi, restart layanan vsftpd agar perubahan
+            diterapkan:</p>
+        <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
+            <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
+                <div class="flex space-x-2">
+                    <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+                    <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
+                    <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                </div>
+                <button class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500"
+                    data-target="4">Copy</button>
+            </div>
+            <div class="px-4 py-3 font-mono text-sm">
+                <pre class="whitespace-pre-wrap leading-snug">systemctl restart vsftpd
+systemctl enable vsftpd
+systemctl status vsftpd</pre>
+            </div>
+        </div>
+    </section>
 
     <footer class="text-center text-gray-500 text-sm py-8 border-t border-gray-100">
         © 2025 Campnova. Semua hak dilindungi.
     </footer>
 
     <script>
-    const buttons = document.querySelectorAll('.copy-btn');
-    const codeBlocks = document.querySelectorAll('pre');
-    buttons.forEach((btn, i) => {
-      btn.addEventListener('click', () => {
-        const code = codeBlocks[i].innerText;
-        navigator.clipboard.writeText(code);
-        btn.innerText = 'Copied!';
-        setTimeout(() => btn.innerText = 'Copy', 1500);
-      });
-    });
-  </script>
+        const buttons = document.querySelectorAll('.copy-btn');
+        const codeBlocks = document.querySelectorAll('pre');
+        buttons.forEach((btn, i) => {
+            btn.addEventListener('click', () => {
+                const code = codeBlocks[i].innerText;
+                navigator.clipboard.writeText(code);
+                btn.innerText = 'Copied!';
+                setTimeout(() => btn.innerText = 'Copy', 1500);
+            });
+        });
+    </script>
 </body>
 
 </html>

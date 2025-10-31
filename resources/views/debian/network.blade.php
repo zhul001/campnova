@@ -144,26 +144,47 @@
   </div>
 
   <!-- Panduan Konfigurasi -->
-  <div class="max-w-3xl mx-auto mt-12 px-4">
-    <h1 class="text-3xl font-bold text-[#5daac7] mb-6 text-center">Panduan Install & Konfigurasi Mail Server</h1>
+<div class="max-w-3xl mx-auto mt-12 px-4">
+  <h1 class="text-3xl font-bold text-[#5daac7] mb-6 text-center">Panduan Install & Konfigurasi Mail Server</h1>
 
-    <section class="mb-8">
-      <h2 class="text-xl font-semibold mb-2 text-black">1. Atur Network Adapter di VirtualBox</h2>
-      <p class="text-gray-700">1. Buka Settings → Network<br>2. Adapter 1: pilih NAT<br>3. Adapter 2: aktifkan Host-Only Adapter → klik Advanced → pada Promiscuous Mode pilih "Allow All"</p>
-    </section>
+  <section class="mb-8">
+    <h2 class="text-xl font-semibold mb-2 text-black">1. Atur Network Adapter di VirtualBox</h2>
+    <p class="text-gray-700">
+      1. Buka Settings → Network<br>
+      2. Adapter 1: pilih NAT<br>
+      3. Adapter 2: aktifkan Host-Only Adapter → klik Advanced → pada Promiscuous Mode pilih "Allow All"
+    </p>
+  </section>
 
-    <section class="mb-8">
-      <h2 class="text-xl font-semibold mb-2 text-black">2. Konfigurasi Network</h2>
-      <div class="terminal">
-        <div class="terminal-header"><div class="dots"></div><button class="copy-btn" data-target="1">Copy</button></div>
-        <pre>nano /etc/network/interfaces</pre>
+  <section class="mb-8">
+    <h2 class="text-xl font-semibold mb-2 text-black">2. Konfigurasi Network</h2>
+    <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
+      <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
+        <div class="flex space-x-2">
+          <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+          <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
+          <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+        </div>
+        <button class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500" data-target="1">Copy</button>
       </div>
+      <div class="px-4 py-3 font-mono text-sm">
+        <pre class="whitespace-pre-wrap leading-snug">nano /etc/network/interfaces</pre>
+      </div>
+    </div>
 
-      <p class="text-gray-700 mt-2">Isi seperti berikut:</p>
+    <p class="text-gray-700 mt-3">Isi seperti berikut:</p>
 
-      <div class="terminal mt-2">
-        <div class="terminal-header"><div class="dots"></div><button class="copy-btn" data-target="2">Copy</button></div>
-<pre>allow-hotplug enp0s3
+    <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900 mt-3">
+      <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
+        <div class="flex space-x-2">
+          <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+          <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
+          <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+        </div>
+        <button class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500" data-target="2">Copy</button>
+      </div>
+      <div class="px-4 py-3 font-mono text-sm">
+        <pre class="whitespace-pre-wrap leading-snug">allow-hotplug enp0s3
 iface enp0s3 inet dhcp
 
 auto enp0s8
@@ -171,89 +192,60 @@ iface enp0s8 inet static
     address 192.168.27.28
     netmask 255.255.255.0</pre>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="mb-8">
-      <h2 class="text-xl font-semibold mb-2 text-black">3. Restart Network</h2>
-      <div class="terminal">
-        <div class="terminal-header"><div class="dots"></div><button class="copy-btn" data-target="3">Copy</button></div>
-        <pre>systemctl restart networking</pre>
+  <section class="mb-8">
+    <h2 class="text-xl font-semibold mb-2 text-black">3. Restart Network</h2>
+    <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
+      <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
+        <div class="flex space-x-2">
+          <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+          <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
+          <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+        </div>
+        <button class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500" data-target="3">Copy</button>
       </div>
-    </section>
-
-    <section class="mb-8">
-      <h2 class="text-xl font-semibold mb-2 text-black">4. Cek IP Address</h2>
-      <div class="terminal">
-        <div class="terminal-header"><div class="dots"></div><button class="copy-btn" data-target="4">Copy</button></div>
-        <pre>ip a</pre>
+      <div class="px-4 py-3 font-mono text-sm">
+        <pre class="whitespace-pre-wrap leading-snug">systemctl restart networking</pre>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 
-  <footer class="text-center text-gray-500 text-sm py-8 border-t border-gray-100">
-        © 2025 Campnova. Semua hak dilindungi.
-    </footer>
+  <section class="mb-8">
+    <h2 class="text-xl font-semibold mb-2 text-black">4. Cek IP Address</h2>
+    <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
+      <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
+        <div class="flex space-x-2">
+          <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+          <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
+          <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+        </div>
+        <button class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500" data-target="4">Copy</button>
+      </div>
+      <div class="px-4 py-3 font-mono text-sm">
+        <pre class="whitespace-pre-wrap leading-snug">ip a</pre>
+      </div>
+    </div>
+  </section>
+</div>
 
-  <!-- Script Salin -->
-  <script>
-    document.querySelectorAll('.copy-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const text = btn.parentElement.nextElementSibling.textContent.trim();
-        navigator.clipboard.writeText(text);
-        btn.textContent = 'Tersalin!';
-        setTimeout(() => btn.textContent = 'Copy', 1500);
-      });
+<footer class="text-center text-gray-500 text-sm py-8 border-t border-gray-100">
+  © 2025 Campnova. Semua hak dilindungi.
+</footer>
+
+<script>
+  const buttons = document.querySelectorAll('.copy-btn');
+  const codeBlocks = document.querySelectorAll('pre');
+  buttons.forEach((btn, i) => {
+    btn.addEventListener('click', () => {
+      const code = codeBlocks[i].innerText;
+      navigator.clipboard.writeText(code);
+      btn.innerText = 'Copied!';
+      setTimeout(() => btn.innerText = 'Copy', 1500);
     });
-  </script>
+  });
+</script>
 
-  <!-- Style Terminal -->
-  <style>
-    .terminal {
-      background: #1e1e1e;
-      border: 1px solid #333;
-      border-radius: 8px;
-      overflow: hidden;
-      color: #f1f1f1;
-      font-family: monospace;
-      font-size: 0.9rem;
-    }
-    .terminal-header {
-      background: #2c2c2c;
-      padding: 6px 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #444;
-    }
-    .dots span, .dots::before, .dots::after {
-      content: '';
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      margin-right: 6px;
-    }
-    .dots { display: flex; }
-    .dots::before { background: #ff5f56; }
-    .dots::after { background: #27c93f; }
-    .dots span { background: #ffbd2e; }
-    .terminal pre {
-      margin: 0;
-      padding: 12px;
-      white-space: pre-wrap;
-      background: #1e1e1e;
-      color: #e2e8f0;
-    }
-    .copy-btn {
-      background: #22b8cf;
-      border: none;
-      color: white;
-      padding: 3px 10px;
-      font-size: 0.75rem;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .copy-btn:hover { background: #0ca6b0; }
-  </style>
 </body>
 </html>

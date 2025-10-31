@@ -57,30 +57,20 @@
         <div class="space-y-10">
 
             <!-- Apache -->
-            <section class="mb-8">
-                <h2 class="text-xl font-semibold mb-2 text-black">1. Install Apache2</h2>
-                <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
-                    <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
-                        <div class="flex space-x-2">
-                            <span class="w-3 h-3 bg-red-500 rounded-full"></span>
-                            <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
-                            <span class="w-3 h-3 bg-green-500 rounded-full"></span>
-                        </div>
-                        <button class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500" data-target="0">Copy</button>
-                    </div>
-                    <div class="px-4 py-3 font-mono text-sm">
-                        <pre class="whitespace-pre-wrap leading-snug">sudo apt update
+            <div>
+                <h2 class="text-2xl font-semibold text-gray-900 mb-2">1. Install Apache2</h2>
+                <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-4">
+                    <pre><code>sudo apt update
 sudo apt install apache2 -y
-sudo systemctl status apache2</pre>
-                    </div>
+sudo systemctl status apache2</code></pre>
                 </div>
-                <p class="text-gray-600 mt-3">Cek di browser: <span class="font-mono text-gray-800">http://localhost/</span>
+                <p class="text-gray-600">Cek di browser: <span class="font-mono text-gray-800">http://localhost/</span>
                     untuk memastikan Apache aktif.</p>
-            </section>
+            </div>
 
             <!-- MySQL -->
-            <section class="mb-8">
-                <h2 class="text-xl font-semibold mb-2 text-black">2. Install MySQL Server (Manual .tar)</h2>
+            <div>
+                <h2 class="text-2xl font-semibold text-gray-900 mb-2">2. Install MySQL Server (Manual .tar)</h2>
                 <p class="text-gray-600 mb-3">
                     Unduh paket MySQL dari situs resmi:
                     <a href="https://dev.mysql.com/downloads/mysql/" target="_blank"
@@ -91,100 +81,52 @@ sudo systemctl status apache2</pre>
                     <span class="font-mono bg-gray-100 px-1 rounded">Downloads</span>.
                     Buka terminal, masuk ke direktori tersebut dan ekstrak file dengan perintah berikut:
                 </p>
-                <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
-                    <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
-                        <div class="flex space-x-2">
-                            <span class="w-3 h-3 bg-red-500 rounded-full"></span>
-                            <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
-                            <span class="w-3 h-3 bg-green-500 rounded-full"></span>
-                        </div>
-                        <button class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500" data-target="1">Copy</button>
-                    </div>
-                    <div class="px-4 py-3 font-mono text-sm">
-                        <pre class="whitespace-pre-wrap leading-snug">cd /home/nama_user/Downloads
-tar -xf mysql-8.4.0-linux-glibc2.28-x86_64.tar.xz</pre>
-                    </div>
+                <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-4">
+                    <pre><code>cd /home/nama_user/Downloads
+tar -xf mysql-8.4.0-linux-glibc2.28-x86_64.tar.xz
+</code></pre>
                 </div>
-            </section>
+            </div>
 
             <!-- UTF8 Library -->
-            <section class="mb-8">
-                <h2 class="text-xl font-semibold mb-2 text-black">3. Install Library UTF-8 (libaio)</h2>
+            <div>
+                <h2 class="text-2xl font-semibold text-gray-900 mb-2">3. Install Library UTF-8 (libaio)</h2>
                 <p class="text-gray-600 mb-3">
                     Sebelum instalasi MySQL, pastikan library dependensi berikut sudah terpasang:
                 </p>
-                <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
-                    <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
-                        <div class="flex space-x-2">
-                            <span class="w-3 h-3 bg-red-500 rounded-full"></span>
-                            <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
-                            <span class="w-3 h-3 bg-green-500 rounded-full"></span>
-                        </div>
-                        <button class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500" data-target="2">Copy</button>
-                    </div>
-                    <div class="px-4 py-3 font-mono text-sm">
-                        <pre class="whitespace-pre-wrap leading-snug">apt install mecab-ipadic-utf8 libaio-dev -y</pre>
-                    </div>
+                <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-4">
+                    <pre><code>apt install mecab-ipadic-utf8 libaio-dev -y</code></pre>
                 </div>
-            </section>
+            </div>
 
             <!-- Install MySQL Packages -->
-            <section class="mb-8">
-                <h2 class="text-xl font-semibold mb-2 text-black">4. Instalasi Paket MySQL</h2>
+            <div>
+                <h2 class="text-2xl font-semibold text-gray-900 mb-2">4. Instalasi Paket MySQL</h2>
                 <p class="text-gray-600 mb-3">
                     Setelah dependensi selesai, lanjutkan instalasi MySQL dari paket .deb hasil ekstraksi:
                 </p>
-                <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
-                    <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
-                        <div class="flex space-x-2">
-                            <span class="w-3 h-3 bg-red-500 rounded-full"></span>
-                            <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
-                            <span class="w-3 h-3 bg-green-500 rounded-full"></span>
-                        </div>
-                        <button class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500" data-target="3">Copy</button>
-                    </div>
-                    <div class="px-4 py-3 font-mono text-sm">
-                        <pre class="whitespace-pre-wrap leading-snug">dpkg -i *.deb</pre>
-                    </div>
+                <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-4">
+                    <pre><code>dpkg -i *.deb</code></pre>
                 </div>
-            </section>
+            </div>
 
             <!-- PHP -->
-            <section class="mb-8">
-                <h2 class="text-xl font-semibold mb-2 text-black">5. Install PHP dan Modul Apache</h2>
-                <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
-                    <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
-                        <div class="flex space-x-2">
-                            <span class="w-3 h-3 bg-red-500 rounded-full"></span>
-                            <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
-                            <span class="w-3 h-3 bg-green-500 rounded-full"></span>
-                        </div>
-                        <button class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500" data-target="4">Copy</button>
-                    </div>
-                    <div class="px-4 py-3 font-mono text-sm">
-                        <pre class="whitespace-pre-wrap leading-snug">apt install php libapache2-mod-php php-mysql -y
-php -v #opsional untuk mengecek versi php</pre>
-                    </div>
+            <div>
+                <h2 class="text-2xl font-semibold text-gray-900 mb-2">5. Install PHP dan Modul Apache</h2>
+                <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-4">
+                    <pre><code>apt install php libapache2-mod-php php-mysql -y
+php -v #opsional untuk mengecek versi php
+</code></pre>
                 </div>
-            </section>
+            </div>
 
             <!-- phpMyAdmin -->
-            <section class="mb-8">
-                <h2 class="text-xl font-semibold mb-2 text-black">6. Install phpMyAdmin</h2>
-                <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
-                    <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
-                        <div class="flex space-x-2">
-                            <span class="w-3 h-3 bg-red-500 rounded-full"></span>
-                            <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
-                            <span class="w-3 h-3 bg-green-500 rounded-full"></span>
-                        </div>
-                        <button class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500" data-target="5">Copy</button>
-                    </div>
-                    <div class="px-4 py-3 font-mono text-sm">
-                        <pre class="whitespace-pre-wrap leading-snug">apt install phpmyadmin -y</pre>
-                    </div>
+            <div>
+                <h2 class="text-2xl font-semibold text-gray-900 mb-2">6. Install phpMyAdmin</h2>
+                <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-4">
+                    <pre><code>apt install phpmyadmin -y</code></pre>
                 </div>
-                <p class="text-gray-600 mt-3">Saat pop-up konfigurasi muncul:</p>
+                <p class="text-gray-600 mb-3">Saat pop-up konfigurasi muncul:</p>
                 <ul class="list-disc pl-5 text-gray-600 space-y-1">
                     <li>Pilih <span class="font-semibold">apache2</span> sebagai web server (tekan spasi di bagian
                         apache nanti akan muncul bintang penanda kalau apache dipilih)</li>
@@ -199,42 +141,24 @@ php -v #opsional untuk mengecek versi php</pre>
                 <p class="text-gray-600">Akses di browser:
                     <span class="font-mono text-gray-800">http://localhost/phpmyadmin</span>
                 </p>
-            </section>
+            </div>
+        </div>
 
-            <!-- Membuat Database Sekolah -->
-            <section class="mb-8">
-                <h2 class="text-xl font-semibold mb-2 text-black">7. Membuat Database Sekolah</h2>
-                <p class="text-gray-600 mb-3">
-                    Setelah MySQL terinstal dan berjalan, buka terminal lalu masuk ke MySQL dengan perintah:
-                </p>
-                <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
-                    <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
-                        <div class="flex space-x-2">
-                            <span class="w-3 h-3 bg-red-500 rounded-full"></span>
-                            <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
-                            <span class="w-3 h-3 bg-green-500 rounded-full"></span>
-                        </div>
-                        <button class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500" data-target="6">Copy</button>
-                    </div>
-                    <div class="px-4 py-3 font-mono text-sm">
-                        <pre class="whitespace-pre-wrap leading-snug">mysql -u root -p</pre>
-                    </div>
-                </div>
-                <p class="text-gray-600 mb-3">
-                    Setelah masuk ke shell MySQL, jalankan perintah berikut satu per satu untuk membuat database dan tabel:
-                </p>
-                <p class="text-gray-600 mb-3">ctrl + d untuk keluar dari mode mysql</p>
-                <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
-                    <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
-                        <div class="flex space-x-2">
-                            <span class="w-3 h-3 bg-red-500 rounded-full"></span>
-                            <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
-                            <span class="w-3 h-3 bg-green-500 rounded-full"></span>
-                        </div>
-                        <button class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500" data-target="7">Copy</button>
-                    </div>
-                    <div class="px-4 py-3 font-mono text-sm">
-                        <pre class="whitespace-pre-wrap leading-snug">CREATE DATABASE sekolah;
+        <!-- Membuat Database Sekolah -->
+        <div>
+            <h2 class="text-2xl font-semibold text-gray-900 mb-2">7. Membuat Database Sekolah</h2>
+            <p class="text-gray-600 mb-3">
+                Setelah MySQL terinstal dan berjalan, buka terminal lalu masuk ke MySQL dengan perintah:
+            </p>
+            <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-4">
+                <pre><code>mysql -u root -p</code></pre>
+            </div>
+            <p class="text-gray-600 mb-3">
+                Setelah masuk ke shell MySQL, jalankan perintah berikut satu per satu untuk membuat database dan tabel:
+            </p>
+            <p class="text-gray-600 mb-3">ctrl + d untuk keluar dari mode mysql</p>
+            <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-4">
+                <pre><code>CREATE DATABASE sekolah;
 USE sekolah;
 
 CREATE TABLE siswa (
@@ -243,65 +167,46 @@ CREATE TABLE siswa (
     jurusan VARCHAR(100),
     prodi VARCHAR(100),
     gol VARCHAR(10)
-);</pre>
-                    </div>
-                </div>
-            </section>
+);
+</code></pre>
+            </div>
+        </div>
 
-            <!-- Direktori Web -->
-            <section class="mb-8">
-                <h2 class="text-xl font-semibold mb-2 text-black">8. Membuat Direktori Web Sekolah</h2>
-                <p class="text-gray-600 mb-3">
-                    Sekarang buat direktori website di <span class="font-mono bg-gray-100 px-1 rounded">/var/www/html</span>
-                    dan file utama <span class="font-mono bg-gray-100 px-1 rounded">index.php</span>.
-                </p>
-                <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
-                    <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
-                        <div class="flex space-x-2">
-                            <span class="w-3 h-3 bg-red-500 rounded-full"></span>
-                            <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
-                            <span class="w-3 h-3 bg-green-500 rounded-full"></span>
-                        </div>
-                        <button class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500" data-target="8">Copy</button>
-                    </div>
-                    <div class="px-4 py-3 font-mono text-sm">
-                        <pre class="whitespace-pre-wrap leading-snug">mkdir /var/www/html/sekolah
+        <!-- Direktori Web -->
+        <div>
+            <h2 class="text-2xl font-semibold text-gray-900 mb-2">8. Membuat Direktori Web Sekolah</h2>
+            <p class="text-gray-600 mb-3">
+                Sekarang buat direktori website di <span class="font-mono bg-gray-100 px-1 rounded">/var/www/html</span>
+                dan file utama <span class="font-mono bg-gray-100 px-1 rounded">index.php</span>.
+            </p>
+            <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-4">
+                <pre><code>mkdir /var/www/html/sekolah
 chown -R www-data:www-data /var/www/html/sekolah
 chmod -R 755 /var/www/html/sekolah
 cd /var/www/html/sekolah
-nano index.php</pre>
-                    </div>
-                </div>
-                <p class="text-gray-600 mt-3">
-                    Perintah di atas:
-                </p>
-                <ul class="list-disc pl-5 text-gray-600 mb-3">
-                    <li><span class="font-mono text-sm">chown</span> memberi hak kepemilikan folder ke pengguna Apache
-                        (<span class="font-mono text-sm">www-data</span>).</li>
-                    <li><span class="font-mono text-sm">chmod</span> memberi izin baca dan eksekusi agar folder bisa diakses
-                        di browser.</li>
-                </ul>
-            </section>
+nano index.php</code></pre>
+            </div>
+            <p class="text-gray-600">
+                Perintah di atas:
+            </p>
+            <ul class="list-disc pl-5 text-gray-600 mb-3">
+                <li><span class="font-mono text-sm">chown</span> memberi hak kepemilikan folder ke pengguna Apache
+                    (<span class="font-mono text-sm">www-data</span>).</li>
+                <li><span class="font-mono text-sm">chmod</span> memberi izin baca dan eksekusi agar folder bisa diakses
+                    di browser.</li>
+            </ul>
+        </div>
 
-            <!-- File index.php -->
-            <section class="mb-8">
-                <h2 class="text-xl font-semibold mb-2 text-black">9. Isi File index.php</h2>
-                <p class="text-gray-600 mb-3">
-                    Salin kode berikut ke dalam file <span class="font-mono bg-gray-100 px-1 rounded">index.php</span>. Kode
-                    ini digunakan untuk menampilkan form input data siswa dan menampilkan hasilnya dari database. Setelah
-                    menyalin kode, ubah bagian koneksi sesuai username dan password MySQL kamu.
-                </p>
-                <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
-                    <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
-                        <div class="flex space-x-2">
-                            <span class="w-3 h-3 bg-red-500 rounded-full"></span>
-                            <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
-                            <span class="w-3 h-3 bg-green-500 rounded-full"></span>
-                        </div>
-                        <button class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500" data-target="9">Copy</button>
-                    </div>
-                    <div class="px-4 py-3 font-mono text-sm">
-                        <pre class="whitespace-pre-wrap leading-snug overflow-x-auto">&lt;?php
+        <!-- File index.php -->
+        <div>
+            <h2 class="text-2xl font-semibold text-gray-900 mb-2">9. Isi File index.php</h2>
+            <p class="text-gray-600 mb-3">
+                Salin kode berikut ke dalam file <span class="font-mono bg-gray-100 px-1 rounded">index.php</span>. Kode
+                ini digunakan untuk menampilkan form input data siswa dan menampilkan hasilnya dari database. Setelah
+                menyalin kode, ubah bagian koneksi sesuai username dan password MySQL kamu.
+            </p>
+            <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-4 overflow-x-auto">
+                <pre><code>&lt;?php
 $koneksi = new mysqli("localhost", "root", "root", "sekolah");
 
 if ($koneksi-&gt;connect_error) {
@@ -423,111 +328,60 @@ if (isset($_GET["edit"])) {
     &lt;/div&gt;
 
 &lt;/body&gt;
-&lt;/html&gt;</pre>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Tampilkan Error PHP -->
-            <section class="mb-8">
-                <h2 class="text-xl font-semibold mb-2 text-black">10. Tampilkan Error PHP</h2>
-                <p class="text-gray-600 mb-3">
-                    Secara default, Apache menyembunyikan error-nya. Aktifkan supaya tahu penyebabnya:
-                </p>
-                <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
-                    <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
-                        <div class="flex space-x-2">
-                            <span class="w-3 h-3 bg-red-500 rounded-full"></span>
-                            <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
-                            <span class="w-3 h-3 bg-green-500 rounded-full"></span>
-                        </div>
-                        <button class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500" data-target="10">Copy</button>
-                    </div>
-                    <div class="px-4 py-3 font-mono text-sm">
-                        <pre class="whitespace-pre-wrap leading-snug">nano /etc/php/*/apache2/php.ini</pre>
-                    </div>
-                </div>
-                <p class="text-gray-600 mt-3">Cari baris:</p>
-                <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
-                    <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
-                        <div class="flex space-x-2">
-                            <span class="w-3 h-3 bg-red-500 rounded-full"></span>
-                            <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
-                            <span class="w-3 h-3 bg-green-500 rounded-full"></span>
-                        </div>
-                        <button class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500" data-target="11">Copy</button>
-                    </div>
-                    <div class="px-4 py-3 font-mono text-sm">
-                        <pre class="whitespace-pre-wrap leading-snug">display_errors = Off</pre>
-                    </div>
-                </div>
-                <p class="text-gray-600 mt-3">Ubah jadi:</p>
-                <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
-                    <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
-                        <div class="flex space-x-2">
-                            <span class="w-3 h-3 bg-red-500 rounded-full"></span>
-                            <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
-                            <span class="w-3 h-3 bg-green-500 rounded-full"></span>
-                        </div>
-                        <button class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500" data-target="12">Copy</button>
-                    </div>
-                    <div class="px-4 py-3 font-mono text-sm">
-                        <pre class="whitespace-pre-wrap leading-snug">display_errors = On</pre>
-                    </div>
-                </div>
-                <p class="text-gray-600 mt-3">Lalu restart Apache:</p>
-                <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
-                    <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
-                        <div class="flex space-x-2">
-                            <span class="w-3 h-3 bg-red-500 rounded-full"></span>
-                            <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
-                            <span class="w-3 h-3 bg-green-500 rounded-full"></span>
-                        </div>
-                        <button class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500" data-target="13">Copy</button>
-                    </div>
-                    <div class="px-4 py-3 font-mono text-sm">
-                        <pre class="whitespace-pre-wrap leading-snug">systemctl restart apache2</pre>
-                    </div>
-                </div>
-            </section>
-
+&lt;/html&gt;
+</code></pre>
+            </div>
         </div>
+
+        <!-- Tampilkan Error PHP -->
+        <div>
+            <h2 class="text-2xl font-semibold text-gray-900 mb-2">10. Tampilkan Error PHP</h2>
+            <p class="text-gray-600 mb-3">
+                Secara default, Apache menyembunyikan error-nya. Aktifkan supaya tahu penyebabnya:
+            </p>
+            <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-4">
+                <pre><code>nano /etc/php/*/apache2/php.ini</code></pre>
+            </div>
+            <p class="text-gray-600 mb-3">Cari baris:</p>
+            <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-4">
+                <pre><code>display_errors = Off</code></pre>
+            </div>
+            <p class="text-gray-600 mb-3">Ubah jadi:</p>
+            <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-4">
+                <pre><code>display_errors = On</code></pre>
+            </div>
+            <p class="text-gray-600 mb-3">Lalu restart Apache:</p>
+            <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-4">
+                <pre><code>systemctl restart apache2</code></pre>
+            </div>
+        </div>
+
+        <!-- Tes Hasil Konfigurasi Direktori Sekolah -->
+        <div>
+            <h2 class="text-2xl font-semibold text-gray-900 mb-2">11. Tes Hasil Konfigurasi Direktori Sekolah</h2>
+            <p class="text-gray-600 mb-3">
+                Setelah membuat direktori <span class="font-mono bg-gray-100 px-1 rounded">/var/www/html/sekolah</span>
+                dan file
+                <span class="font-mono bg-gray-100 px-1 rounded">index.php</span>, sekarang uji apakah sudah bisa
+                diakses dari browser client.
+            </p>
+            <p class="text-gray-600 mb-3">
+                Buka browser di komputer client, lalu ketik alamat berikut sesuai IP server kamu:
+            </p>
+            <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-4">
+                <pre><code>http://192.168.10.28/sekolah/</code></pre>
+            </div>
+            <p class="text-gray-600 mb-3">
+                Jika tampilan form input data siswa muncul, berarti direktori sudah terbaca dan file PHP berjalan dengan
+                benar.
+            </p>
+        </div>
+
     </main>
 
     <footer class="text-center text-gray-500 text-sm py-8 border-t border-gray-100">
         © 2025 Campnova. Semua hak dilindungi.
     </footer>
-
-    <script>
-        // Fungsi untuk copy teks
-        document.addEventListener('DOMContentLoaded', function() {
-            const copyButtons = document.querySelectorAll('.copy-btn');
-            
-            copyButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const targetId = this.getAttribute('data-target');
-                    const targetElement = document.querySelectorAll('.font-mono pre')[targetId];
-                    const textToCopy = targetElement.textContent;
-                    
-                    navigator.clipboard.writeText(textToCopy).then(() => {
-                        // Ubah teks tombol sementara
-                        const originalText = this.textContent;
-                        this.textContent = 'Copied!';
-                        this.classList.remove('bg-teal-600');
-                        this.classList.add('bg-green-600');
-                        
-                        setTimeout(() => {
-                            this.textContent = originalText;
-                            this.classList.remove('bg-green-600');
-                            this.classList.add('bg-teal-600');
-                        }, 2000);
-                    }).catch(err => {
-                        console.error('Gagal menyalin teks: ', err);
-                    });
-                });
-            });
-        });
-    </script>
 </body>
 
 </html>

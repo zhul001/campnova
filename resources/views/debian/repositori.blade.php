@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -10,7 +10,7 @@
     <meta http-equiv="Expires" content="0">
     <link rel="icon" href="{{ asset('img/logo_campnova_blue_f.png') }}" type="image/png">
 
-    <title>Campnova | Belajar & Tryout</title>
+    <title>Campnova | Panduan Konfigurasi Repositori</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -21,7 +21,7 @@
     <script type="text/javascript" src="https://unpkg.com/trix@1.3.1/dist/trix.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
-  <body class="text-gray-100 font-sans antialiased">
+<body class="text-gray-100 font-sans antialiased">
     <nav class="sticky top-0 z-[100] w-full border-b border-gray-100 bg-white/95 backdrop-blur-sm">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="relative flex h-16 items-center justify-between">
@@ -50,176 +50,145 @@
     </nav>
 
     <div class="max-w-3xl mx-auto mt-12 px-4">
-      <h1 class="text-3xl font-bold text-[#5daac7] mb-6 text-center">
-        Panduan konfigurasi repositori
-      </h1>
+        <h1 class="text-3xl font-bold text-[#5daac7] mb-6 text-center">
+            Panduan Konfigurasi Repositori
+        </h1>
 
-      <section class="mb-8">
-        <h2 class="text-xl font-semibold mb-2 text-black">
-          1. konfigurasi repositori
-        </h2>
-        <div
-          class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900"
-        >
-          <div
-            class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700"
-          >
-            <div class="flex space-x-2">
-              <span class="w-3 h-3 bg-red-500 rounded-full"></span>
-              <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
-              <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+        <section class="mb-8">
+            <h2 class="text-xl font-semibold mb-2 text-black">
+                1. Konfigurasi Repositori
+            </h2>
+            <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
+                <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
+                    <div class="flex space-x-2">
+                        <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+                        <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
+                        <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                    </div>
+                    <button class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500">
+                        Copy
+                    </button>
+                </div>
+                <div class="px-4 py-3 font-mono text-sm">
+                    <pre class="whitespace-pre-wrap leading-snug">nano /etc/apt/sources.list</pre>
+                </div>
             </div>
-            <button
-              class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500"
-              data-target="0"
-            >
-              Copy
-            </button>
-          </div>
-          <div class="px-4 py-3 font-mono text-sm">
-            <pre class="whitespace-pre-wrap leading-snug">nano /etc/apt/sources.list</pre
-            >
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <p class="text-black mb-4">kemudian ganti isi file sesuai versi debian</p>
+        <p class="text-black mb-4">kemudian ganti isi file sesuai versi debian</p>
 
-      <section class="mb-8">
-        <h2 class="text-xl font-semibold mb-2 text-black">
-          Debian 13 - Trixie
-        </h2>
-        <div
-          class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900"
-        >
-          <div
-            class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700"
-          >
-            <div class="flex space-x-2">
-              <span class="w-3 h-3 bg-red-500 rounded-full"></span>
-              <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
-              <span class="w-3 h-3 bg-green-500 rounded-full"></span>
-            </div>
-            <button
-              class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500"
-              data-target="0"
-            >
-              Copy
-            </button>
-          </div>
-          <div class="px-4 py-3 font-mono text-sm">
-            <pre class="whitespace-pre-wrap leading-snug">
+        <section class="mb-8">
+            <h2 class="text-xl font-semibold mb-2 text-black">
+                Debian 13 - Trixie
+            </h2>
+            <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
+                <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
+                    <div class="flex space-x-2">
+                        <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+                        <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
+                        <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                    </div>
+                    <button class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500">
+                        Copy
+                    </button>
+                </div>
+                <div class="px-4 py-3 font-mono text-sm">
+                    <pre class="whitespace-pre-wrap leading-snug">
 deb http://deb.debian.org/debian trixie main contrib non-free non-free-firmware
 deb http://security.debian.org/debian-security trixie-security main contrib non-free non-free-firmware
-deb http://deb.debian.org/debian trixie-updates main contrib non-free non-free-firmware
-                </pre
-            >
-          </div>
-        </div>
-      </section>
-
-      <section class="mb-8">
-        <h2 class="text-xl font-semibold mb-2 text-black">
-          Debian 12 - Bookworm
-        </h2>
-        <div
-          class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900"
-        >
-          <div
-            class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700"
-          >
-            <div class="flex space-x-2">
-              <span class="w-3 h-3 bg-red-500 rounded-full"></span>
-              <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
-              <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+deb http://deb.debian.org/debian trixie-updates main contrib non-free non-free-firmware</pre>
+                </div>
             </div>
-            <button
-              class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500"
-              data-target="0"
-            >
-              Copy
-            </button>
-          </div>
-          <div class="px-4 py-3 font-mono text-sm">
-            <pre class="whitespace-pre-wrap leading-snug">
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-semibold mb-2 text-black">
+                Debian 12 - Bookworm
+            </h2>
+            <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
+                <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
+                    <div class="flex space-x-2">
+                        <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+                        <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
+                        <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                    </div>
+                    <button class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500">
+                        Copy
+                    </button>
+                </div>
+                <div class="px-4 py-3 font-mono text-sm">
+                    <pre class="whitespace-pre-wrap leading-snug">
 deb http://deb.debian.org/debian bookworm main contrib non-free non-free-firmware
 deb http://security.debian.org/debian-security bookworm-security main contrib non-free non-free-firmware
-deb http://deb.debian.org/debian bookworm-updates main contrib non-free non-free-firmware
-                </pre
-            >
-          </div>
-        </div>
-      </section>
-
-      <section class="mb-8">
-        <h2 class="text-xl font-semibold mb-2 text-black">
-          Debian 11 - Bullseye
-        </h2>
-        <div
-          class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900"
-        >
-          <div
-            class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700"
-          >
-            <div class="flex space-x-2">
-              <span class="w-3 h-3 bg-red-500 rounded-full"></span>
-              <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
-              <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+deb http://deb.debian.org/debian bookworm-updates main contrib non-free non-free-firmware</pre>
+                </div>
             </div>
-            <button
-              class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500"
-              data-target="0"
-            >
-              Copy
-            </button>
-          </div>
-          <div class="px-4 py-3 font-mono text-sm">
-            <pre class="whitespace-pre-wrap leading-snug">
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-semibold mb-2 text-black">
+                Debian 11 - Bullseye
+            </h2>
+            <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
+                <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
+                    <div class="flex space-x-2">
+                        <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+                        <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
+                        <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                    </div>
+                    <button class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500">
+                        Copy
+                    </button>
+                </div>
+                <div class="px-4 py-3 font-mono text-sm">
+                    <pre class="whitespace-pre-wrap leading-snug">
 deb http://deb.debian.org/debian bullseye main contrib non-free
 deb http://security.debian.org/debian-security bullseye-security main contrib non-free
-deb http://deb.debian.org/debian bullseye-updates main contrib non-free
-                </pre
-            >
-          </div>
-        </div>
-      </section>
-
-      <section class="mb-8">
-        <h2 class="text-xl font-semibold mb-2 text-black">
-          Debian 10 - Buster
-        </h2>
-        <div
-          class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900"
-        >
-          <div
-            class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700"
-          >
-            <div class="flex space-x-2">
-              <span class="w-3 h-3 bg-red-500 rounded-full"></span>
-              <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
-              <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+deb http://deb.debian.org/debian bullseye-updates main contrib non-free</pre>
+                </div>
             </div>
-            <button
-              class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500"
-              data-target="0"
-            >
-              Copy
-            </button>
-          </div>
-          <div class="px-4 py-3 font-mono text-sm">
-            <pre class="whitespace-pre-wrap leading-snug">
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-semibold mb-2 text-black">
+                Debian 10 - Buster
+            </h2>
+            <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
+                <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
+                    <div class="flex space-x-2">
+                        <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+                        <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
+                        <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                    </div>
+                    <button class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500">
+                        Copy
+                    </button>
+                </div>
+                <div class="px-4 py-3 font-mono text-sm">
+                    <pre class="whitespace-pre-wrap leading-snug">
 deb http://deb.debian.org/debian buster main contrib non-free
 deb http://security.debian.org/debian-security buster/updates main contrib non-free
-deb http://deb.debian.org/debian buster-updates main contrib non-free    
-            </pre
-            >
-          </div>
-        </div>
-      </section>
+deb http://deb.debian.org/debian buster-updates main contrib non-free</pre>
+                </div>
+            </div>
+        </section>
     </div>
 
     <footer class="text-center text-gray-500 text-sm py-8 border-t border-gray-100">
         © 2025 Campnova. Semua hak dilindungi.
     </footer>
-  </body>
+
+    <script>
+        const buttons = document.querySelectorAll('.copy-btn');
+        const codeBlocks = document.querySelectorAll('pre');
+        buttons.forEach((btn, i) => {
+            btn.addEventListener('click', () => {
+                const code = codeBlocks[i].innerText;
+                navigator.clipboard.writeText(code);
+                btn.innerText = 'Copied!';
+                setTimeout(() => btn.innerText = 'Copy', 1500);
+            });
+        });
+    </script>
+</body>
 </html>
