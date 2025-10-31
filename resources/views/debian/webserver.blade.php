@@ -499,16 +499,35 @@ if (isset($_GET["edit"])) {
     </footer>
 
     <script>
-    const buttons = document.querySelectorAll('.copy-btn');
-    const codeBlocks = document.querySelectorAll('pre');
-    buttons.forEach((btn, i) => {
-      btn.addEventListener('click', () => {
-        const code = codeBlocks[i].innerText;
-        navigator.clipboard.writeText(code);
-        btn.innerText = 'Copied!';
-        setTimeout(() => btn.innerText = 'Copy', 1500);
-      });
-    });
-  </script>
+        // Fungsi untuk copy teks
+        document.addEventListener('DOMContentLoaded', function() {
+            const copyButtons = document.querySelectorAll('.copy-btn');
+            
+            copyButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+                    const targetElement = document.querySelectorAll('.font-mono pre')[targetId];
+                    const textToCopy = targetElement.textContent;
+                    
+                    navigator.clipboard.writeText(textToCopy).then(() => {
+                        // Ubah teks tombol sementara
+                        const originalText = this.textContent;
+                        this.textContent = 'Copied!';
+                        this.classList.remove('bg-teal-600');
+                        this.classList.add('bg-green-600');
+                        
+                        setTimeout(() => {
+                            this.textContent = originalText;
+                            this.classList.remove('bg-green-600');
+                            this.classList.add('bg-teal-600');
+                        }, 2000);
+                    }).catch(err => {
+                        console.error('Gagal menyalin teks: ', err);
+                    });
+                });
+            });
+        });
+    </script>
 </body>
+
 </html>
