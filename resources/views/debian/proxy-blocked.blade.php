@@ -268,8 +268,10 @@ http_access allow localnet</pre>
 
       </div>
 
-      <x-footer></x-footer>
-
+      <footer class="text-center text-gray-500 text-sm py-8 border-t border-gray-100">
+        © 2025 Campnova. Semua hak dilindungi.
+    </footer>
+    
     <script>
       const buttons = document.querySelectorAll(".copy-btn");
       const codeBlocks = document.querySelectorAll("pre");

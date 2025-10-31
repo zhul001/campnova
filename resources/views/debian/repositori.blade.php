@@ -217,5 +217,9 @@ deb http://deb.debian.org/debian buster-updates main contrib non-free
         </div>
       </section>
     </div>
+
+    <footer class="text-center text-gray-500 text-sm py-8 border-t border-gray-100">
+        © 2025 Campnova. Semua hak dilindungi.
+    </footer>
   </body>
 </html>

@@ -122,6 +122,14 @@ Route::get('/repository', function () {
     return view('debian.repositori');
 });
 
+Route::get('/webserver', function () {
+    return view('debian.webserver');
+});
+
+Route::get('/ftpserver', function () {
+    return view('debian.ftpserver');
+});
+
 Route::get('/forgot-password', [AuthController::class, 'showForgotForm'])->name('password.request');
 Route::post('/forgot-password', [AuthController::class, 'sendOtp'])->name('password.sendOtp');
 

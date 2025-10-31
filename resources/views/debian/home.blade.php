@@ -97,6 +97,13 @@
                 <p class="text-sm text-gray-500">BIND9 dan pengujian DNS</p>
             </a>
 
+            <a href="{{ url('/webserver') }}"
+                class="block bg-white hover:bg-[#F2FAFD] transition rounded-2xl p-6 shadow-sm border border-gray-200 hover:border-[#5daac7]">
+                <div class="text-3xl mb-3">💻</div>
+                <h3 class="font-semibold text-lg text-gray-900 mb-1">Konfigurasi Web Server</h3>
+                <p class="text-sm text-gray-500">Apache2, MySQL, PHP, dan phpMyAdmin</p>
+            </a>
+
             <a href="{{ url('/mailserver') }}"
                 class="block bg-white hover:bg-[#F2FAFD] transition rounded-2xl p-6 shadow-sm border border-gray-200 hover:border-[#5daac7]">
                 <div class="text-3xl mb-3">📧</div>
@@ -109,13 +116,6 @@
                 <div class="text-3xl mb-3">🧱</div>
                 <h3 class="font-semibold text-lg text-gray-900 mb-1">Konfigurasi Proxy Server</h3>
                 <p class="text-sm text-gray-500">Squid dan kontrol akses web</p>
-            </a>
-
-            <a href="{{ url('/webserver') }}"
-                class="block bg-white hover:bg-[#F2FAFD] transition rounded-2xl p-6 shadow-sm border border-gray-200 hover:border-[#5daac7]">
-                <div class="text-3xl mb-3">💻</div>
-                <h3 class="font-semibold text-lg text-gray-900 mb-1">Konfigurasi Web Server</h3>
-                <p class="text-sm text-gray-500">Apache2 dan Virtual Host</p>
             </a>
 
             <a href="{{ url('/ftpserver') }}"

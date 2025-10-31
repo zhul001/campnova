@@ -39,6 +39,7 @@
       <h1 class="text-3xl font-bold text-[#5daac7] mb-6 text-center">
         Panduan Install & Konfigurasi BIND9
       </h1>
+
     <section class="mb-8">
       <h2 class="text-xl font-semibold mb-2 text-black">1. Update dan Upgrade</h2>
       <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
@@ -123,7 +124,7 @@ $TTL    604800
 
 @       IN      NS      campnova.com.
 27      IN      PTR     campnova.com.
-@       IN      PTR     campnova.com.
+@       IN      PTR     campnova.com.</pre>
         </div>
       </div>
     </section>
@@ -141,7 +142,7 @@ $TTL    604800
         </div>
         <div class="px-4 py-3 font-mono text-sm">
           <pre class="whitespace-pre-wrap leading-snug">nano /etc/bind/named.conf.local
-# edit file nya seperti ini
+# Edit file-nya seperti ini
 zone "campnova.com" {
     type master;
     file "/etc/bind/db.campnova";
@@ -168,16 +169,15 @@ zone "100.168.192.in-addr.arpa" {
         </div>
         <div class="px-4 py-3 font-mono text-sm">
           <pre class="whitespace-pre-wrap leading-snug">nano /etc/bind/named.conf.options
-#scroll ke bawah sampai nemu listen-on-v6, tambahkan baris ini diatasnya
+# Scroll ke bawah sampai menemukan listen-on-v6, tambahkan baris ini di atasnya
 listen-on { any; };
-listen-on-v6 { any; };
-;</pre>
+listen-on-v6 { any; };</pre>
         </div>
       </div>
     </section>
 
     <section class="mb-8">
-      <h2 class="text-xl font-semibold mb-2 text-black">8. cek konfigurasi dan restart</h2>
+      <h2 class="text-xl font-semibold mb-2 text-black">8. Cek Konfigurasi dan Restart</h2>
       <p class="text-black mb-2">Gunakan perintah named-checkconf untuk memeriksa apakah ada kesalahan konfigurasi. Jika tidak ada error, jalankan perintah restart.</p>
       <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
         <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
@@ -190,14 +190,13 @@ listen-on-v6 { any; };
         </div>
         <div class="px-4 py-3 font-mono text-sm">
           <pre class="whitespace-pre-wrap leading-snug">named-checkconf
-systemctl restart bind9
-          </pre>
+systemctl restart bind9</pre>
         </div>
       </div>
     </section>
 
     <section class="mb-8">
-      <h2 class="text-xl font-semibold mb-2 text-black">9. konfigurasi resolv.conf</h2>
+      <h2 class="text-xl font-semibold mb-2 text-black">9. Konfigurasi resolv.conf</h2>
       <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
         <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
           <div class="flex space-x-2">
@@ -209,17 +208,16 @@ systemctl restart bind9
         </div>
         <div class="px-4 py-3 font-mono text-sm">
           <pre class="whitespace-pre-wrap leading-snug">nano /etc/resolv.conf
-#isi resolv.conf
-namesserver 192.168.100.27 #tambahkan ini jika belum ada atau jika sudah ada ganti menjadi ip debian
-nameserver 10.20.30.1 #ini biasanya otomatis ada jadi biarin dah gak penting
-namesserver 192.168.0.1 #ini biasanya otomatis ada jadi biarin dah gak penting
-          </pre>
+# Isi resolv.conf
+nameserver 192.168.100.27 # tambahkan ini jika belum ada, atau ganti dengan IP Debian
+nameserver 10.20.30.1 # ini biasanya otomatis ada, biarkan saja
+nameserver 192.168.0.1 # ini biasanya otomatis ada, biarkan saja</pre>
         </div>
       </div>
     </section>
 
     <section class="mb-8">
-      <h2 class="text-xl font-semibold mb-2 text-black">10. cek hasil konfigurasi menggunakan domain</h2>
+      <h2 class="text-xl font-semibold mb-2 text-black">10. Cek Hasil Konfigurasi Menggunakan Domain</h2>
       <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
         <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
           <div class="flex space-x-2">
@@ -231,19 +229,18 @@ namesserver 192.168.0.1 #ini biasanya otomatis ada jadi biarin dah gak penting
         </div>
         <div class="px-4 py-3 font-mono text-sm">
           <pre class="whitespace-pre-wrap leading-snug">nslookup campnova.com
-# jika berhasil muncul
+# Jika berhasil muncul:
 Server:     192.168.100.27
 Address:    192.168.100.27#53
 
 Name:   campnova.com
-Address:    192.168.27
-          </pre>
+Address:    192.168.100.27</pre>
         </div>
       </div>
     </section>
 
     <section class="mb-8">
-      <h2 class="text-xl font-semibold mb-2 text-black">11. cek hasil konfigurasi menggunakan ip</h2>
+      <h2 class="text-xl font-semibold mb-2 text-black">11. Cek Hasil Konfigurasi Menggunakan IP</h2>
       <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
         <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
           <div class="flex space-x-2">
@@ -255,15 +252,14 @@ Address:    192.168.27
         </div>
         <div class="px-4 py-3 font-mono text-sm">
           <pre class="whitespace-pre-wrap leading-snug">nslookup 192.168.100.27
-# jika berhasil muncul
-27.100.168.192.in-addr.arpa     name = campnova.com
-          </pre>
+# Jika berhasil muncul:
+27.100.168.192.in-addr.arpa     name = campnova.com</pre>
         </div>
       </div>
     </section>
 
     <section class="mb-8">
-      <h2 class="text-xl font-semibold mb-2 text-black">12. cek hasil konfigurasi di pc client (windows laptop)</h2>
+      <h2 class="text-xl font-semibold mb-2 text-black">12. Cek Hasil Konfigurasi di PC Client (Windows)</h2>
       <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
         <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
           <div class="flex space-x-2">
@@ -275,16 +271,17 @@ Address:    192.168.27
         </div>
         <div class="px-4 py-3 font-mono text-sm">
           <pre class="whitespace-pre-wrap leading-snug">ping 192.168.100.27
-# jika muncul ttl berarti berhasil
+# Jika muncul TTL berarti berhasil
 nslookup 192.168.100.27
-nslookup campnova.com
-          </pre>
+nslookup campnova.com</pre>
         </div>
       </div>
     </section>
-
   </div>
 
+  <footer class="text-center text-gray-500 text-sm py-8 border-t border-gray-100">
+        © 2025 Campnova. Semua hak dilindungi.
+    </footer>
   <script>
     const buttons = document.querySelectorAll('.copy-btn');
     const codeBlocks = document.querySelectorAll('pre');
