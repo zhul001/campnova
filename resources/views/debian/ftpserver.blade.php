@@ -68,6 +68,19 @@
     <footer class="text-center text-gray-500 text-sm py-8 border-t border-gray-100">
         © 2025 Campnova. Semua hak dilindungi.
     </footer>
+
+    <script>
+    const buttons = document.querySelectorAll('.copy-btn');
+    const codeBlocks = document.querySelectorAll('pre');
+    buttons.forEach((btn, i) => {
+      btn.addEventListener('click', () => {
+        const code = codeBlocks[i].innerText;
+        navigator.clipboard.writeText(code);
+        btn.innerText = 'Copied!';
+        setTimeout(() => btn.innerText = 'Copy', 1500);
+      });
+    });
+  </script>
 </body>
 
 </html>

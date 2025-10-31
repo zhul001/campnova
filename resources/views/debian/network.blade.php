@@ -144,64 +144,121 @@
   </div>
 
   <!-- Panduan Konfigurasi -->
-  <div class="max-w-3xl mx-auto mt-12 px-4">
-    <h1 class="text-3xl font-bold text-[#5daac7] mb-6 text-center">Panduan Install & Konfigurasi Mail Server</h1>
-
-    <section class="mb-8">
-      <h2 class="text-xl font-semibold mb-2 text-black">1. Atur Network Adapter di VirtualBox</h2>
-      <p class="text-gray-700">1. Buka Settings → Network<br>2. Adapter 1: pilih NAT<br>3. Adapter 2: aktifkan Host-Only Adapter → klik Advanced → pada Promiscuous Mode pilih "Allow All"</p>
+    <section class="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-24">
+        <div class="relative mx-auto max-w-4xl text-center px-4">
+            <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-3">
+                Konfigurasi <span class="text-[#5daac7]">Mail Server</span>
+            </h1>
+            <p class="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
+                Panduan lengkap konfigurasi mail server di Debian 12.
+            </p>
+        </div>
     </section>
 
-    <section class="mb-8">
-      <h2 class="text-xl font-semibold mb-2 text-black">2. Konfigurasi Network</h2>
-      <div class="terminal">
-        <div class="terminal-header"><div class="dots"></div><button class="copy-btn" data-target="1">Copy</button></div>
-        <pre>nano /etc/network/interfaces</pre>
-      </div>
+    <main class="max-w-4xl mx-auto px-4 pb-20">
+        <div class="space-y-10">
 
-      <p class="text-gray-700 mt-2">Isi seperti berikut:</p>
+            <!-- Network Adapter -->
+            <section class="mb-8">
+                <h2 class="text-xl font-semibold mb-2 text-black">1. Atur Network Adapter di VirtualBox</h2>
+                <p class="text-gray-700 mb-3">1. Buka Settings → Network<br>
+                2. Adapter 1: pilih NAT<br>
+                3. Adapter 2: aktifkan Host-Only Adapter → klik Advanced → pada Promiscuous Mode pilih "Allow All"</p>
+            </section>
 
-      <div class="terminal mt-2">
-        <div class="terminal-header"><div class="dots"></div><button class="copy-btn" data-target="2">Copy</button></div>
-<pre>allow-hotplug enp0s3
+            <!-- Konfigurasi Network -->
+            <section class="mb-8">
+                <h2 class="text-xl font-semibold mb-2 text-black">2. Konfigurasi Network</h2>
+                <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
+                    <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
+                        <div class="flex space-x-2">
+                            <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+                            <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
+                            <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                        </div>
+                        <button class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500" data-target="0">Copy</button>
+                    </div>
+                    <div class="px-4 py-3 font-mono text-sm">
+                        <pre class="whitespace-pre-wrap leading-snug">nano /etc/network/interfaces</pre>
+                    </div>
+                </div>
+
+                <p class="text-gray-700 mt-3">Isi seperti berikut:</p>
+
+                <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900 mt-2">
+                    <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
+                        <div class="flex space-x-2">
+                            <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+                            <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
+                            <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                        </div>
+                        <button class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500" data-target="1">Copy</button>
+                    </div>
+                    <div class="px-4 py-3 font-mono text-sm">
+                        <pre class="whitespace-pre-wrap leading-snug">allow-hotplug enp0s3
 iface enp0s3 inet dhcp
 
 auto enp0s8
 iface enp0s8 inet static
     address 192.168.27.28
     netmask 255.255.255.0</pre>
-      </div>
-    </section>
+                    </div>
+                </div>
+            </section>
 
-    <section class="mb-8">
-      <h2 class="text-xl font-semibold mb-2 text-black">3. Restart Network</h2>
-      <div class="terminal">
-        <div class="terminal-header"><div class="dots"></div><button class="copy-btn" data-target="3">Copy</button></div>
-        <pre>systemctl restart networking</pre>
-      </div>
-    </section>
+            <!-- Restart Network -->
+            <section class="mb-8">
+                <h2 class="text-xl font-semibold mb-2 text-black">3. Restart Network</h2>
+                <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
+                    <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
+                        <div class="flex space-x-2">
+                            <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+                            <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
+                            <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                        </div>
+                        <button class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500" data-target="2">Copy</button>
+                    </div>
+                    <div class="px-4 py-3 font-mono text-sm">
+                        <pre class="whitespace-pre-wrap leading-snug">systemctl restart networking</pre>
+                    </div>
+                </div>
+            </section>
 
-    <section class="mb-8">
-      <h2 class="text-xl font-semibold mb-2 text-black">4. Cek IP Address</h2>
-      <div class="terminal">
-        <div class="terminal-header"><div class="dots"></div><button class="copy-btn" data-target="4">Copy</button></div>
-        <pre>ip a</pre>
-      </div>
-    </section>
-  </div>
+            <!-- Cek IP Address -->
+            <section class="mb-8">
+                <h2 class="text-xl font-semibold mb-2 text-black">4. Cek IP Address</h2>
+                <div class="rounded-lg overflow-hidden shadow-lg border border-gray-800 bg-gray-900">
+                    <div class="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
+                        <div class="flex space-x-2">
+                            <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+                            <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
+                            <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                        </div>
+                        <button class="copy-btn text-xs px-3 py-1 rounded bg-teal-600 hover:bg-teal-500" data-target="3">Copy</button>
+                    </div>
+                    <div class="px-4 py-3 font-mono text-sm">
+                        <pre class="whitespace-pre-wrap leading-snug">ip a</pre>
+                    </div>
+                </div>
+            </section>
 
-  <footer class="text-center text-gray-500 text-sm py-8 border-t border-gray-100">
+        </div>
+    </main>
+
+    <footer class="text-center text-gray-500 text-sm py-8 border-t border-gray-100">
         © 2025 Campnova. Semua hak dilindungi.
     </footer>
 
-  <!-- Script Salin -->
-  <script>
-    document.querySelectorAll('.copy-btn').forEach(btn => {
+    <!-- Script Salin -->
+    <script>
+    const buttons = document.querySelectorAll('.copy-btn');
+    const codeBlocks = document.querySelectorAll('pre');
+    buttons.forEach((btn, i) => {
       btn.addEventListener('click', () => {
-        const text = btn.parentElement.nextElementSibling.textContent.trim();
-        navigator.clipboard.writeText(text);
-        btn.textContent = 'Tersalin!';
-        setTimeout(() => btn.textContent = 'Copy', 1500);
+        const code = codeBlocks[i].innerText;
+        navigator.clipboard.writeText(code);
+        btn.innerText = 'Copied!';
+        setTimeout(() => btn.innerText = 'Copy', 1500);
       });
     });
   </script>
